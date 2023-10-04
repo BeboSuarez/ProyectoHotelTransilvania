@@ -1,6 +1,6 @@
 package Entidades;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Huesped {
     
@@ -8,15 +8,16 @@ public class Huesped {
     private String nombre;
     private String apellido;
     private int dni;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String correo;
     private int telefono;
     private String domicilio;
     private boolean estado;
 
-    public Huesped() {}
+    public Huesped() {
+    }
 
-    public Huesped(int idHuesped, String nombre, String apellido, int dni, Date fechaNacimiento, String correo, int telefono, String domicilio, boolean estado) {
+    public Huesped(int idHuesped, String nombre, String apellido, int dni, LocalDate fechaNacimiento, String correo, int telefono, String domicilio, boolean estado) {
         this.idHuesped = idHuesped;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -28,7 +29,7 @@ public class Huesped {
         this.estado = estado;
     }
 
-    public Huesped(String nombre, String apellido, int dni, Date fechaNacimiento, String correo, int telefono, String domicilio, boolean estado) {
+    public Huesped(String nombre, String apellido, int dni, LocalDate fechaNacimiento, String correo, int telefono, String domicilio, boolean estado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -71,11 +72,11 @@ public class Huesped {
         this.dni = dni;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -113,6 +114,6 @@ public class Huesped {
 
     @Override
     public String toString() {
-        return "Husped{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", correo=" + correo + ", telefono=" + telefono + ", domicilio=" + domicilio + ", estado=" + estado + '}';
+        return "Huesped{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", correo=" + correo + ", telefono=" + telefono + ", domicilio=" + domicilio + ", estado=" + estado + '}';
     }
 }
