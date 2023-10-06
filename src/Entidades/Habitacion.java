@@ -11,7 +11,7 @@ public class Habitacion {
     public Habitacion() {
     }
 
-    public Habitacion(int idHabitacion, int idCategoria, String tipoHabitacion, boolean refaccion, boolean estado) {
+    public Habitacion(int idHabitacion, String tipoHabitacion, boolean refaccion, boolean estado) {
         this.idHabitacion = idHabitacion;
         this.tipoHabitacion = tipoHabitacion;
         this.refaccion = refaccion;

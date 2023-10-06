@@ -4,6 +4,7 @@ import Entidades.Habitacion;
 import Entidades.Huesped;
 import Entidades.Reserva;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +19,7 @@ import javax.swing.JOptionPane;
 public class ReservaData {
 
     private Connection con = null;
-    private ReservaData rd = new ReservaData();
+
     private HuespedData hd = new HuespedData();
     private HabitacionData habDa = new HabitacionData();
     public ReservaData() {
@@ -27,16 +28,23 @@ public class ReservaData {
     }
 
     public void guardarReserva(Reserva re) {
-        String sql = "INSERT INTO Reserva(idHabitacion, idReserva,idHuesped,fechaIngreso,fechaSalida,cantidadDePersonas"
-                + "precioTotal,estado) VALUES (?,?,?,?,?,?,?,?)";
-
+        String sql = "INSERT INTO Reserva(idHuesped,idHabitacion,fechaIngreso,fechaSalida,cantidadPersonas,"
+                + "precioTotal,estado) VALUES (?,?,?,?,?,?,?)";
+        System.out.println("0");
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, re.getIdHabitacion());
-            ps.setInt(2, re.getIdReserva());
-            ps.setInt(3, re.getIdHuesped());
+      
+            System.out.println("1");
+            ps.setInt(1, re.getIdHuesped());
+            ps.setInt(2, re.getIdHabitacion());
+            ps.setDate(3, Date.valueOf(re.getFechaIngreso()));
+             ps.setDate(4, Date.valueOf(re.getFechaSalida()));
+           ps.setInt(5,re.getCantidadPersonas());            
 
+        ps.setDouble(6,re.getPrecioTotal());
+        ps.setBoolean(7, re.isEstado());
+            System.out.println("2");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -92,14 +100,14 @@ public class ReservaData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Reserva res = new Reserva();
-                res.setIdReserva(rs.getInt("idReserva"));
-                 Habitacion hab = habDa.obtenerHabitacionPorId(rs.getInt("idHabitacion"));
-                Huesped hue = hd.buscarHuesped(rs.getInt("idHuesped"));
-               
-                res.setIdReserva(res);
-                res.setIdHabitacion(hab);
-                res.setIdHuesped(hue);
-                reservadas.add(res);
+//                res.setIdReserva(rs.getInt("idReserva"));
+//                 Habitacion hab = habDa.obtenerHabitacionPorId(rs.getInt("idHabitacion"));
+//                Huesped hue = hd.buscarHuesped(rs.getInt("idHuesped"));
+//               
+//                res.setIdReserva(res);
+//                res.setIdHabitacion(hab);
+//                res.setIdHuesped(hue);
+//                reservadas.add(res);
             }
             ps.close();
         } catch (SQLException ex) {

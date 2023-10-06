@@ -1,14 +1,15 @@
 package Entidades;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Reserva {
     
     private int idHabitacion;
     private int idReserva;
     private int idHuesped;
-    private Date fechaIngreso;
-    private Date fechaSalida;
+    private LocalDate fechaIngreso;
+    private LocalDate fechaSalida;
     private int cantidadPersonas;
     private double precioTotal;
     private boolean estado;
@@ -16,7 +17,7 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(int idHabitacion, int idReserva, int idHuesped, Date fechaIngreso, Date fechaSalida, int cantidadPersonas, double precioTotal, boolean estado) {
+    public Reserva(int idHabitacion, int idReserva, int idHuesped, LocalDate fechaIngreso, LocalDate fechaSalida, int cantidadPersonas, double precioTotal, boolean estado) {
         this.idHabitacion = idHabitacion;
         this.idReserva = idReserva;
         this.idHuesped = idHuesped;
@@ -27,7 +28,9 @@ public class Reserva {
         this.estado = estado;
     }
 
-    public Reserva(Date fechaIngreso, Date fechaSalida, int cantidadPersonas, double precioTotal, boolean estado) {
+    public Reserva(int idHabitacion, int idHuesped, LocalDate fechaIngreso, LocalDate fechaSalida, int cantidadPersonas, double precioTotal, boolean estado) {
+        this.idHabitacion = idHabitacion;
+        this.idHuesped = idHuesped;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
         this.cantidadPersonas = cantidadPersonas;
@@ -59,19 +62,19 @@ public class Reserva {
         this.idHuesped = idHuesped;
     }
 
-    public Date getFechaIngreso() {
+    public LocalDate getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Date getFechaSalida() {
+    public LocalDate getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
+    public void setFechaSalida(LocalDate fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
 
@@ -101,18 +104,10 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", cantidadPersonas=" + cantidadPersonas + ", precioTotal=" + precioTotal + ", estado=" + estado + '}';
-    }    
-
-    public void setIdReserva(Reserva res) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Reserva{" + "idHabitacion=" + idHabitacion + ", idReserva=" + idReserva + ", idHuesped=" + idHuesped + ", fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", cantidadPersonas=" + cantidadPersonas + ", precioTotal=" + precioTotal + ", estado=" + estado + '}';
     }
 
-    public void setIdHabitacion(Habitacion hab) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    
+    
     }
-
-    public void setIdHuesped(Huesped hue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}

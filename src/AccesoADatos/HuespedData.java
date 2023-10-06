@@ -26,20 +26,20 @@ public class HuespedData {
 
     public void cargarHuesped(Huesped huesped){ 
 
-    String sql = "INSERT INTO huesped (idHuesped,nombre, apellido, dni,fechaNacimiento,correo, telefono, domicilio,estado)"
-            + " VALUES(?,?,?,?,?,?,?,?,?)";
+    String sql = "INSERT INTO huesped (nombre, apellido, dni, fechaNacimiento, correo, telefono, domicilio, estado)"
+            + " VALUES(?,?,?,?,?,?,?,?)";
         try {
     
         PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        ps.setInt(1, huesped.getIdHuesped());
-        ps.setString(2, huesped.getNombre());
-        ps.setString(3, huesped.getApellido());
-        ps.setInt(4, huesped.getDni());
-        ps.setDate(5, Date.valueOf(huesped.getFechaNacimiento()));
-        ps.setString(6, huesped.getCorreo());
-        ps.setInt(7, huesped.getTelefono());
-        ps.setString(8, huesped.getDomicilio());
-        ps.setBoolean(9, huesped.isEstado());
+       
+        ps.setString(1, huesped.getNombre());
+        ps.setString(2, huesped.getApellido());
+        ps.setInt(3, huesped.getDni());
+        ps.setDate(4, Date.valueOf(huesped.getFechaNacimiento()));
+        ps.setString(5, huesped.getCorreo());
+        ps.setInt(6, huesped.getTelefono());
+        ps.setString(7, huesped.getDomicilio());
+        ps.setBoolean(8, huesped.isEstado());
         ps.executeUpdate();
         
         ResultSet rs = ps.getGeneratedKeys();

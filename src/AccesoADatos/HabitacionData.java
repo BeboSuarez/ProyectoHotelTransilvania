@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package AccesoADatos;
 
 import Entidades.Habitacion;
@@ -10,6 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author viper
+ */
 public class HabitacionData {
     
     
@@ -24,7 +33,7 @@ public class HabitacionData {
 
     public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (idHabitacion,tipoDeHabitacion,refaccion,estado) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO habitacion (tipoDeHabitacion,refaccion,estado) VALUES (?, ?, ?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -32,8 +41,8 @@ public class HabitacionData {
             ps.setInt(1, habitacion.getIdHabitacion());
             ps.setString(2, habitacion.getTipoHabitacion());
             ps.setBoolean(3, habitacion.isEstado());
-            ps.setBoolean(4, habitacion.isEstado());
-            
+        
+                    ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
@@ -59,8 +68,8 @@ public class HabitacionData {
             ResultSet rs = ps.executeQuery();
                     
             while (rs.next()) {
-                habitacion = new Habitacion(rs.getInt("idHabitacion"), rs.getInt("idCategoria"), rs.getString("TipoDeHabitacion")
-                        , rs.getBoolean("refaccion"),rs.getBoolean("estado"));
+//                habitacion = new Habitacion(rs.getInt("idHabitacion");
+//                        , rs.getBoolean("refaccion"),rs.getBoolean("estado"));
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Ha ocurrido un error al intentar obtener la habitacion id: "
