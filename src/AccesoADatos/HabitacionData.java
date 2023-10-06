@@ -14,7 +14,7 @@ public class HabitacionData {
     
     
     private Connection con = null;
-    private Habitacion HabitacionData;
+    
 
     public HabitacionData() {
 
@@ -24,16 +24,15 @@ public class HabitacionData {
 
     public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (idHabitacion,idCategoria,tipoDeHabitacion,refaccion,estado) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO habitacion (idHabitacion,tipoDeHabitacion,refaccion,estado) VALUES (?, ?, ?, ?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
            
             ps.setInt(1, habitacion.getIdHabitacion());
-            ps.setInt(2, habitacion.getIdCategoria());
-            ps.setString(3, habitacion.getTipoHabitacion());
+            ps.setString(2, habitacion.getTipoHabitacion());
+            ps.setBoolean(3, habitacion.isEstado());
             ps.setBoolean(4, habitacion.isEstado());
-            ps.setBoolean(5, habitacion.isEstado());
             
             ResultSet rs = ps.getGeneratedKeys();
 
@@ -72,17 +71,16 @@ public class HabitacionData {
 
     public void modificarHabitacion(Habitacion habitacion) {
 
-        String sql = "UPDATE habitacion SET idHabitacion = ? ,idCategoria = ? ,tipoDeHabitacion = ?,refaccion = ?,estado = ?";
+        String sql = "UPDATE habitacion SET idHabitacion = ? ,tipoDeHabitacion = ?,refaccion = ?,estado = ?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
       
             ps.setInt(1, habitacion.getIdHabitacion());
-            ps.setInt(2, habitacion.getIdCategoria());
-            ps.setString(3, habitacion.getTipoHabitacion());
+            ps.setString(2, habitacion.getTipoHabitacion());
+            ps.setBoolean(3, habitacion.isEstado());
             ps.setBoolean(4, habitacion.isEstado());
-            ps.setBoolean(5, habitacion.isEstado());
             
             int exito = ps.executeUpdate();
 
@@ -126,7 +124,6 @@ public class HabitacionData {
 
             
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-               habitacion.setIdCategoria(rs.getInt("idCategoria"));
                 habitacion.setTipoHabitacion(rs.getString("tipoDeHabitacion"));
                 habitacion.setRefaccion(rs.getBoolean("refaccionn"));
                 habitacion.setEstado(rs.getBoolean("estado"));

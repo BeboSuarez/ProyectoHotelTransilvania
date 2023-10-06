@@ -3,17 +3,17 @@ package Entidades;
 public class TipoDeHabitacion {
     
     private int idCategoria;
-    private int tipoHabitacion;
+    private String tipoHabitacion;
     private int cantidadCamas;
     private int cantidadPersonas;
-    private int tipoCama;
+    private String tipoCama;
     private double precioNoche;
     private boolean estado;
 
     public TipoDeHabitacion() {
     }
 
-    public TipoDeHabitacion(int idCategoria, int tipoHabitacion, int cantidadCamas, int cantidadPersonas, int tipoCama, double precioNoche, boolean estado) {
+    public TipoDeHabitacion(int idCategoria, String tipoHabitacion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
         this.idCategoria = idCategoria;
         this.tipoHabitacion = tipoHabitacion;
         this.cantidadCamas = cantidadCamas;
@@ -23,7 +23,7 @@ public class TipoDeHabitacion {
         this.estado = estado;
     }
 
-    public TipoDeHabitacion(int tipoHabitacion, int cantidadCamas, int cantidadPersonas, int tipoCama, double precioNoche, boolean estado) {
+    public TipoDeHabitacion(String tipoHabitacion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
         this.tipoHabitacion = tipoHabitacion;
         this.cantidadCamas = cantidadCamas;
         this.cantidadPersonas = cantidadPersonas;
@@ -40,11 +40,11 @@ public class TipoDeHabitacion {
         this.idCategoria = idCategoria;
     }
 
-    public int getTipoHabitacion() {
+    public String getTipoHabitacion() {
         return tipoHabitacion;
     }
 
-    public void setTipoHabitacion(int tipoHabitacion) {
+    public void setTipoHabitacion(String tipoHabitacion) {
         this.tipoHabitacion = tipoHabitacion;
     }
 
@@ -64,11 +64,11 @@ public class TipoDeHabitacion {
         this.cantidadPersonas = cantidadPersonas;
     }
 
-    public int getTipoCama() {
+    public String getTipoCama() {
         return tipoCama;
     }
 
-    public void setTipoCama(int tipoCama) {
+    public void setTipoCama(String tipoCama) {
         this.tipoCama = tipoCama;
     }
 

@@ -103,4 +103,16 @@ public class Reserva {
     public String toString() {
         return "Reserva{" + "fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", cantidadPersonas=" + cantidadPersonas + ", precioTotal=" + precioTotal + ", estado=" + estado + '}';
     }    
+
+    public void setIdReserva(Reserva res) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setIdHabitacion(Habitacion hab) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setIdHuesped(Huesped hue) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

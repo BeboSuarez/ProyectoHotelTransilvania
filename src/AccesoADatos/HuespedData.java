@@ -24,39 +24,42 @@ public class HuespedData {
     
     }
 
-    private void cargarrHuesped(Huesped huesped){ 
+    public void cargarHuesped(Huesped huesped){ 
 
-    String sql = "INSERT INTO huesped (nombre, apellido, dni, fechaNacimiento,correo, telefono, domicilio,estado)"
-            + " VALUES(?,?,?,?,?,?,?,?)";
+    String sql = "INSERT INTO huesped (idHuesped,nombre, apellido, dni,fechaNacimiento,correo, telefono, domicilio,estado)"
+            + " VALUES(?,?,?,?,?,?,?,?,?)";
         try {
     
         PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        ps.setString(1, huesped.getNombre());
-        ps.setString(2, huesped.getApellido());
-        ps.setInt(3, huesped.getDni());
-        ps.setDate(4, Date.valueOf(huesped.getFechaNacimiento()));
-        ps.setString(5, huesped.getCorreo());
-        ps.setInt(6, huesped.getTelefono());
-        ps.setString(7, huesped.getDomicilio());
-        ps.setBoolean(8, huesped.isEstado());
+        ps.setInt(1, huesped.getIdHuesped());
+        ps.setString(2, huesped.getNombre());
+        ps.setString(3, huesped.getApellido());
+        ps.setInt(4, huesped.getDni());
+        ps.setDate(5, Date.valueOf(huesped.getFechaNacimiento()));
+        ps.setString(6, huesped.getCorreo());
+        ps.setInt(7, huesped.getTelefono());
+        ps.setString(8, huesped.getDomicilio());
+        ps.setBoolean(9, huesped.isEstado());
         ps.executeUpdate();
         
         ResultSet rs = ps.getGeneratedKeys();
         if (rs.next()){
+            System.out.println("Hola");
             huesped.setIdHuesped(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Huesped registrado exitosamente");
-        
+                System.out.println("chau");
         }
         ps.close();
     }   catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al registrar el huesped");
         }
-
+        
 }
     public void modificarHuesped(Huesped huesped){ //(M)odificar
     
-    String sql = "UPTDATE huesped SET nombre = ?, apellido = ?, dni = ?, fechaNacimiento = ?"
-            + ",correo = ?, telefono = ?, domicilio = ?, estado = ? WHERE idHuesped =?";
+    String sql = "UPTDATE huesped SET nombre = ?, apellido = ?, dni = ? ,fechaNacimiento = ?"
+            + ",correo = ?, telefono = ?, domicilio = ?, WHERE idHuesped = ? ";
+
     PreparedStatement ps = null;
     
         try {
@@ -65,11 +68,11 @@ public class HuespedData {
             ps.setString(1, huesped.getNombre());
             ps.setString(2, huesped.getApellido());
             ps.setInt(3, huesped.getDni());
-            ps.setDate(4, Date.valueOf(huesped.getFechaNacimiento()));
+            ps.setDate(4,Date.valueOf(huesped.getFechaNacimiento()));
             ps.setString(5, huesped.getCorreo());
             ps.setInt(6, huesped.getTelefono());
             ps.setString(7, huesped.getDomicilio());
-            ps.setBoolean(8, huesped.isEstado());
+            
             int exito = ps.executeUpdate();
             
             if (exito == 1){
@@ -83,7 +86,7 @@ public class HuespedData {
             
         }
     }
-    public void bajaHuesped(int dni){//(B)aja
+    public void bajaHuesped(int dni){
     
         String sql = "UPDATE set estado = 0 WHERE dni = ? ";
         
@@ -102,6 +105,35 @@ public class HuespedData {
         }
         
     }
+    
+    public Huesped buscarHuesped(int id) {//
+        Huesped huesped = null;
+        String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM huesped WHERE idHuesped = ? AND estado = 1";
+        PreparedStatement ps = null;
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                huesped = new Huesped();
+                huesped.setIdHuesped(id);
+                huesped.setDni(rs.getInt("dni"));
+                huesped.setApellido(rs.getString("apellido"));
+                huesped.setNombre(rs.getString("nombre"));
+                huesped.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+                huesped.setEstado(true);
+
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped " + ex.getMessage());
+
+        }
+
+        return huesped;
+    }
+    
+    
     public List<Huesped> listarHuesped(){
     
     String sql ="SELECT * FROM huesped WHERE estado = 1 ";
