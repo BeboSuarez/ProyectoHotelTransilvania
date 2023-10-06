@@ -3,7 +3,6 @@ package Entidades;
 public class Habitacion {
     
     private int idHabitacion;
-    private int idCategoria;
     private String tipoHabitacion;
     private boolean refaccion;
     private boolean estado;
@@ -14,14 +13,13 @@ public class Habitacion {
 
     public Habitacion(int idHabitacion, int idCategoria, String tipoHabitacion, boolean refaccion, boolean estado) {
         this.idHabitacion = idHabitacion;
-        this.idCategoria = idCategoria;
         this.tipoHabitacion = tipoHabitacion;
         this.refaccion = refaccion;
         this.estado = estado;
     }
 
-    public Habitacion(int idCategoria, String tipoHabitacion, boolean refaccion, boolean estado) {
-        this.idCategoria = idCategoria;
+    public Habitacion( String tipoHabitacion, boolean refaccion, boolean estado) {
+
         this.tipoHabitacion = tipoHabitacion;
         this.refaccion = refaccion;
         this.estado = estado;
@@ -35,13 +33,6 @@ public class Habitacion {
         this.idHabitacion = idHabitacion;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
 
     public String getTipoHabitacion() {
         return tipoHabitacion;
