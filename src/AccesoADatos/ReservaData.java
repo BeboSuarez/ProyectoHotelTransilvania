@@ -28,6 +28,7 @@ public class ReservaData {
     }
 
     public void guardarReserva(Reserva re) {
+        System.out.println("hola");
         String sql = "INSERT INTO Reserva(idHuesped,idHabitacion,fechaIngreso,fechaSalida,cantidadPersonas,"
                 + "precioTotal,estado) VALUES (?,?,?,?,?,?,?)";
         System.out.println("0");

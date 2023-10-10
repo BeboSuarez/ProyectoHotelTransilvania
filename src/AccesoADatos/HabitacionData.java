@@ -1,4 +1,9 @@
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package AccesoADatos;
 
 import Entidades.Habitacion;
@@ -11,7 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-
+/**
+ *
+ * @author viper
+ */
 public class HabitacionData {
     
     
@@ -25,27 +33,21 @@ public class HabitacionData {
     }
 
     public void guardarHabitacion(Habitacion habitacion) {
-        System.out.println("hola");
-        
-        
-        String sql = "INSERT INTO habitación (tipoDeHabitacion,refaccion,estado) VALUES (?, ?, ?)";
 
+        String sql = "INSERT INTO habitacion (tipoDeHabitacion,refaccion,estado) VALUES (?, ?, ?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            System.out.println("holaaaa1");
-            //ps.setInt(1, habitacion.getIdHabitacion());
-            ps.setString(1, habitacion.getTipoHabitacion());
-            System.out.println("chhau1");
-            ps.setBoolean(2, habitacion.isRefaccion());
-                System.out.println("holaa2");
-            ps.setBoolean(3, habitacion.isEstado());
             System.out.println("1");
-            ps.executeUpdate();
+            ps.setInt(1, habitacion.getIdHabitacion());
+            ps.setString(2, habitacion.getTipoHabitacion());
+            ps.setBoolean(3, habitacion.isEstado());
+        
+                    ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            System.out.println("2");
+
             if (rs.next()) {
-                System.out.println("3");
+
                 habitacion.setIdHabitacion(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Habitacion añadida con exito");
 
@@ -57,7 +59,7 @@ public class HabitacionData {
 
         }
     }
-
+    
     public Habitacion obtenerHabitacionPorId(int idHabitacion) {
         Habitacion habitacion = null;
         try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,idCategoria,tipoDeHabitacion,refaccion,estado"

@@ -12,7 +12,7 @@ public class TipoDeHabitacionData {
 
     private Connection con = null;
 
-    private TipoDeHabitacion TipoHabitacionData;
+    private TipoDeHabitacion TipodeHabitacionData;
 
     public TipoDeHabitacionData() {
 
@@ -40,10 +40,12 @@ public class TipoDeHabitacionData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 System.out.println("4");
-                th.setIdHabitacion(rs.getInt(1));
+                th.setIdCamas(rs.getInt(1));
                 System.out.println("5");
-                JOptionPane.showMessageDialog(null, "Reserva Registrada");
+                JOptionPane.showMessageDialog(null, "habitacion registrada");
 
+            }else{
+                System.out.println("la habitacion ya existe");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -54,7 +56,7 @@ public class TipoDeHabitacionData {
 
     public void modificarTipoDeHabitacion(TipoDeHabitacion th) {
 
-        String sql = "UPDATE TipoDeHabitacion SET tipoHabitacion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ? ,estado = ? WHERE idHabitacion = ?";
+        String sql = "UPDATE TipoDeHabitacion SET tipoHabitacion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?  WHERE estado=?";
         PreparedStatement ps = null;
 
         try {
@@ -66,7 +68,7 @@ public class TipoDeHabitacionData {
             ps.setString(4, th.getTipoCama());
             ps.setDouble(5, th.getPrecioNoche());
             ps.setBoolean(6, th.isEstado());
-            ps.setInt(7, th.getIdHabitacion());
+         
 
             int exito = ps.executeUpdate();
 
