@@ -34,12 +34,20 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu11 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jmCargarth = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -57,6 +65,20 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu6.setText("Edit");
         jMenuBar2.add(jMenu6);
+
+        jMenu7.setText("File");
+        jMenuBar3.add(jMenu7);
+
+        jMenu8.setText("Edit");
+        jMenuBar3.add(jMenu8);
+
+        jMenu10.setText("jMenu10");
+
+        jMenu11.setText("File");
+        jMenuBar4.add(jMenu11);
+
+        jMenu12.setText("Edit");
+        jMenuBar4.add(jMenu12);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +109,15 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Habitacion");
+
+        jmCargarth.setText("Cargar Tipo-Habitacion");
+        jmCargarth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCargarthActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmCargarth);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -113,6 +144,15 @@ escritorio.removeAll();
         escritorio.add(formulario);
         escritorio.moveToFront(formulario);   //         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jmCargarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargarthActionPerformed
+    escritorio.removeAll();
+        escritorio.repaint();
+        CargarTipoHabitacion fTipoHabitacion = new CargarTipoHabitacion();
+        fTipoHabitacion.setVisible(true);
+        escritorio.add(fTipoHabitacion);
+        escritorio.moveToFront(fTipoHabitacion);  
+    }//GEN-LAST:event_jmCargarthActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,13 +196,21 @@ escritorio.removeAll();
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jmCargarth;
     // End of variables declaration//GEN-END:variables
 }
