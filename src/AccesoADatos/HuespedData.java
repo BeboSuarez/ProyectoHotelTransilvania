@@ -63,33 +63,39 @@ public class HuespedData {
 
     public void modificarHuesped(Huesped huesped) { //(M)odificar
 
-        String sql = "UPDATE huesped SET nombre = ?, apellido = ?, dni = ? ,fechaNacimiento = ?,correo = ?, telefono = ?, domicilio = ?,estado=? WHERE idHuesped ";
-
+        String sql = "UPDATE huesped SET nombre = ?, apellido = ?, dni = ? ,fechaNacimiento = ?,correo = ?, telefono = ?, domicilio = ?,estado=? WHERE idHuesped=?" ;
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
-            System.out.println("1");
+            System.out.println("1a");
             ps.setString(1, huesped.getNombre());
-            System.out.println("2");
+            System.out.println("2s");
             ps.setString(2, huesped.getApellido());
-            System.out.println("3");
+            System.out.println("3d");
             ps.setInt(3, huesped.getDni());
-            System.out.println("4");
+            System.out.println("4f");
             ps.setDate(4, Date.valueOf(huesped.getFechaNacimiento()));
-            System.out.println("4.5");
+            System.out.println("4.5g");
             ps.setString(5, huesped.getCorreo());
-            System.out.println("5");
+            System.out.println("5h");
             ps.setInt(6, huesped.getTelefono());
-            System.out.println("6");
+            System.out.println("6j");
             ps.setString(7, huesped.getDomicilio());
-            System.out.println("7");
+            System.out.println("7l");
             ps.setBoolean(8, huesped.isEstado());
-            System.out.println("8");
-            ps.setInt(9, huesped.getIdHuesped());
-            System.out.println("9");
-          ps.executeUpdate();
-   JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+            System.out.println("8ñ");
+          ps.setInt(9, huesped.getIdHuesped());
+            System.out.println("9{");
+         int exito=ps.executeUpdate();
+         if(exito==1){
+             System.out.println("10");
+  
+                JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+           
+  }else{
+          JOptionPane.showMessageDialog(null, "no se puede modificar");
+         }
           
              
                ps.close();
@@ -101,7 +107,7 @@ public class HuespedData {
 
     public void bajaHuesped(int dni) {
 
-        String sql = "UPDATE set estado = 0 WHERE dni = ? ";
+        String sql = "UPDATE Huesped set estado = 0 WHERE dni = ? ";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

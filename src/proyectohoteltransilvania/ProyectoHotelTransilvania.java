@@ -20,10 +20,12 @@ public class ProyectoHotelTransilvania {
     public static void main(String[] args) {
         Connection con=Conexion.getConexion();
 //        
-//      Huesped Carlos=new Huesped ("Carlos","Sosa",354445539,LocalDate.of(1992, 2, 27),"carlos@gmail.com", 44535,"San luis",true);
+        Huesped Luis=new Huesped (9,"Roberto","Martin",333333333,LocalDate.of(1982, 2, 27),"agu@gmail.com", 4535,"San luis",true);
 ////Huesped Luca=new Huesped("Brenda", "Siwonia",36233661,LocalDate.of(1992, 03, 26), "siwonia@gmail.com",56566,"Planta567",true);
-//        HuespedData hue=new HuespedData();
-//        hue.cargarHuesped(Carlos);
+        HuespedData hue=new HuespedData();
+//          hue.modificarHuesped(Luis);
+////        hue.cargarHuesped(Luis);
+hue.bajaHuesped(333333333);
 //hue.cargarHuesped(Luca);
 ////        Huesped huespedEncontrado =hue.buscarHuesped(1);
 ////        if(huespedEncontrado != null){
@@ -37,8 +39,8 @@ public class ProyectoHotelTransilvania {
 //            System.out.println("Telefono: "+ huespedEncontrado.getTelefono());
 //            System.out.println("Domicilio "+ huespedEncontrado.getDomicilio());
 //            System.out.println("Estado: "+huespedEncontrado.isEstado());
-//
-//            
+
+            
 //            for (Huesped alumno : hue.listarHuesped()) {
 //                
 //           System.out.println(hue.listarHuesped());
@@ -46,20 +48,24 @@ public class ProyectoHotelTransilvania {
 ////          
 ////        }
 //        }
-//
-//        Huesped huespedModificado = hue.modificarHuesped(1);
-//      
-////        TipoDeHabitacion habi1= new TipoDeHabitacion("discapacitados", 4, 4, "matri y simple",10.000,true);
-//  TipoDeHabitacion habi1= new TipoDeHabitacion(3,"capacidades diferentes", 4, 4, "matri y simple",10.000,true);
+
+     
+      
+//  TipoDeHabitacion habi1= new TipoDeHabitacion("capacidades visuales",4, 3, "matri y simple",10.000,true);
+//  TipoDeHabitacion habi1= new TipoDeHabitacion("triple",3,3,"simple y doble",15.000,true);
 //       TipoDeHabitacionData hd=new TipoDeHabitacionData();
 ////       hd.guardarTipoDeHabitacion(habi1);
+//    hd.modificarTipoDeHabitacion(habi1);
+////       Habitacion habi=new Habitacion("quintuple", true, true);
+//      HabitacionData hd=new HabitacionData();
+//      hd.guardarHabitacion(habi);
+// TipoDeHabitacion habi1= new TipoDeHabitacion(3),"quintuple", 5, 5, "matri y 2 simple",25.000,true);
+//       TipoDeHabitacionData hd=new TipoDeHabitacionData();
+//       hd.guardarTipoDeHabitacion(habi1);
 //     hd.modificarTipoDeHabitacion(habi1);
-       Habitacion habi=new Habitacion(7,"cuadruple", false, true);
-        HabitacionData hd=new HabitacionData();
-       hd.guardarHabitacion(habi);
-//
-//Reserva re=new Reserva(3,2,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
+//Reserva re=new Reserva(3,2,1,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
 //ReservaData redata=new ReservaData();
 //redata.guardarReserva(re);
- }
+    }
+   
 }
