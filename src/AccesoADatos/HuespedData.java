@@ -53,13 +53,18 @@ public class HuespedData {
                 huesped.setIdHuesped(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "Huesped registrado exitosamente");
                 System.out.println("chau");
+            }else{
+                System.out.println("dni duplicado");
             }
             ps.close();
-        } catch (SQLException ex) {
+        } catch (SQLException e) {
+               if (e.getErrorCode() == 1062 && e.getSQLState().equals("23000")) {
+        // Manejo de la excepción específica de duplicación de entrada en la clave 'dni'
+        // Aquí puedes implementar la lógica para solucionar el problema
             JOptionPane.showMessageDialog(null, "Error al registrar el huesped");
         }
 
-    }
+    } }
 
     public void modificarHuesped(Huesped huesped) { //(M)odificar
 
