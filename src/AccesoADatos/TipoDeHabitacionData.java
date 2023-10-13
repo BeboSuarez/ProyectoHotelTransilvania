@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class TipoDeHabitacionData {
@@ -83,4 +85,53 @@ public class TipoDeHabitacionData {
         }
 
     }
+    
+   
+        
+    public List<TipoDeHabitacion> listarTipoDeHabitacion() {
+    
+    String sql = "SELECT * FROM tipodehabitacion WHERE estado = 1 ";
+        ArrayList<TipoDeHabitacion> th = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                TipoDeHabitacion tipo = new TipoDeHabitacion ();
+                tipo.setIdCamas(rs.getInt("idCamas"));
+                tipo.setCantidadCamas(rs.getInt("CantidadCamas"));
+                tipo.setCantidadPersonas(rs.getInt("CantidadPersonas"));
+                tipo.setTipoCama(rs.getString("tipoCama"));
+                tipo.setPrecioNoche(rs.getDouble ("precioNoche"));
+                tipo.setEstado(rs.getBoolean("estado"));
+              
+                th.add(tipo);
+
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Tipo de Habitacion" + ex.getMessage());
+        }
+        return th;
+    
+    }
+    
+    public TipoDeHabitacion obtenerTipoHabitacionPorId(int idCama) {
+       TipoDeHabitacion  habitacion = null;
+        try (PreparedStatement ps = con.prepareStatement("SELECT idCama,tipoDeHabitacion, cantidadCamas , cantidadPersonas, tipoCama , precioNoche, estado"
+                + "  FROM tipodehabitacion WHERE idCama = ?", Statement.RETURN_GENERATED_KEYS)){
+            ps.setInt(1, idCama);
+            
+            ResultSet rs = ps.executeQuery();
+                    
+            while (rs.next()) {
+//                habitacion = new Habitacion(rs.getInt("idHabitacion");
+//                        , rs.getBoolean("refaccion"),rs.getBoolean("estado"));
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error al intentar obtener el tipo de habitacion : "
+                    + idCama + ". Error: " + ex.getMessage());
+        }
+        return habitacion;
+    }
+
 }

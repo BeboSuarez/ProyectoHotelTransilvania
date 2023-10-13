@@ -2,19 +2,20 @@ package Entidades;
 
 public class TipoDeHabitacion {
     
- private int idCamas;
+ private int idCama;
     private String tipoHabitacion;
     private int cantidadCamas;
     private int cantidadPersonas;
     private String tipoCama;
     private double precioNoche;
     private boolean estado;
-
+   
+    
     public TipoDeHabitacion() {
     }
 
-    public TipoDeHabitacion(int idCamas, String tipoHabitacion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
-        this.idCamas = idCamas;
+    public TipoDeHabitacion(int idCama, String tipoHabitacion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
+        this.idCama = idCama;
         this.tipoHabitacion = tipoHabitacion;
         this.cantidadCamas = cantidadCamas;
         this.cantidadPersonas = cantidadPersonas;
@@ -32,12 +33,12 @@ public class TipoDeHabitacion {
         this.estado = estado;
     }
 
-    public int getIdCamas() {
-        return idCamas;
+    public int getIdCama() {
+        return idCama;
     }
 
-    public void setIdCamas(int idCamas) {
-        this.idCamas = idCamas;
+    public void setIdCama(int idCama) {
+        this.idCama = idCama;
     }
 
     public String getTipoHabitacion() {
@@ -90,7 +91,7 @@ public class TipoDeHabitacion {
 
     @Override
     public String toString() {
-        return "TipoDeHabitacion{" + "idCamas=" + idCamas + ", tipoHabitacion=" + tipoHabitacion + ", cantidadCamas=" + cantidadCamas + ", cantidadPersonas=" + cantidadPersonas + ", tipoCama=" + tipoCama + ", precioNoche=" + precioNoche + ", estado=" + estado + '}';
+        return "TipoDeHabitacion{" + "idCama=" + idCama + ", tipoHabitacion=" + tipoHabitacion + ", cantidadCamas=" + cantidadCamas + ", cantidadPersonas=" + cantidadPersonas + ", tipoCama=" + tipoCama + ", precioNoche=" + precioNoche + ", estado=" + estado + '}';
     }
 
  
