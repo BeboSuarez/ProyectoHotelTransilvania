@@ -146,12 +146,13 @@ escritorio.removeAll();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmCargarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargarthActionPerformed
-    escritorio.removeAll();
+   escritorio.removeAll();
         escritorio.repaint();
         CargarTipoHabitacion fTipoHabitacion = new CargarTipoHabitacion();
         fTipoHabitacion.setVisible(true);
         escritorio.add(fTipoHabitacion);
         escritorio.moveToFront(fTipoHabitacion);  
+                                            
     }//GEN-LAST:event_jmCargarthActionPerformed
 
     /**

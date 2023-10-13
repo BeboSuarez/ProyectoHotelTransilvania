@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
    private DefaultTableModel modelo;
-    
+   private TipoDeHabitacionData tipoh; 
 
 
     /*
@@ -28,9 +28,9 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         modelo = new DefaultTableModel();
     
         CargarComboBox ();
-        LimpiarComboBox();
-        borrarFilas ();
-       
+
+//        borrarFilas ();
+      
     }
 
     /**
@@ -67,6 +67,16 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Tipo de Habitación: ");
 
+        jcbTipoHab.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbTipoHabPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbTipoHabPopupMenuWillBecomeVisible(evt);
+            }
+        });
         jcbTipoHab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbTipoHabActionPerformed(evt);
@@ -175,24 +185,32 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
-        // TODO add your handling code here:
-        
-       try {
-            TipoDeHabitacion tipohab=(TipoDeHabitacion)jcbTipoHab.getSelectedItem();
-
-          cargarTablaTipoHabitacion(tipohab.getIdCama());
-
-        } catch (IllegalArgumentException e) {
-            System.out.println(" ");
-        }
+//        // TODO add your handling code here:
+//        
+//       try {
+//            TipoDeHabitacion tipohab=(TipoDeHabitacion)jcbTipoHab.getSelectedItem();
+//
+//          cargarTablaTipoHabitacion(tipohab.getIdCama());
+//
+//        } catch (IllegalArgumentException e) {
+//            System.out.println(" ");
+//        }
 
     
     }//GEN-LAST:event_jcbTipoHabActionPerformed
 
+    private void jcbTipoHabPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbTipoHabPopupMenuWillBecomeVisible
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbTipoHabPopupMenuWillBecomeVisible
+
+    private void jcbTipoHabPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbTipoHabPopupMenuWillBecomeInvisible
+cargarTablaTipoHabitacion();        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbTipoHabPopupMenuWillBecomeInvisible
+
     private void CargarComboBox (){
     
     TipoDeHabitacionData th=new TipoDeHabitacionData ();
-    TipoDeHabitacion tipohab=new TipoDeHabitacion ();
+//    th.listarTipoDeHabitacion().forEach(TipoDeHabitacion->jcbTipoHab.addItem(TipoDeHabitacion));
      List<TipoDeHabitacion> t= th.listarTipoDeHabitacion();
         for (TipoDeHabitacion tipoDeHabitacion : t) {
          
@@ -200,51 +218,33 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
  
     }
     }
-     private void LimpiarComboBox(){
-     
-       int filas = jtTabla.getRowCount() - 1;
-
-        for (int i = filas; i >= 0; i--) {
-
-            modelo.removeRow(i);
-        }
-     
-     }
+//     private void LimpiarComboBox(){
+//     
+//       int filas = jtTabla.getRowCount() - 1;
+//
+//        for (int i = filas; i >= 0; i--) {
+//
+//            modelo.removeRow(i);
+//        }
+//     
+//     }
      
      private void cargarTablaTipoHabitacion () {
        
-         try {
-           TipoDeHabitacionData tipohab = new TipoDeHabitacionData();
-             TipoDeHabitacion th = (TipoDeHabitacion)jcbTipoHab.getSelectedItem();
-//             List<TipoDeHabitacion> th = tipohab.obtenerTipoHabitacionPorId(idCama);
-            //List<Inscripcion> insc = insdata.obtenerInscripcionesPorAlumno(a.getIdAlumno());
-          
-            //System.out.println(a);
-       tipohab.obtenerTipoHabitacionPorId(th.getIdCama()).forEach(i -> {
-                System.out.println(i.getMateria().getNombre());
-                modelo.addRow(new Object[]{
-                 i.getMateria().getIdMateria(), i.getMateria().getNombre(), i.getNota()});   
-            });
-   
-                
-            
-//            
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("tabla cargada" + e.getMessage());
-        }
+    TipoDeHabitacion tipo=(TipoDeHabitacion) jcbTipoHab.getSelectedItem();
          
      }
 
-        private void borrarFilas() {
-
-        int filas = jtTabla.getRowCount() - 1;
-
-        for (int i = filas; i >= 0; i--) {
-
-            modelo.removeRow(i);
-
-        }
-    }
+//        private void borrarFilas() {
+//
+//        int filas = jtTabla.getRowCount() - 1;
+//
+//        for (int i = filas; i >= 0; i--) {
+//
+//            modelo.removeRow(i);
+//
+//        }
+//    }
 
             //System.out.println(a);
     
