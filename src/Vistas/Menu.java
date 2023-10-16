@@ -44,10 +44,12 @@ public class Menu extends javax.swing.JFrame {
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jmCHabitacion1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jmCargarth = new javax.swing.JMenuItem();
+        jmCHabitacion = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -94,6 +96,15 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Reservas");
+
+        jmCHabitacion1.setText("Reserva");
+        jmCHabitacion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCHabitacion1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmCHabitacion1);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Huesped");
@@ -117,6 +128,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jmCargarth);
+
+        jmCHabitacion.setText("Cargar Habitacion");
+        jmCHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCHabitacionActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmCHabitacion);
 
         jMenuBar1.add(jMenu4);
 
@@ -148,12 +167,30 @@ escritorio.removeAll();
     private void jmCargarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargarthActionPerformed
    escritorio.removeAll();
         escritorio.repaint();
-        CargarTipoHabitacion fTipoHabitacion = new CargarTipoHabitacion();
+        CargarHabitacion fTipoHabitacion = new CargarHabitacion();
         fTipoHabitacion.setVisible(true);
         escritorio.add(fTipoHabitacion);
         escritorio.moveToFront(fTipoHabitacion);  
                                             
     }//GEN-LAST:event_jmCargarthActionPerformed
+
+    private void jmCHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacionActionPerformed
+       escritorio.removeAll();
+        escritorio.repaint();
+        CargarTipoHabitacion fHabitacion = new CargarTipoHabitacion();
+        fHabitacion.setVisible(true);
+        escritorio.add(fHabitacion);
+        escritorio.moveToFront(fHabitacion);  
+    }//GEN-LAST:event_jmCHabitacionActionPerformed
+
+    private void jmCHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion1ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        CargarReservas fReservas = new CargarReservas();
+       fReservas.setVisible(true);
+        escritorio.add(fReservas);
+        escritorio.moveToFront(fReservas);  
+    }//GEN-LAST:event_jmCHabitacion1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +217,12 @@ escritorio.removeAll();
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -212,6 +255,8 @@ escritorio.removeAll();
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jmCHabitacion;
+    private javax.swing.JMenuItem jmCHabitacion1;
     private javax.swing.JMenuItem jmCargarth;
     // End of variables declaration//GEN-END:variables
 }

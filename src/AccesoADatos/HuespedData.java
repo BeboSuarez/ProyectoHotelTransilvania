@@ -54,7 +54,7 @@ public class HuespedData {
                 JOptionPane.showMessageDialog(null, "Huesped registrado exitosamente");
                 System.out.println("chau");
             }else{
-                System.out.println("dni duplicado");
+                    System.out.println("dni duplicado");
             }
             ps.close();
         } catch (SQLException e) {
@@ -159,7 +159,7 @@ public class HuespedData {
 
     public List<Huesped> listarHuesped() {
 
-        String sql = "SELECT * FROM huesped WHERE estado = 1 ";
+        String sql = "SELECT * FROM huesped ";
         ArrayList<Huesped> huespedes = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
