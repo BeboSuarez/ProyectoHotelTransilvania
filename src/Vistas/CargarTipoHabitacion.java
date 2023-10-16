@@ -67,7 +67,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
-        jLabel2.setText("Cargar Habitacion");
+        jLabel2.setText("Cargar tipo.habitacion");
 
         jbGuardar.setText("guardar ");
 

@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 public class CargarCliente extends javax.swing.JInternalFrame {
 
     private HuespedData huespedDate = new HuespedData();
-    private Huesped huespedActual = null;
+    private Huesped huesped = null;
 
     /**
      * Creates new form CargarCliente
@@ -368,10 +368,10 @@ public class CargarCliente extends javax.swing.JInternalFrame {
             boolean estado = jrEstado.isSelected();
 
             System.out.println("8");
-  Huesped h = new Huesped(nombre, apellido, dni, fecha, correo, telefono, domicilio, estado);
-            if (h==null){
-    
-            huespedDate.cargarHuesped(h);
+
+            if (huesped==null){
+      Huesped cliente = new Huesped(nombre, apellido, dni, fecha, correo, telefono, domicilio, estado);
+            huespedDate.cargarHuesped(cliente);
      }   else{
                  JOptionPane.showMessageDialog(null, "DNI DUPLICADO");
             }
