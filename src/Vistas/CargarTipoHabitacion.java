@@ -91,6 +91,11 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         jLabel2.setText("Cargar tipo Habitacion");
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbModificar.setText("Modificar");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -325,6 +330,30 @@ int idCama=Integer.parseInt(jtId.getText());
 
         }
     }//GEN-LAST:event_jbModificarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+  
+//        TipoDeHabitacionData tipoHabiData =new TipoDeHabitacionData();
+//
+//       
+//      
+//        TipoDeHabitacion tipoSeleccionado = tipoHabiData.eliminarTipoDeHabitacion(Integer.parseInt(jtId.getText()));
+//     if(tipoSeleccionado!=null){
+//      
+//        jtTipoHabitacion.setText(tipoSeleccionado.getTipoHabitacion());
+//        jcbCantCamas.setSelectedItem(tipoSeleccionado.getCantidadCamas());
+//        jcbCantPersonas.setSelectedItem(tipoSeleccionado.getCantidadPersonas());
+//        jtTipoCama.setText(tipoSeleccionado.getTipoCama());
+//        jtPrecio.setText(tipoSeleccionado.getPrecioNoche() + "");
+//           
+//       
+//     }  
+//   
+//        jbGuardar.setEnabled(false);
+//        jbModificar.setEnabled(true);
+//        
+//  
+    }//GEN-LAST:event_jbEliminarActionPerformed
     private void limpiar() {
         jtId.setText("");
         jtTipoHabitacion.setText("");

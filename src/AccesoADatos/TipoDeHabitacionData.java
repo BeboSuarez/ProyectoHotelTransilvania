@@ -129,5 +129,29 @@ public class TipoDeHabitacionData {
         }
         return habitacion;
     }
+     public void eliminarTipoDeHabitacion(TipoDeHabitacion th) {
+
+        String sql = " DELETE FROM tipodehabitacion WHERE idCama=?";
+        PreparedStatement ps = null;
+
+        try {
+         
+            ps.setInt(1, th.getIdCama());
+           
+
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "eliminada");
+            } else {
+                JOptionPane.showMessageDialog(null, "La habitacion no existe.");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Tipo De Habitacion." + ex.getMessage());
+        }
+
+    }
+   
 
 }
