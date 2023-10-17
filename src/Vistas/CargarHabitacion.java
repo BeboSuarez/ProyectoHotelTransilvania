@@ -22,6 +22,8 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo;
     private TipoDeHabitacionData th;
     private HuespedData hd;
+    private Huesped huespedActual;
+    private Habitacion habi;
 
     /*
      * Creates new form CargarHabitacion
@@ -32,6 +34,9 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         modelo = new DefaultTableModel();
         th = new TipoDeHabitacionData();
         hd=new HuespedData();
+        huespedActual = new Huesped();
+        habi=new Habitacion();
+        
         CargarComboBoxTipoDeHabitacion();
         CargarComboBoxHuesped();
 
@@ -52,9 +57,6 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jcbTipoHab = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jbCrear = new javax.swing.JButton();
-        jbEliminar = new javax.swing.JButton();
-        jbSalir = new javax.swing.JButton();
         jtIdHabitacion = new java.awt.TextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -63,10 +65,12 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jRefaccion = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jEstado = new javax.swing.JCheckBox();
+        jbGuardar = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,17 +104,6 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel7.setText("ID");
 
-        jbCrear.setText("Crear");
-        jbCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCrearActionPerformed(evt);
-            }
-        });
-
-        jbEliminar.setText("Eliminar");
-
-        jbSalir.setText("Salir");
-
         jtIdHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtIdHabitacionActionPerformed(evt);
@@ -131,13 +124,22 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Guardar");
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Modificar");
+        jbModificar.setText("Modificar");
 
-        jButton3.setText("Eliminar");
+        jbEliminar.setText("Eliminar");
 
-        jButton4.setText("Salir");
+        jbSalir.setText("Salir");
+
+        jButton1.setText("Limpiar");
+
+        jButton2.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,39 +165,34 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(jtIdHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel8))
-                                        .addGap(19, 19, 19)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jcbHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jRefaccion)
-                                            .addComponent(jEstado))))
-                                .addGap(66, 66, 66)
-                                .addComponent(jButton3)
-                                .addGap(72, 72, 72)
-                                .addComponent(jButton4)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jcbHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jRefaccion)
+                                    .addComponent(jEstado))))
+                        .addGap(0, 654, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(jbCrear)
-                        .addGap(145, 145, 145)
-                        .addComponent(jbEliminar)
-                        .addGap(148, 148, 148)
-                        .addComponent(jbSalir))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(233, 233, 233)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(260, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jbGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbSalir)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)))
+                .addContainerGap(441, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,27 +223,34 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8)
                     .addComponent(jEstado))
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 489, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbCrear)
-                    .addComponent(jbEliminar)
-                    .addComponent(jbSalir)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbGuardar)
+                        .addComponent(jbModificar)
+                        .addComponent(jbEliminar)
+                        .addComponent(jbSalir)))
+                .addContainerGap(516, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbCrearActionPerformed
-
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
-CargarComboBoxTipoDeHabitacion();
+//        // TODO add your handling code here:
+//        
+//       try {
+//            TipoDeHabitacion tipohab=(TipoDeHabitacion)jcbTipoHab.getSelectedItem();
+//
+//          cargarTablaTipoHabitacion(tipohab.getIdCama());
+//
+//        } catch (IllegalArgumentException e) {
+//            System.out.println(" ");
+//        }
+
+
     }//GEN-LAST:event_jcbTipoHabActionPerformed
 
     private void jcbTipoHabPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbTipoHabPopupMenuWillBecomeVisible
@@ -264,6 +268,25 @@ CargarComboBoxTipoDeHabitacion();
     private void jEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jEstadoActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+//try {
+//     int idHabitacion=Integer.parseInt(jtIdHabitacion.getText());
+//TipoDeHabitacion thabi=(TipoDeHabitacion)jcbTipoHab.getSelectedItem();
+//Huesped huespedselec= (Huesped)jcbHuesped.getSelectedItem();
+//Boolean refaccion=jRefaccion.isSelected();
+//Boolean estado= jEstado.isSelected();
+//if(huespedActual==null){
+//    Habitacion h=new Habitacion(idHabitacion, title, HEIGHT, true, true);
+//    
+//    
+//}
+//}
+   
+
+
+
+    }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void CargarComboBoxTipoDeHabitacion() {
 
@@ -290,8 +313,6 @@ List<Huesped>hue=hd.listarHuesped();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -302,8 +323,9 @@ List<Huesped>hue=hd.listarHuesped();
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox jRefaccion;
-    private javax.swing.JButton jbCrear;
     private javax.swing.JButton jbEliminar;
+    private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<Huesped> jcbHuesped;
     private javax.swing.JComboBox<TipoDeHabitacion> jcbTipoHab;

@@ -165,22 +165,24 @@ escritorio.removeAll();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmCargarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargarthActionPerformed
-   escritorio.removeAll();
-        escritorio.repaint();
-        CargarHabitacion fTipoHabitacion = new CargarHabitacion();
-        fTipoHabitacion.setVisible(true);
-        escritorio.add(fTipoHabitacion);
-        escritorio.moveToFront(fTipoHabitacion);  
-                                            
-    }//GEN-LAST:event_jmCargarthActionPerformed
-
-    private void jmCHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacionActionPerformed
-       escritorio.removeAll();
+         escritorio.removeAll();
         escritorio.repaint();
         CargarTipoHabitacion fHabitacion = new CargarTipoHabitacion();
         fHabitacion.setVisible(true);
         escritorio.add(fHabitacion);
         escritorio.moveToFront(fHabitacion);  
+       
+                                            
+    }//GEN-LAST:event_jmCargarthActionPerformed
+
+    private void jmCHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacionActionPerformed
+     
+       escritorio.removeAll();
+        escritorio.repaint();
+        CargarHabitacion fTipoHabitacion = new CargarHabitacion();
+        fTipoHabitacion.setVisible(true);
+        escritorio.add(fTipoHabitacion);
+        escritorio.moveToFront(fTipoHabitacion);  
     }//GEN-LAST:event_jmCHabitacionActionPerformed
 
     private void jmCHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion1ActionPerformed
