@@ -59,18 +59,20 @@ ps.setBoolean(6, th.isEstado());
 
     public void modificarTipoDeHabitacion(TipoDeHabitacion th) {
 
-        String sql = "UPDATE TipoDeHabitacion SET idCama=?, tipoHabitacion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?, estado=?";
+        String sql = "UPDATE TipoDeHabitacion SET tipoHabitacion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?, estado=? where idCama=?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, th.getIdCama());
-            ps.setString(2, th.getTipoHabitacion());
-            ps.setInt(3, th.getCantidadCamas());
-            ps.setInt(4, th.getCantidadPersonas());
-            ps.setString(5, th.getTipoCama());
-            ps.setDouble(6, th.getPrecioNoche());
-            ps.setBoolean(7, th.isEstado());
+            
+       
+            ps.setString(1, th.getTipoHabitacion());
+            ps.setInt(2, th.getCantidadCamas());
+            ps.setInt(3, th.getCantidadPersonas());
+            ps.setString(4, th.getTipoCama());
+            ps.setDouble(5, th.getPrecioNoche());
+            ps.setBoolean(6, th.isEstado());
+            ps.setInt(7, th.getIdCama());
 
             int exito = ps.executeUpdate();
 
