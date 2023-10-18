@@ -34,14 +34,17 @@ public class HabitacionData {
 
     public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (tipoDeHabitacion,refaccion,estado) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO habitacion (idHuesped,idCama,tipodehabitacion,refaccion,estado) VALUES (?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             System.out.println("1");
-            ps.setInt(1, habitacion.getIdHabitacion());
-            ps.setString(2, habitacion.getTipoHabitacion());
-            ps.setBoolean(3, habitacion.isEstado());
+            
+            ps.setInt(1, habitacion.getIdHuesped());
+            ps.setInt(3, habitacion.getIdCama());
+            ps.setString (4, habitacion.getTipodehabitacion());
+            ps.setBoolean(5, habitacion.isRefaccion());
+            ps.setBoolean(6, habitacion.isEstado());
         
                     ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -62,7 +65,7 @@ public class HabitacionData {
     
     public Habitacion obtenerHabitacionPorId(int idHabitacion) {
         Habitacion habitacion = null;
-        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,idCategoria,tipoDeHabitacion,refaccion,estado"
+        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,idCategoria,tipodehabitacion,refaccion,estado"
                 + "  FROM habitacion WHERE idHabitacion = ?", Statement.RETURN_GENERATED_KEYS)){
             ps.setInt(1, idHabitacion);
             

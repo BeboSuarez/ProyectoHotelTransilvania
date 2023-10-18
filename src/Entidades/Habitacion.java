@@ -2,8 +2,10 @@ package Entidades;
 
 public class Habitacion {
     
+    private int idHuesped;
     private int idHabitacion;
-    private String tipoHabitacion;
+    private int idCama;
+    private String tipodehabitacion;
     private boolean refaccion;
     private boolean estado;
     
@@ -11,18 +13,29 @@ public class Habitacion {
     public Habitacion() {
     }
 
-    public Habitacion(int idHabitacion, String tipoHabitacion, boolean refaccion, boolean estado) {
+    public Habitacion(int idHuesped, int idHabitacion, int idCama, String tipodehabitacion, boolean refaccion, boolean estado) {
+        this.idHuesped = idHuesped;
         this.idHabitacion = idHabitacion;
-        this.tipoHabitacion = tipoHabitacion;
+        this.idCama = idCama;
+        this.tipodehabitacion = tipodehabitacion;
         this.refaccion = refaccion;
         this.estado = estado;
     }
 
-    public Habitacion( String tipoHabitacion, boolean refaccion, boolean estado) {
-
-        this.tipoHabitacion = tipoHabitacion;
+    public Habitacion(int idHuesped, int idCama, String tipodehabitacion, boolean refaccion, boolean estado) {
+        this.idHuesped = idHuesped;
+        this.idCama = idCama;
+        this.tipodehabitacion = tipodehabitacion;
         this.refaccion = refaccion;
         this.estado = estado;
+    }
+
+    public int getIdHuesped() {
+        return idHuesped;
+    }
+
+    public void setIdHuesped(int idHuesped) {
+        this.idHuesped = idHuesped;
     }
 
     public int getIdHabitacion() {
@@ -33,13 +46,20 @@ public class Habitacion {
         this.idHabitacion = idHabitacion;
     }
 
-
-    public String getTipoHabitacion() {
-        return tipoHabitacion;
+    public int getIdCama() {
+        return idCama;
     }
 
-    public void setTipoHabitacion(String tipoHabitacion) {
-        this.tipoHabitacion = tipoHabitacion;
+    public void setIdCama(int idCama) {
+        this.idCama = idCama;
+    }
+
+    public String getTipodehabitacion() {
+        return tipodehabitacion;
+    }
+
+    public void setTipodehabitacion(String tipodehabitacion) {
+        this.tipodehabitacion = tipodehabitacion;
     }
 
     public boolean isRefaccion() {
@@ -60,6 +80,10 @@ public class Habitacion {
 
     @Override
     public String toString() {
-        return "Habitacion{" + "tipoHabitacion=" + tipoHabitacion + ", refaccion=" + refaccion + ", estado=" + estado + '}';
-    }  
+        return "Habitacion{" + "idHuesped=" + idHuesped + ", idHabitacion=" + idHabitacion + ", idCama=" + idCama + ", tipodehabitacion=" + tipodehabitacion + ", refaccion=" + refaccion + ", estado=" + estado + '}';
+    }
 }
+
+ 
+
+ 
