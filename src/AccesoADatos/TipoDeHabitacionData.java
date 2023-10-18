@@ -23,7 +23,7 @@ public class TipoDeHabitacionData {
 
     public void guardarTipoDeHabitacion(TipoDeHabitacion th) {
 
-        String sql = "INSERT INTO tipoDeHabitacion(tipoHabitacion, cantidadCamas, cantidadPersonas, tipoCama,precioNoche) VALUES (?,?,?,?,?,?) ";
+        String sql = "INSERT INTO tipoDeHabitacion(tipoHabitacion, cantidadCamas, cantidadPersonas, tipoCama,precioNoche,estado) VALUES (?,?,?,?,?,?) ";
 
         try {
 
@@ -36,7 +36,7 @@ public class TipoDeHabitacionData {
             ps.setString(4, th.getTipoCama());
             System.out.println("2");
             ps.setDouble(5, th.getPrecioNoche());
-
+ps.setBoolean(6, th.isEstado());
             System.out.println("3");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -44,6 +44,7 @@ public class TipoDeHabitacionData {
                 System.out.println("4");
                 th.setIdCama(rs.getInt(1));
                 System.out.println("5");
+                
                 JOptionPane.showMessageDialog(null, "habitacion registrada");
 
             } else {
@@ -58,17 +59,20 @@ public class TipoDeHabitacionData {
 
     public void modificarTipoDeHabitacion(TipoDeHabitacion th) {
 
-        String sql = "UPDATE TipoDeHabitacion SET idCama=?, tipoHabitacion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?";
+        String sql = "UPDATE TipoDeHabitacion SET tipoHabitacion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?, estado=? where idCama=?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, th.getIdCama());
-            ps.setString(2, th.getTipoHabitacion());
-            ps.setInt(3, th.getCantidadCamas());
-            ps.setInt(4, th.getCantidadPersonas());
-            ps.setString(5, th.getTipoCama());
-            ps.setDouble(6, th.getPrecioNoche());
+            
+       
+            ps.setString(1, th.getTipoHabitacion());
+            ps.setInt(2, th.getCantidadCamas());
+            ps.setInt(3, th.getCantidadPersonas());
+            ps.setString(4, th.getTipoCama());
+            ps.setDouble(5, th.getPrecioNoche());
+            ps.setBoolean(6, th.isEstado());
+            ps.setInt(7, th.getIdCama());
 
             int exito = ps.executeUpdate();
 
@@ -99,6 +103,7 @@ public class TipoDeHabitacionData {
                 tipo.setCantidadPersonas(rs.getInt("CantidadPersonas"));
                 tipo.setTipoCama(rs.getString("tipoCama"));
                 tipo.setPrecioNoche(rs.getDouble("precioNoche"));
+                tipo.setEstado(rs.getBoolean("estado"));
         
                 th.add(tipo);
 
@@ -113,7 +118,7 @@ public class TipoDeHabitacionData {
 
     public TipoDeHabitacion obtenerTipoHabitacionPorId(int idCama) {
         TipoDeHabitacion habitacion = null;
-        try (PreparedStatement ps = con.prepareStatement("SELECT idCama,tipoHabitacion, cantidadCamas , cantidadPersonas, tipoCama , precioNoche"
+        try (PreparedStatement ps = con.prepareStatement("SELECT idCama,tipoHabitacion, cantidadCamas , cantidadPersonas, tipoCama , precioNoche,estado"
                 + "  FROM tipodehabitacion WHERE idCama = ?", Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, idCama);
 
@@ -129,20 +134,19 @@ public class TipoDeHabitacionData {
         }
         return habitacion;
     }
-     public void eliminarTipoDeHabitacion(TipoDeHabitacion th) {
+     public void eliminarTipoDeHabitacion(int idCama){
 
-        String sql = " DELETE FROM tipodehabitacion WHERE idCama=?";
-        PreparedStatement ps = null;
-
+        String sql = " UPDATE tipodehabitacion SET estado=0 WHERE idCama=? ";
+        
+ 
         try {
-         
-            ps.setInt(1, th.getIdCama());
-           
-
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idCama);
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "eliminada");
+                
             } else {
                 JOptionPane.showMessageDialog(null, "La habitacion no existe.");
             }
