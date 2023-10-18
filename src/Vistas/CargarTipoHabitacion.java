@@ -275,7 +275,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
 
-            if (thabi != null) {
+            if (thabi == null) {
                 TipoDeHabitacion tHabitacion = new TipoDeHabitacion(tipoDeHabitacion, cantidadCamas, cantidadPersonas, tipoCama, precioNoche, isIcon);
                 tipohabitacion.guardarTipoDeHabitacion(tHabitacion);
             } else {

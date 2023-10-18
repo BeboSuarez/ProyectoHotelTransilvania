@@ -41,10 +41,10 @@ public class HabitacionData {
             System.out.println("1");
             
             ps.setInt(1, habitacion.getIdHuesped());
-            ps.setInt(3, habitacion.getIdCama());
-            ps.setString (4, habitacion.getTipodehabitacion());
-            ps.setBoolean(5, habitacion.isRefaccion());
-            ps.setBoolean(6, habitacion.isEstado());
+            ps.setInt(2, habitacion.getIdCama());
+            ps.setString (3, habitacion.getTipodehabitacion());
+            ps.setBoolean(4, habitacion.isRefaccion());
+            ps.setBoolean(5, habitacion.isEstado());
         
                     ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -90,9 +90,9 @@ public class HabitacionData {
         try {
             ps = con.prepareStatement(sql);
       
-            ps.setInt(1, habitacion.getIdHabitacion());
-            ps.setString(2, habitacion.getTipoHabitacion());
-            ps.setBoolean(3, habitacion.isEstado());
+//            ps.setInt(1, habitacion.getIdHabitacion());
+//            ps.setString(2, habitacion.getTipoHabitacion());
+//            ps.setBoolean(3, habitacion.isEstado());
             ps.setBoolean(4, habitacion.isEstado());
             
             int exito = ps.executeUpdate();
@@ -137,7 +137,7 @@ public class HabitacionData {
 
             
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-                habitacion.setTipoHabitacion(rs.getString("tipoDeHabitacion"));
+//                habitacion.setTipoHabitacion(rs.getString("tipoDeHabitacion"));
                 habitacion.setRefaccion(rs.getBoolean("refaccionn"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);

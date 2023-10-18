@@ -340,7 +340,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
             boolean estado = jEstado.isSelected();
       
 
-            if (habi==null){
+            if (habi!=null){
       Habitacion habitacion = new Habitacion (idHuesped, idCama, tipodehabitacion, refaccion, estado);
             habidata.guardarHabitacion(habitacion);
             }else {
@@ -348,7 +348,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No se puede guardar el tipo de habitación");
+            JOptionPane.showMessageDialog(null, "No se puede guardar el tipo de habitación"+e.getMessage());
            
        
         }
