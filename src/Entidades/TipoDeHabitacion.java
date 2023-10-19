@@ -93,9 +93,9 @@ public class TipoDeHabitacion {
   
     @Override
     public String toString() {
-        return  tipoHabitacion+" " + cantidadCamas + " " + cantidadPersonas + " " + tipoCama;}
+        return  tipoHabitacion;
 
  
     }
 
-   
+     }

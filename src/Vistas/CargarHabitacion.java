@@ -297,7 +297,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
    TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
    jtIdCama.setText(tipoSeleccionado.getIdCama() + "");
-   jtTipo.setText(tipoSeleccionado.getTipoHabitacion());
+   jtTipo.setText(tipoSeleccionado.getTipoCama());
 //        // TODO add your handling code here:
 //        
 //       try {
@@ -352,6 +352,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
            
        
         }
+ 
 
 jbGuardar.setEnabled(false);
 

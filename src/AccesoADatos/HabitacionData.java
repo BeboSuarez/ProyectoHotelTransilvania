@@ -32,7 +32,7 @@ public class HabitacionData {
 
     }
 
-    public void guardarHabitacion(Habitacion habitacion) {
+        public void guardarHabitacion(Habitacion habitacion) {
 
         String sql = "INSERT INTO habitacion (idHuesped,idCama,tipodehabitacion,refaccion,estado) VALUES (?, ?, ?, ?, ?)";
 

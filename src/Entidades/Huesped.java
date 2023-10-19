@@ -115,6 +115,6 @@ public class Huesped {
 
     @Override
     public String toString() {
-        return nombre + " "+apellido+" "+idHuesped;
+        return nombre + " "+apellido;
     }
 }

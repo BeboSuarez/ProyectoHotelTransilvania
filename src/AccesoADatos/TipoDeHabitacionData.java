@@ -53,7 +53,9 @@ ps.setBoolean(6, th.isEstado());
             ps.close();
         } catch (SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a tipo de habitacion");
+            JOptionPane.showMessageDialog(null, "Ya existe ese formato de habitacion");
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(null,"No se puede" +ex);
         }
     }
 
