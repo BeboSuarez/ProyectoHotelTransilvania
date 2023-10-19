@@ -84,8 +84,9 @@ ps.setBoolean(6, th.isEstado());
                 JOptionPane.showMessageDialog(null, "La habitacion no existe.");
             }
             ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Tipo De Habitacion." + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null,"Es necesario que ingresen un Tipo de Habitacion.");
+      
         }
 
     }

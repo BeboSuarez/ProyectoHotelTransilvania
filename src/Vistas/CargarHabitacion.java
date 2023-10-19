@@ -153,6 +153,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jbModificar.setText("Modificar");
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
 
@@ -369,6 +374,10 @@ jbGuardar.setEnabled(false);
        jtIdHuesped.setText(huespedSeleccionado.getIdHuesped()+ "");
         
     }//GEN-LAST:event_jcbHuespedActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void CargarComboBoxTipoDeHabitacion() {
 

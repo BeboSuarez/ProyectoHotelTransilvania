@@ -92,6 +92,8 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Cargar tipo Habitacion");
 
+        jtTipoCama.setEditable(false);
+
         jbEliminar.setText("Eliminar");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +132,8 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         jLabel5.setText("Seleccionar");
 
         jLabel8.setText("Id");
+
+        jtId.setEditable(false);
 
         jcbTipoHab.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -283,7 +287,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtPrecioActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        jcbTipoHab.setEnabled(false);
+     
         try {
 
             String tipoDeHabitacion = jtTipoHabitacion.getText();
@@ -300,10 +304,10 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showConfirmDialog(null, " " + e);
- } 
-    
-         
-jbGuardar.setEnabled(false);
+          } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
+}
+        jbGuardar.setEnabled(false);
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jcbTipoHabPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbTipoHabPopupMenuWillBecomeInvisible
@@ -332,68 +336,66 @@ jbGuardar.setEnabled(false);
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
 
         limpiar();
- jcbCantPersonas.setEnabled(true);
-jbGuardar.setEnabled(true);
-jbModificar.setEnabled(false);
-
+        jcbCantPersonas.setEnabled(true);
+        jbGuardar.setEnabled(true);
+        jbModificar.setEnabled(false);
 
 
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-     jcbTipoHab.setEnabled(true);
- 
-    TipoDeHabitacion tipo= new TipoDeHabitacion();
-     try {
-int idCama=Integer.parseInt(jtId.getText());
+        jcbTipoHab.setEnabled(true);
+
+        TipoDeHabitacion tipo = new TipoDeHabitacion();
+        try {
+            int idCama = Integer.parseInt(jtId.getText());
             String tipoDeHabitacion = jtTipoHabitacion.getText();
             int cantidadCamas = Integer.parseInt(jcbCantCamas.getSelectedItem().toString());
             int cantidadPersonas = Integer.parseInt(jcbCantPersonas.getSelectedItem().toString());
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
-            boolean estado=jcEstado.isSelected();
+            boolean estado = jcEstado.isSelected();
 
             if (tipo != null) {
-              tipo.setIdCama(idCama);
-              tipo.setTipoHabitacion(tipoDeHabitacion);
-              tipo.setCantidadCamas(cantidadCamas);
-              tipo.setCantidadPersonas(cantidadPersonas);
-              tipo.setTipoCama(tipoCama);
-              tipo.setPrecioNoche(precioNoche);
-              tipo.setEstado(estado);
+                tipo.setIdCama(idCama);
+                tipo.setTipoHabitacion(tipoDeHabitacion);
+                tipo.setCantidadCamas(cantidadCamas);
+                tipo.setCantidadPersonas(cantidadPersonas);
+                tipo.setTipoCama(tipoCama);
+                tipo.setPrecioNoche(precioNoche);
+                tipo.setEstado(estado);
                 tipohabitacion.modificarTipoDeHabitacion(tipo);
             } else {
                 JOptionPane.showMessageDialog(null, "no se puede guardar");
             }
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, " " + e);
-
-        }
+       } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Es necesario que ingrese el Id");
+          } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
+}
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-  
-        TipoDeHabitacionData tipoHabiData =new TipoDeHabitacionData();
+        try {
+            TipoDeHabitacionData tipoHabiData = new TipoDeHabitacionData();
 
-       
-      
-    tipoHabiData.eliminarTipoDeHabitacion(Integer.parseInt(jtId.getText()));
-     if(thabi!=null){
-      
-        jtTipoHabitacion.setText(thabi.getTipoHabitacion());
-        jcbCantCamas.setSelectedItem(thabi.getCantidadCamas());
-        jcbCantPersonas.setSelectedItem(thabi.getCantidadPersonas());
-        jtTipoCama.setText(thabi.getTipoCama());
-        jtPrecio.setText(thabi.getPrecioNoche() + "");
-        jcEstado.setSelected(isIcon);
-           
-       
-     }  
-   
-        jbGuardar.setEnabled(false);
-        jbModificar.setEnabled(true);
-        
-  
+            tipoHabiData.eliminarTipoDeHabitacion(Integer.parseInt(jtId.getText()));
+            if (thabi != null) {
+
+                jtTipoHabitacion.setText(thabi.getTipoHabitacion());
+                jcbCantCamas.setSelectedItem(thabi.getCantidadCamas());
+                jcbCantPersonas.setSelectedItem(thabi.getCantidadPersonas());
+                jtTipoCama.setText(thabi.getTipoCama());
+                jtPrecio.setText(thabi.getPrecioNoche() + "");
+                jcEstado.setSelected(isIcon);
+
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Es necesario que ingresen un id");
+            jbGuardar.setEnabled(false);
+            jbModificar.setEnabled(true);
+
+        }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jcEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEstadoActionPerformed
@@ -401,20 +403,20 @@ int idCama=Integer.parseInt(jtId.getText());
     }//GEN-LAST:event_jcEstadoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            dispose();
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
     private void limpiar() {
-       
+
         jtId.setText("");
         jtTipoHabitacion.setText("");
         jcbCantCamas.setSelectedItem("");
         jcbCantPersonas.setSelectedItem("");
         jtTipoCama.setText("");
         jtPrecio.setText("");
-      
+
         jcEstado.setSelected(false);
         jbGuardar.setEnabled(true);
-       
+
     }
 
     private void CargarComboBoxTipoDeHabitacion() {
