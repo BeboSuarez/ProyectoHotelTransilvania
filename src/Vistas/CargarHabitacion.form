@@ -36,92 +36,98 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="276" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="226" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jbGuardar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="jbModificar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jbEliminar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                          <Component id="jcbTipoHab" min="-2" pref="162" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                          <Component id="jtIdHuesped" min="-2" pref="51" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="264" max="-2" attributes="0"/>
-                                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                      <Component id="jtIdHabitacion" min="-2" pref="108" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jRefaccion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jEstado" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="jLabel9" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="jcbHuesped" min="-2" pref="162" max="-2" attributes="0"/>
+                                          <Component id="jtTipo" min="-2" pref="124" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtIdCama" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jtTipo" max="32767" attributes="0"/>
-                                  <Component id="jtIdHuesped" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jtIdHabitacion" min="-2" pref="51" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jtIdCama" min="-2" pref="52" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jbGuardar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="jbModificar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jbEliminar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="264" pref="264" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jcbTipoHab" alignment="1" pref="233" max="32767" attributes="0"/>
-                                      <Component id="jcbHuesped" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabel9" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jEstado" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRefaccion" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+              <Component id="jLabel4" min="-2" pref="276" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,55 +136,82 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" pref="40" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jtIdHabitacion" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jcbTipoHab" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtIdCama" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtIdCama" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jEstado" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jcbHuesped" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jcbHuesped" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtIdHuesped" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtIdHuesped" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jRefaccion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtIdHabitacion" min="-2" pref="43" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRefaccion" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jbGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbModificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jEstado" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jbGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbSalir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -186,18 +219,24 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo de Habitaci&#xf3;n:  "/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Tipo de Habitacion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jcbTipoHab">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="18" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="jcbTipoHabPopupMenuWillBecomeInvisible"/>
         <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="jcbTipoHabPopupMenuWillBecomeVisible"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="jcbTipoHabPopupMenuWillBecomeInvisible"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbTipoHabActionPerformed"/>
       </Events>
       <AuxValues>
@@ -209,7 +248,7 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="16" style="1"/>
+          <Font name="Sinhala Sangam MN" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="ID"/>
       </Properties>
@@ -221,21 +260,33 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="24" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Estado"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Huesped:     "/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Huesped"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="24" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Refaccion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jcbHuesped">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="18" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
@@ -251,7 +302,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cargar habitacion"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="36" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cargar habitaci&#xf3;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="jEstado">
@@ -261,7 +315,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jbGuardar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/salvar.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbGuardarActionPerformed"/>
@@ -269,37 +325,46 @@
     </Component>
     <Component class="javax.swing.JButton" name="jbModificar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Modificar"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/ajustes.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbEliminar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Eliminar"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/boton-eliminar.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jbSalir">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Salir"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Limpiar"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/limpiar.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salir"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/salida.png"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ID Cama: "/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="ID Cama"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtIdCama">
@@ -309,14 +374,20 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ID Huesped: "/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="ID Hu&#xe9;sped"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtIdHuesped">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo de Habitacion: "/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Sinhala Sangam MN" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Tipo de Habitacion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtTipo">

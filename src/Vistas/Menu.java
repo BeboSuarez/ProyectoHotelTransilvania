@@ -5,6 +5,10 @@
  */
 package Vistas;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author agusdemartin
@@ -16,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -41,7 +46,15 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar4 = new javax.swing.JMenuBar();
         jMenu11 = new javax.swing.JMenu();
         jMenu12 = new javax.swing.JMenu();
-        escritorio = new javax.swing.JDesktopPane();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/Recursos/captura.png"));
+        Image miImagen = icono.getImage();
+        escritorio = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+
+                g.drawImage(miImagen,0,0,getWidth(),getHeight(),this);
+            }
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmCHabitacion1 = new javax.swing.JMenuItem();
@@ -84,19 +97,25 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        escritorio.setBackground(new java.awt.Color(204, 204, 255));
+        escritorio.setForeground(new java.awt.Color(255, 255, 51));
+
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 884, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Reservas");
+        jMenu1.setForeground(new java.awt.Color(0, 0, 0));
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro.png"))); // NOI18N
 
+        jmCHabitacion1.setFont(new java.awt.Font("Tamil Sangam MN", 0, 24)); // NOI18N
+        jmCHabitacion1.setForeground(new java.awt.Color(0, 0, 0));
         jmCHabitacion1.setText("Reserva");
         jmCHabitacion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,9 +126,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Huesped");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/usuario.png"))); // NOI18N
 
-        jMenuItem1.setText("CargarTitular");
+        jMenuItem1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
+        jMenuItem1.setForeground(new java.awt.Color(0, 0, 0));
+        jMenuItem1.setText("Cargar Huésped");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -119,9 +140,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu4.setText("Habitacion");
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/habitacion.png"))); // NOI18N
 
-        jmCargarth.setText("Cargar Tipo-Habitacion");
+        jmCargarth.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
+        jmCargarth.setForeground(new java.awt.Color(0, 0, 0));
+        jmCargarth.setText("Cargar tipo de Habitación");
         jmCargarth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmCargarthActionPerformed(evt);
@@ -129,7 +152,9 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jmCargarth);
 
-        jmCHabitacion.setText("Cargar Habitacion");
+        jmCHabitacion.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
+        jmCHabitacion.setForeground(new java.awt.Color(0, 0, 0));
+        jmCHabitacion.setText("Cargar Habitación");
         jmCHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmCHabitacionActionPerformed(evt);
@@ -145,11 +170,15 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
