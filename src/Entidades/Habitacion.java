@@ -2,19 +2,17 @@ package Entidades;
 
 public class Habitacion {
     
-    private int idHuesped;
+    
     private int idHabitacion;
     private int idCama;
     private String tipodehabitacion;
     private boolean refaccion;
     private boolean estado;
-    
-    
+
     public Habitacion() {
     }
 
-    public Habitacion(int idHuesped, int idHabitacion, int idCama, String tipodehabitacion, boolean refaccion, boolean estado) {
-        this.idHuesped = idHuesped;
+    public Habitacion(int idHabitacion, int idCama, String tipodehabitacion, boolean refaccion, boolean estado) {
         this.idHabitacion = idHabitacion;
         this.idCama = idCama;
         this.tipodehabitacion = tipodehabitacion;
@@ -22,20 +20,11 @@ public class Habitacion {
         this.estado = estado;
     }
 
-    public Habitacion(int idHuesped, int idCama, String tipodehabitacion, boolean refaccion, boolean estado) {
-        this.idHuesped = idHuesped;
+    public Habitacion(int idCama, String tipodehabitacion, boolean refaccion, boolean estado) {
         this.idCama = idCama;
         this.tipodehabitacion = tipodehabitacion;
         this.refaccion = refaccion;
         this.estado = estado;
-    }
-
-    public int getIdHuesped() {
-        return idHuesped;
-    }
-
-    public void setIdHuesped(int idHuesped) {
-        this.idHuesped = idHuesped;
     }
 
     public int getIdHabitacion() {
@@ -80,10 +69,9 @@ public class Habitacion {
 
     @Override
     public String toString() {
-        return "Habitacion{" + "idHuesped=" + idHuesped + ", idHabitacion=" + idHabitacion + ", idCama=" + idCama + ", tipodehabitacion=" + tipodehabitacion + ", refaccion=" + refaccion + ", estado=" + estado + '}';
+        return "Habitacion{" + "tipodehabitacion=" + tipodehabitacion + '}';
     }
+    
+    
+    
 }
-
- 
-
- 

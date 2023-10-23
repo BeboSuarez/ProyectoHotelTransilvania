@@ -16,10 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author viper
- */
+
 public class HabitacionData {
     
     
@@ -34,17 +31,17 @@ public class HabitacionData {
 
         public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (idHuesped,idCama,tipodehabitacion,refaccion,estado) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO habitacion (idCama,tipodehabitacion,refaccion,estado) VALUES ( ?, ?, ?, ?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             System.out.println("1");
             
-            ps.setInt(1, habitacion.getIdHuesped());
-            ps.setInt(2, habitacion.getIdCama());
-            ps.setString (3, habitacion.getTipodehabitacion());
-            ps.setBoolean(4, habitacion.isRefaccion());
-            ps.setBoolean(5, habitacion.isEstado());
+           
+            ps.setInt(1, habitacion.getIdCama());
+            ps.setString (2, habitacion.getTipodehabitacion());
+            ps.setBoolean(3, habitacion.isRefaccion());
+            ps.setBoolean(4, habitacion.isEstado());
         
                     ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -65,7 +62,7 @@ public class HabitacionData {
     
     public Habitacion obtenerHabitacionPorId(int idHabitacion) {
         Habitacion habitacion = null;
-        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,idCategoria,tipodehabitacion,refaccion,estado"
+        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,tipodehabitacion,refaccion,estado"
                 + "  FROM habitacion WHERE idHabitacion = ?", Statement.RETURN_GENERATED_KEYS)){
             ps.setInt(1, idHabitacion);
             
@@ -109,7 +106,7 @@ public class HabitacionData {
 
     }
   public void disponibilidadHabitacion(int id) {
-        String sql = "UPDATE habitacion SET estado = 0 WHERE idHabitacion = ? ";
+        String sql = "UPDATE habitacion SET estado = 1 WHERE idHabitacion = ? ";
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
@@ -126,7 +123,7 @@ public class HabitacionData {
     }
   
     public List<Habitacion> listarHabitacion() {
-        String sql = "SELECT * FROM habitacionn WHERE estado = 1 ";
+        String sql = "SELECT * FROM habitacion ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
 
@@ -134,11 +131,10 @@ public class HabitacionData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
-
-            
+           
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-//                habitacion.setTipoHabitacion(rs.getString("tipoDeHabitacion"));
-                habitacion.setRefaccion(rs.getBoolean("refaccionn"));
+                habitacion.setTipodehabitacion(rs.getString("tipodehabitacion"));
+                habitacion.setRefaccion(rs.getBoolean("refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }
@@ -149,4 +145,20 @@ public class HabitacionData {
         }
         return habitaciones;
     }
+//    public void eliminarHabitacion(int id) {
+//        String sql = "DELETE FROM `habitacion` WHERE 1";
+//        try {
+//
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setInt(1, id);
+//            int exito = ps.executeUpdate();
+//
+//            if (exito == 1) {
+//                JOptionPane.showMessageDialog(null, " Se actualizo el estado de la habitacion");
+//            }
+//            ps.close();
+//        } catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
+//        }
+//    }
 }

@@ -91,10 +91,12 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             }
         });
 
+        jcbCantPersonas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+
+        jcbCantCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+
         jLabel2.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel2.setText("Cargar Tipo de Habitación");
-
-        jtTipoCama.setEditable(false);
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton-eliminar.png"))); // NOI18N
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -193,8 +195,9 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(7, 7, 7)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jcEstado))))
+                                    .addComponent(jcEstado)
+                                    .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(132, 132, 132)))
                         .addGap(24, 24, 24))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -242,7 +245,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                         .addGap(95, 95, 95)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jcbCantCamas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -259,7 +262,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                                 .addComponent(jcbCantPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jcEstado))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jbGuardar, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jbModificar, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -311,7 +314,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbTipoHabPopupMenuWillBecomeVisible
 
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
-        limpiar();
+        
         TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
         jtId.setText(tipoSeleccionado.getIdCama() + "");
         jtTipoHabitacion.setText(tipoSeleccionado.getTipoHabitacion());
@@ -322,7 +325,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         jcEstado.setSelected(tipoSeleccionado.isEstado());
         jbGuardar.setEnabled(false);
         jbModificar.setEnabled(true);
-
+        limpiar();
     }//GEN-LAST:event_jcbTipoHabActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
@@ -405,7 +408,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         jcbCantPersonas.setSelectedItem("");
         jtTipoCama.setText("");
         jtPrecio.setText("");
-
+        jcbTipoHab.setSelectedItem("");
         jcEstado.setSelected(false);
         jbGuardar.setEnabled(true);
 

@@ -4,9 +4,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 public class Reserva {
-    
-    private int idHabitacion;
     private int idReserva;
+    private int idHabitacion;
     private int idHuesped;
     private LocalDate fechaIngreso;
     private LocalDate fechaSalida;
@@ -17,9 +16,9 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(int idHabitacion, int idReserva, int idHuesped, LocalDate fechaIngreso, LocalDate fechaSalida, int cantidadPersonas, double precioTotal, boolean estado) {
-        this.idHabitacion = idHabitacion;
+    public Reserva(int idReserva, int idHabitacion, int idHuesped, LocalDate fechaIngreso, LocalDate fechaSalida, int cantidadPersonas, double precioTotal, boolean estado) {
         this.idReserva = idReserva;
+        this.idHabitacion = idHabitacion;
         this.idHuesped = idHuesped;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
@@ -38,20 +37,20 @@ public class Reserva {
         this.estado = estado;
     }
 
-    public int getIdHabitacion() {
-        return idHabitacion;
-    }
-
-    public void setIdHabitacion(int idHabitacion) {
-        this.idHabitacion = idHabitacion;
-    }
-
     public int getIdReserva() {
         return idReserva;
     }
 
     public void setIdReserva(int idReserva) {
         this.idReserva = idReserva;
+    }
+
+    public int getIdHabitacion() {
+        return idHabitacion;
+    }
+
+    public void setIdHabitacion(int idHabitacion) {
+        this.idHabitacion = idHabitacion;
     }
 
     public int getIdHuesped() {
@@ -104,10 +103,8 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{" + "idHabitacion=" + idHabitacion + ", idReserva=" + idReserva + ", idHuesped=" + idHuesped + ", fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", cantidadPersonas=" + cantidadPersonas + ", precioTotal=" + precioTotal + ", estado=" + estado + '}';
+        return "Reserva{" + "idReserva=" + idReserva + ", idHabitacion=" + idHabitacion + ", idHuesped=" + idHuesped + ", fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", cantidadPersonas=" + cantidadPersonas + ", precioTotal=" + precioTotal + ", estado=" + estado + '}';
     }
 
-    
-    
-    
-    }
+     
+}

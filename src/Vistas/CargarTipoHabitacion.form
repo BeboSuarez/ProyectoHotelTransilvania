@@ -47,9 +47,10 @@
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jtPrecio" min="-2" pref="211" max="-2" attributes="0"/>
                                   <Component id="jcEstado" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtPrecio" min="-2" pref="79" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
@@ -112,7 +113,7 @@
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jtPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtPrecio" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="jcbCantCamas" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
@@ -135,7 +136,7 @@
                           </Group>
                           <Component id="jcEstado" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                      <EmptySpace pref="8" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jbGuardar" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jbModificar" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -204,7 +205,16 @@
     <Component class="javax.swing.JComboBox" name="jcbCantPersonas">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="8">
+            <StringItem index="0" value="1"/>
+            <StringItem index="1" value="2"/>
+            <StringItem index="2" value="3"/>
+            <StringItem index="3" value="4"/>
+            <StringItem index="4" value="5"/>
+            <StringItem index="5" value="6"/>
+            <StringItem index="6" value="7"/>
+            <StringItem index="7" value="8"/>
+          </StringArray>
         </Property>
       </Properties>
       <AuxValues>
@@ -214,7 +224,16 @@
     <Component class="javax.swing.JComboBox" name="jcbCantCamas">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
+          <StringArray count="8">
+            <StringItem index="0" value="1"/>
+            <StringItem index="1" value="2"/>
+            <StringItem index="2" value="3"/>
+            <StringItem index="3" value="4"/>
+            <StringItem index="4" value="5"/>
+            <StringItem index="5" value="6"/>
+            <StringItem index="6" value="7"/>
+            <StringItem index="7" value="8"/>
+          </StringArray>
         </Property>
       </Properties>
       <AuxValues>
@@ -230,9 +249,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtTipoCama">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbEliminar">
       <Properties>

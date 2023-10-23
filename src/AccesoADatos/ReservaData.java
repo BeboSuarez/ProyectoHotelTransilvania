@@ -15,13 +15,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 public class ReservaData {
 
     private Connection con = null;
 
     private HuespedData hd = new HuespedData();
     private HabitacionData habDa = new HabitacionData();
+
     public ReservaData() {
 
         con = Conexion.getConexion();
@@ -29,22 +29,22 @@ public class ReservaData {
 
     public void guardarReserva(Reserva re) {
         System.out.println("hola");
-        String sql = "INSERT INTO Reserva(idHuesped,idHabitacion,fechaIngreso,fechaSalida,cantidadPersonas,"
+        String sql = "INSERT INTO reserva(idHabitacion,idHuesped,fechaIngreso,fechaSalida,cantidadPersonas,"
                 + "precioTotal,estado) VALUES (?,?,?,?,?,?,?)";
         System.out.println("0");
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-      
-            System.out.println("1");
-            ps.setInt(1, re.getIdHuesped());
-            ps.setInt(2, re.getIdHabitacion());
-            ps.setDate(3, Date.valueOf(re.getFechaIngreso()));
-             ps.setDate(4, Date.valueOf(re.getFechaSalida()));
-           ps.setInt(5,re.getCantidadPersonas());            
 
-        ps.setDouble(6,re.getPrecioTotal());
-        ps.setBoolean(7, re.isEstado());
+            System.out.println("1");
+            ps.setInt(1, re.getIdHabitacion());
+            ps.setInt(2, re.getIdHuesped());
+            ps.setDate(3, Date.valueOf(re.getFechaIngreso()));
+            ps.setDate(4, Date.valueOf(re.getFechaSalida()));
+            ps.setInt(5, re.getCantidadPersonas());
+            ps.setDouble(6, re.getPrecioTotal());
+            ps.setBoolean(7, re.isEstado());
+           
             System.out.println("2");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -57,7 +57,7 @@ public class ReservaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");
         }
     }
-    
+
     public void modificarReserva(int idHuesped, int idHabitacion, int idReserva) {
         try {
             String sql = "UPDATE inscripcion SET reserva = ? WHERE idHuesped=? AND idReserva=?";
@@ -117,29 +117,28 @@ public class ReservaData {
         return reservadas;
     }
 
-  public ArrayList<Reserva> obtenerReservaPorHuesped(int idHuesped) {
-            ArrayList<Reserva> reservas =new ArrayList<>();
-            
-            String sql= "SELECT* FROM reserva WHERE idHuesped = ?";
-              
-             
-         try {
-             PreparedStatement ps = con.prepareStatement(sql);
-             ps.setInt(1, idHuesped);
-             ResultSet rs=ps.executeQuery();
-             
-             while (rs.next()) {
-                 Reserva res =new Reserva();
-                 res.setIdReserva(rs.getInt("idReserva"));                
-                 Huesped hue = hd.buscarHuesped(rs.getInt("idHuesped"));
-              }
-             
-             ps.close();
-         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "Error al obtener la reserva por idHuesped");
-         }          
-          return reservas;                
-         
+    public ArrayList<Reserva> obtenerReservaPorHuesped(int idHuesped) {
+        ArrayList<Reserva> reservas = new ArrayList<>();
+
+        String sql = "SELECT* FROM reserva WHERE idHuesped = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idHuesped);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Reserva res = new Reserva();
+                res.setIdReserva(rs.getInt("idReserva"));
+                Huesped hue = hd.buscarHuesped(rs.getInt("idHuesped"));
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al obtener la reserva por idHuesped");
+        }
+        return reservas;
+
     }
-    
+
 }
