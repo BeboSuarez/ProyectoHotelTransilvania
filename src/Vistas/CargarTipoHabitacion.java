@@ -71,7 +71,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel1.setText("Tipo de Habitacion");
+        jLabel1.setText("Descripcion");
 
         jLabel3.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
         jLabel3.setText("Cantidad de Personas");
@@ -143,13 +143,13 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
         jcbTipoHab.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
         jcbTipoHab.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                jcbTipoHabPopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 jcbTipoHabPopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbTipoHabPopupMenuWillBecomeVisible(evt);
             }
         });
         jcbTipoHab.addActionListener(new java.awt.event.ActionListener() {
@@ -285,14 +285,14 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
      
         try {
 
-            String tipoDeHabitacion = jtTipoHabitacion.getText();
+            String descripcion = jtTipoHabitacion.getText();
             int cantidadCamas = Integer.parseInt(jcbCantCamas.getSelectedItem().toString());
             int cantidadPersonas = Integer.parseInt(jcbCantPersonas.getSelectedItem().toString());
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
 
             if (thabi != null) {
-                TipoDeHabitacion tHabitacion = new TipoDeHabitacion(tipoDeHabitacion, cantidadCamas, cantidadPersonas, tipoCama, precioNoche, isIcon);
+                TipoDeHabitacion tHabitacion = new TipoDeHabitacion(descripcion, cantidadCamas, cantidadPersonas, tipoCama, precioNoche, isIcon);
                 tipohabitacion.guardarTipoDeHabitacion(tHabitacion);
             } else {
                 JOptionPane.showMessageDialog(null, "no se puede guardar");
@@ -316,16 +316,16 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
         
         TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
-        jtId.setText(tipoSeleccionado.getIdCama() + "");
-        jtTipoHabitacion.setText(tipoSeleccionado.getTipoHabitacion());
-        jcbCantCamas.setSelectedItem(tipoSeleccionado.getCantidadCamas());
-        jcbCantPersonas.setSelectedItem(tipoSeleccionado.getCantidadPersonas());
+        jtId.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
+        jtTipoHabitacion.setText(tipoSeleccionado.getDescripcion());
+        jcbCantCamas.setSelectedItem(tipoSeleccionado.getCantidadCamas()+"");
+        jcbCantPersonas.setSelectedItem(tipoSeleccionado.getCantidadPersonas()+"");
         jtTipoCama.setText(tipoSeleccionado.getTipoCama());
         jtPrecio.setText(tipoSeleccionado.getPrecioNoche() + "");
         jcEstado.setSelected(tipoSeleccionado.isEstado());
         jbGuardar.setEnabled(false);
         jbModificar.setEnabled(true);
-        limpiar();
+       
     }//GEN-LAST:event_jcbTipoHabActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
@@ -343,8 +343,8 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
         TipoDeHabitacion tipo = new TipoDeHabitacion();
         try {
-            int idCama = Integer.parseInt(jtId.getText());
-            String tipoDeHabitacion = jtTipoHabitacion.getText();
+            int idTipodehabitacion = Integer.parseInt(jtId.getText());
+            String descripcion = jtTipoHabitacion.getText();
             int cantidadCamas = Integer.parseInt(jcbCantCamas.getSelectedItem().toString());
             int cantidadPersonas = Integer.parseInt(jcbCantPersonas.getSelectedItem().toString());
             String tipoCama = jtTipoCama.getText();
@@ -352,8 +352,8 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             boolean estado = jcEstado.isSelected();
 
             if (tipo != null) {
-                tipo.setIdCama(idCama);
-                tipo.setTipoHabitacion(tipoDeHabitacion);
+                tipo.setIdTipodehabitacion(idTipodehabitacion);
+                tipo.setDescripcion(descripcion);
                 tipo.setCantidadCamas(cantidadCamas);
                 tipo.setCantidadPersonas(cantidadPersonas);
                 tipo.setTipoCama(tipoCama);
@@ -377,7 +377,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             tipoHabiData.eliminarTipoDeHabitacion(Integer.parseInt(jtId.getText()));
             if (thabi != null) {
 
-                jtTipoHabitacion.setText(thabi.getTipoHabitacion());
+                jtTipoHabitacion.setText(thabi.getDescripcion());
                 jcbCantCamas.setSelectedItem(thabi.getCantidadCamas());
                 jcbCantPersonas.setSelectedItem(thabi.getCantidadPersonas());
                 jtTipoCama.setText(thabi.getTipoCama());

@@ -2,8 +2,8 @@ package Entidades;
 
 public class TipoDeHabitacion {
     
- private int idCama;
-    private String tipoHabitacion;
+ private int idTipodehabitacion;
+    private String descripcion;
     private int cantidadCamas;
     private int cantidadPersonas;
     private String tipoCama;
@@ -15,9 +15,9 @@ public class TipoDeHabitacion {
     public TipoDeHabitacion() {
     }
 
-    public TipoDeHabitacion(int idCama, String tipoHabitacion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
-        this.idCama = idCama;
-        this.tipoHabitacion = tipoHabitacion;
+    public TipoDeHabitacion(int idTipodehabitacion, String descripcion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
+        this.idTipodehabitacion = idTipodehabitacion;
+        this.descripcion = descripcion;
         this.cantidadCamas = cantidadCamas;
         this.cantidadPersonas = cantidadPersonas;
         this.tipoCama = tipoCama;
@@ -25,8 +25,8 @@ public class TipoDeHabitacion {
         this.estado = estado;
     }
 
-    public TipoDeHabitacion(String tipoHabitacion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
-        this.tipoHabitacion = tipoHabitacion;
+    public TipoDeHabitacion(String descripcion, int cantidadCamas, int cantidadPersonas, String tipoCama, double precioNoche, boolean estado) {
+        this.descripcion = descripcion;
         this.cantidadCamas = cantidadCamas;
         this.cantidadPersonas = cantidadPersonas;
         this.tipoCama = tipoCama;
@@ -34,20 +34,20 @@ public class TipoDeHabitacion {
         this.estado = estado;
     }
 
-    public int getIdCama() {
-        return idCama;
+    public int getIdTipodehabitacion() {
+        return idTipodehabitacion;
     }
 
-    public void setIdCama(int idCama) {
-        this.idCama = idCama;
+    public void setIdTipodehabitacion(int idTipodehabitacion) {
+        this.idTipodehabitacion = idTipodehabitacion;
     }
 
-    public String getTipoHabitacion() {
-        return tipoHabitacion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setTipoHabitacion(String tipoHabitacion) {
-        this.tipoHabitacion = tipoHabitacion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getCantidadCamas() {
@@ -90,12 +90,11 @@ public class TipoDeHabitacion {
         this.estado = estado;
     }
 
-  
     @Override
     public String toString() {
-        return  tipoHabitacion;
-
- 
+        return  + idTipodehabitacion + " " + descripcion + '}';
     }
+
+   
 
      }

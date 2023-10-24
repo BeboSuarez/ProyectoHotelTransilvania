@@ -251,8 +251,10 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
 
    TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
-   jtIdCama.setText(tipoSeleccionado.getIdCama() + "");
+   jtIdCama.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
    jtTipo.setText(tipoSeleccionado.getTipoCama());
+   jEstado.setSelected(isIcon);
+   jRefaccion.setSelected(isIcon);
 //        // TODO add your handling code here:
 //        
 //       try {
@@ -285,15 +287,15 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
             System.out.println("2");
             
-            int idCama = Integer.parseInt(jtIdCama.getText());
-            String tipodehabitacion = jtTipo.getText();
+            int idTipodehabitacion = Integer.parseInt(jtIdCama.getText());
+            String descripcion = jtTipo.getText();
             boolean refaccion = jRefaccion.isSelected();
             boolean estado = jEstado.isSelected();
       
 
             if (habi!=null){
                 System.out.println("asndoasi");
-      Habitacion habitacion = new Habitacion (idCama, tipodehabitacion, refaccion, estado);
+      Habitacion habitacion = new Habitacion (idTipodehabitacion, descripcion, refaccion, estado);
             habidata.guardarHabitacion(habitacion);
             }else {
                JOptionPane.showMessageDialog(null, "operación imposible");

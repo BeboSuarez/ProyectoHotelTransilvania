@@ -14,22 +14,23 @@ public class TipoDeHabitacionData {
 
     private Connection con = null;
 
-    private TipoDeHabitacion TipodeHabitacionData;
+    
 
     public TipoDeHabitacionData() {
 
         con = Conexion.getConexion();
+       
     }
 
     public void guardarTipoDeHabitacion(TipoDeHabitacion th) {
 
-        String sql = "INSERT INTO tipoDeHabitacion(tipoHabitacion, cantidadCamas, cantidadPersonas, tipoCama,precioNoche,estado) VALUES (?,?,?,?,?,?) ";
+        String sql = "INSERT INTO tipodehabitacion (descripcion, cantidadCamas, cantidadPersonas, tipoCama,precioNoche,estado) VALUES (?,?,?,?,?,?) ";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            ps.setString(1, th.getTipoHabitacion());
+            ps.setString(1, th.getDescripcion());
             ps.setInt(2, th.getCantidadCamas());
             System.out.println("1");
             ps.setInt(3, th.getCantidadPersonas());
@@ -42,7 +43,7 @@ ps.setBoolean(6, th.isEstado());
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 System.out.println("4");
-                th.setIdCama(rs.getInt(1));
+                th.setIdTipodehabitacion(rs.getInt(1));
                 System.out.println("5");
                 
                 JOptionPane.showMessageDialog(null, "habitacion registrada");
@@ -61,20 +62,20 @@ ps.setBoolean(6, th.isEstado());
 
     public void modificarTipoDeHabitacion(TipoDeHabitacion th) {
 
-        String sql = "UPDATE TipoDeHabitacion SET tipoHabitacion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?, estado=? where idCama=?";
+        String sql = "UPDATE tipodehabitacion SET descripcion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?, estado=? where idTipodehabitacion=?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
             
        
-            ps.setString(1, th.getTipoHabitacion());
+            ps.setString(1, th.getDescripcion());
             ps.setInt(2, th.getCantidadCamas());
             ps.setInt(3, th.getCantidadPersonas());
             ps.setString(4, th.getTipoCama());
             ps.setDouble(5, th.getPrecioNoche());
             ps.setBoolean(6, th.isEstado());
-            ps.setInt(7, th.getIdCama());
+            ps.setInt(7, th.getIdTipodehabitacion());
 
             int exito = ps.executeUpdate();
 
@@ -100,10 +101,10 @@ ps.setBoolean(6, th.isEstado());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 TipoDeHabitacion tipo = new TipoDeHabitacion();
-                tipo.setIdCama(rs.getInt("idCama"));
-                tipo.setTipoHabitacion(rs.getString("tipoHabitacion"));
-                tipo.setCantidadCamas(rs.getInt("CantidadCamas"));
-                tipo.setCantidadPersonas(rs.getInt("CantidadPersonas"));
+                tipo.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
+                tipo.setDescripcion(rs.getString("descripcion"));
+                tipo.setCantidadCamas(rs.getInt("cantidadCamas"));
+                tipo.setCantidadPersonas(rs.getInt("cantidadPersonas"));
                 tipo.setTipoCama(rs.getString("tipoCama"));
                 tipo.setPrecioNoche(rs.getDouble("precioNoche"));
                 tipo.setEstado(rs.getBoolean("estado"));
@@ -119,11 +120,11 @@ ps.setBoolean(6, th.isEstado());
 
     }
 
-    public TipoDeHabitacion obtenerTipoHabitacionPorId(int idCama) {
+    public TipoDeHabitacion obtenerTipoHabitacionPorId(int idTipodehabitacion) {
         TipoDeHabitacion habitacion = null;
-        try (PreparedStatement ps = con.prepareStatement("SELECT idCama,tipoHabitacion, cantidadCamas , cantidadPersonas, tipoCama , precioNoche,estado"
-                + "  FROM tipodehabitacion WHERE idCama = ?", Statement.RETURN_GENERATED_KEYS)) {
-            ps.setInt(1, idCama);
+        try (PreparedStatement ps = con.prepareStatement("SELECT idTipodehabitacion,descripcion, cantidadCamas , cantidadPersonas, tipoCama , precioNoche,estado"
+                + "  FROM tipodehabitacion WHERE idTipodehabitacion = ?", Statement.RETURN_GENERATED_KEYS)) {
+            ps.setInt(1, idTipodehabitacion);
 
             ResultSet rs = ps.executeQuery();
 
@@ -133,18 +134,18 @@ ps.setBoolean(6, th.isEstado());
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error al intentar obtener el tipo de habitacion : "
-                    + idCama + ". Error: " + ex.getMessage());
+                    + idTipodehabitacion + ". Error: " + ex.getMessage());
         }
         return habitacion;
     }
-     public void eliminarTipoDeHabitacion(int idCama){
+     public void eliminarTipoDeHabitacion(int idTipodehabitacion){
 
-        String sql = " UPDATE tipodehabitacion SET estado=0 WHERE idCama=? ";
+        String sql = " UPDATE tipodehabitacion SET estado=0 WHERE idTipodehabitacion=? ";
         
  
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idCama);
+            ps.setInt(1, idTipodehabitacion);
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
