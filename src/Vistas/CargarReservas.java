@@ -56,7 +56,6 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         jcbHabitacion = new javax.swing.JComboBox<>();
         jtPrecioTotal = new javax.swing.JTextField();
         jtidHabitacion = new javax.swing.JTextField();
-        jtIdTipodehabitacion = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
@@ -143,8 +142,6 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
         jtidHabitacion.setText("jTextField1");
 
-        jtIdTipodehabitacion.setText("jTextField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,10 +202,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                                         .addGap(0, 89, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jtIdTipodehabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(51, 51, 51))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,9 +211,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jtIDhuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jtIdTipodehabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
@@ -342,11 +334,9 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
     private void jcbHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbHabitacionActionPerformed
      Habitacion habitacionseleccionado=(Habitacion) jcbHabitacion.getSelectedItem();
-     TipoDeHabitacion th=new TipoDeHabitacion();
-   
-     jcbHabitacion.getSelectedItem();
+      
+
      jtidHabitacion.setText(habitacionseleccionado.getIdHabitacion()+"");
-     jtIdTipodehabitacion.setText(habitacionseleccionado.getIdTipodehabitacion()+"");
      jtPrecioTotal.setText(habitacionseleccionado.getPrecioNoche()+"");
          
      
@@ -381,7 +371,6 @@ public class CargarReservas extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtIDhuesped;
     private javax.swing.JTextField jtIDseleccionado;
     private javax.swing.JTextField jtIdReserva;
-    private javax.swing.JTextField jtIdTipodehabitacion;
     private javax.swing.JTextField jtPrecioTotal;
     private javax.swing.JTextField jtidHabitacion;
     // End of variables declaration//GEN-END:variables
@@ -400,7 +389,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         List<Habitacion> hab = habiData.listarHabitacion();
         for(Habitacion habitacion : hab )
         jcbHabitacion.addItem(habitacion);
-        System.out.println("1");
+       
     }
 
 

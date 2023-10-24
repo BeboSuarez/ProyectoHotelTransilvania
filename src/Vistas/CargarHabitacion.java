@@ -60,7 +60,9 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jtTipo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jtIdCama1 = new javax.swing.JTextField();
+        jtIdCama = new javax.swing.JTextField();
+        jtIdHabi = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -158,11 +160,20 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel9.setText("Precio Noche");
 
-        jtIdCama1.addActionListener(new java.awt.event.ActionListener() {
+        jtIdCama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIdCama1ActionPerformed(evt);
+                jtIdCamaActionPerformed(evt);
             }
         });
+
+        jtIdHabi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtIdHabiActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
+        jLabel5.setText("ID TH");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,7 +199,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtIdCama1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jtIdCama, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -221,13 +232,22 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(261, 261, 261)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(37, 37, 37)
+                .addComponent(jtIdHabi, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jtIdHabi, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -255,8 +275,8 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jtIdCama1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                    .addComponent(jtIdCama, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -275,11 +295,9 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
 
         TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
-        jtIdCama1.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
+        jtIdCama.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
         jtTipo.setText(tipoSeleccionado.getTipoCama());
         jtPrecioNoche.setText(tipoSeleccionado.getPrecioNoche() + "");
-
-      
 
 //        // TODO add your handling code here:
 //        
@@ -310,17 +328,23 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
         try {
 
-            System.out.println("2");
-
-            int idTipodehabitacion = Integer.parseInt(jtIdCama1.getText());
+            System.out.println("ets");
+           
+            int idTipodehabitacion = Integer.parseInt(jtIdCama.getText());
+            System.out.println("4");
             double precioNoche = Double.parseDouble(jtPrecioNoche.getText());
+            System.out.println("5");
             String descripcion = jtTipo.getText();
+            System.out.println("6");
             boolean refaccion = jRefaccion.isSelected();
+            System.out.println("7");
             boolean estado = jEstado.isSelected();
+            System.out.println("8");
 
             if (habi != null) {
                 System.out.println("asndoasi");
                 Habitacion habitacion = new Habitacion(idTipodehabitacion, precioNoche, descripcion, refaccion, estado);
+                
                 habidata.guardarHabitacion(habitacion);
             } else {
                 JOptionPane.showMessageDialog(null, "operación imposible");
@@ -346,17 +370,21 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jtIdCama1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdCama1ActionPerformed
+    private void jtIdCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdCamaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtIdCama1ActionPerformed
+    }//GEN-LAST:event_jtIdCamaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Limpiar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-      
+
     }//GEN-LAST:event_jbModificarActionPerformed
+
+    private void jtIdHabiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdHabiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtIdHabiActionPerformed
 
     private void CargarComboBoxTipoDeHabitacion() {
 
@@ -390,6 +418,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -399,7 +428,8 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JComboBox<TipoDeHabitacion> jcbTipoHab;
-    private javax.swing.JTextField jtIdCama1;
+    private javax.swing.JTextField jtIdCama;
+    private javax.swing.JTextField jtIdHabi;
     private javax.swing.JTextField jtPrecioNoche;
     private javax.swing.JTextField jtTipo;
     // End of variables declaration//GEN-END:variables

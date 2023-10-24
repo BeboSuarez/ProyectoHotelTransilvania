@@ -98,10 +98,6 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jtIdTipodehabitacion" min="-2" pref="8" max="-2" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
       </Group>
@@ -114,9 +110,7 @@
                   <Component id="jtIDhuesped" alignment="3" min="-2" pref="0" max="-2" attributes="0"/>
                   <Component id="jtidHabitacion" min="-2" pref="5" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jtIdTipodehabitacion" min="-2" pref="8" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -330,11 +324,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtidHabitacion">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jtIdTipodehabitacion">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>

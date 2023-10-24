@@ -31,16 +31,17 @@ public class HabitacionData {
 
         public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,descripcion,refaccion,estado) VALUES ( ?, ?, ?,?,?)";
+        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,descripcion,refaccion,estado) VALUES ( ?,?, ?,?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             System.out.println("1");
             
-           
+
             ps.setInt(1, habitacion.getIdTipodehabitacion());
-            ps.setString (2, habitacion.getDescripcion());
-            ps.setDouble(3, habitacion.getPrecioNoche());
+            ps.setDouble(2, habitacion.getPrecioNoche());
+            ps.setString (3, habitacion.getDescripcion());
+   
             ps.setBoolean(4, habitacion.isRefaccion());
             ps.setBoolean(5, habitacion.isEstado());
         
@@ -136,8 +137,9 @@ public class HabitacionData {
                 Habitacion habitacion = new Habitacion();
            
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                         habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
-                habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
+       
                 habitacion.setRefaccion(rs.getBoolean("refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
