@@ -5,6 +5,7 @@ public class Habitacion {
     
     private int idHabitacion;
     private int idTipodehabitacion;
+    private double precioNoche;
     private String descripcion;
     private boolean refaccion;
     private boolean estado;
@@ -12,16 +13,18 @@ public class Habitacion {
     public Habitacion() {
     }
 
-    public Habitacion(int idHabitacion, int idTipodehabitacion, String descripcion, boolean refaccion, boolean estado) {
-        this.idHabitacion = idHabitacion;
+    public Habitacion(int idTipodehabitacion, double precioNoche, String descripcion, boolean refaccion, boolean estado) {
         this.idTipodehabitacion = idTipodehabitacion;
+        this.precioNoche = precioNoche;
         this.descripcion = descripcion;
         this.refaccion = refaccion;
         this.estado = estado;
     }
 
-    public Habitacion(int idTipodehabitacion, String descripcion, boolean refaccion, boolean estado) {
+    public Habitacion(int idHabitacion, int idTipodehabitacion, double precioNoche, String descripcion, boolean refaccion, boolean estado) {
+        this.idHabitacion = idHabitacion;
         this.idTipodehabitacion = idTipodehabitacion;
+        this.precioNoche = precioNoche;
         this.descripcion = descripcion;
         this.refaccion = refaccion;
         this.estado = estado;
@@ -41,6 +44,14 @@ public class Habitacion {
 
     public void setIdTipodehabitacion(int idTipodehabitacion) {
         this.idTipodehabitacion = idTipodehabitacion;
+    }
+
+    public double getPrecioNoche() {
+        return precioNoche;
+    }
+
+    public void setPrecioNoche(double precioNoche) {
+        this.precioNoche = precioNoche;
     }
 
     public String getDescripcion() {
@@ -66,6 +77,7 @@ public class Habitacion {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
 
     @Override
     public String toString() {

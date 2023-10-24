@@ -12,7 +12,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 public class CargarHabitacion extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo;
@@ -22,24 +21,21 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private Huesped huespedActual;
     private Habitacion habi;
 
-    
     public CargarHabitacion() {
         initComponents();
-        
+
         modelo = new DefaultTableModel();
         th = new TipoDeHabitacionData();
-        hd=new HuespedData();
+        hd = new HuespedData();
         huespedActual = new Huesped();
-        habi=new Habitacion();
-        habidata = new HabitacionData ();
-        
+        habi = new Habitacion();
+        habidata = new HabitacionData();
+
         CargarComboBoxTipoDeHabitacion();
-       
 
 //        borrarFilas ();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,9 +56,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jtIdCama = new javax.swing.JTextField();
+        jtPrecioNoche = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jtTipo = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jtIdCama1 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,13 +78,13 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
         jcbTipoHab.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
         jcbTipoHab.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                jcbTipoHabPopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 jcbTipoHabPopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbTipoHabPopupMenuWillBecomeVisible(evt);
             }
         });
         jcbTipoHab.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +116,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         });
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ajustes.png"))); // NOI18N
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton-eliminar.png"))); // NOI18N
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +130,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/limpiar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/salida.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -136,16 +144,25 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
-        jLabel3.setText("ID Cama");
+        jLabel3.setText("ID TH");
 
-        jtIdCama.addActionListener(new java.awt.event.ActionListener() {
+        jtPrecioNoche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtIdCamaActionPerformed(evt);
+                jtPrecioNocheActionPerformed(evt);
             }
         });
 
         jLabel11.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
-        jLabel11.setText("Tipo de Cama");
+        jLabel11.setText("Descripcion");
+
+        jLabel9.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
+        jLabel9.setText("Precio Noche");
+
+        jtIdCama1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtIdCama1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,19 +187,24 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel3))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jtIdCama, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jtIdCama1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jRefaccion))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(48, 48, 48)
+                                    .addComponent(jEstado)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRefaccion))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(48, 48, 48)
-                                .addComponent(jEstado)))
-                        .addGap(176, 176, 176))
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jbGuardar)
                         .addGap(28, 28, 28)
@@ -231,8 +253,10 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jtIdCama, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                    .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jtIdCama1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -250,11 +274,13 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
 
-   TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
-   jtIdCama.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
-   jtTipo.setText(tipoSeleccionado.getTipoCama());
+        TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
+        jtIdCama1.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
+        jtTipo.setText(tipoSeleccionado.getTipoCama());
+        jtPrecioNoche.setText(tipoSeleccionado.getPrecioNoche() + "");
 
-   
+      
+
 //        // TODO add your handling code here:
 //        
 //       try {
@@ -265,7 +291,6 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 //        } catch (IllegalArgumentException e) {
 //            System.out.println(" ");
 //        }
-
 
     }//GEN-LAST:event_jcbTipoHabActionPerformed
 
@@ -283,44 +308,55 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
 
- try {
+        try {
 
             System.out.println("2");
-            
-            int idTipodehabitacion = Integer.parseInt(jtIdCama.getText());
+
+            int idTipodehabitacion = Integer.parseInt(jtIdCama1.getText());
+            double precioNoche = Double.parseDouble(jtPrecioNoche.getText());
             String descripcion = jtTipo.getText();
             boolean refaccion = jRefaccion.isSelected();
             boolean estado = jEstado.isSelected();
-      
 
-            if (habi!=null){
+            if (habi != null) {
                 System.out.println("asndoasi");
-      Habitacion habitacion = new Habitacion (idTipodehabitacion, descripcion, refaccion, estado);
-            habidata.guardarHabitacion(habitacion);
-            }else {
-               JOptionPane.showMessageDialog(null, "operación imposible");
+                Habitacion habitacion = new Habitacion(idTipodehabitacion, precioNoche, descripcion, refaccion, estado);
+                habidata.guardarHabitacion(habitacion);
+            } else {
+                JOptionPane.showMessageDialog(null, "operación imposible");
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No se puede guardar el tipo de habitación"+e.getMessage());
-           
-       
+            JOptionPane.showMessageDialog(null, "No se puede guardar el tipo de habitación" + e.getMessage());
+
         }
 
-   
+
     }//GEN-LAST:event_jbGuardarActionPerformed
 
-    private void jtIdCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdCamaActionPerformed
+    private void jtPrecioNocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPrecioNocheActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtIdCamaActionPerformed
+    }//GEN-LAST:event_jtPrecioNocheActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-        
+
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            dispose();
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jtIdCama1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdCama1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtIdCama1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Limpiar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+      
+    }//GEN-LAST:event_jbModificarActionPerformed
 
     private void CargarComboBoxTipoDeHabitacion() {
 
@@ -333,7 +369,15 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         }
     }
 
-    
+    private void Limpiar() {
+        jtPrecioNoche.setText("");
+        jtTipo.setText("");
+        jtPrecioNoche.setText("");
+        jRefaccion.setSelected(false);
+        jEstado.setSelected(false);
+        jbGuardar.setEnabled(true);
+
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -348,13 +392,15 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox jRefaccion;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JComboBox<TipoDeHabitacion> jcbTipoHab;
-    private javax.swing.JTextField jtIdCama;
+    private javax.swing.JTextField jtIdCama1;
+    private javax.swing.JTextField jtPrecioNoche;
     private javax.swing.JTextField jtTipo;
     // End of variables declaration//GEN-END:variables
 }
