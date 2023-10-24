@@ -20,13 +20,13 @@ public class ProyectoHotelTransilvania {
     public static void main(String[] args) {
         Connection con=Conexion.getConexion();
 //        
-        Huesped Luis=new Huesped (9,"Roberto","Martin",333333333,LocalDate.of(1982, 2, 27),"agu@gmail.com", 4535,"San luis",true);
-////Huesped Luca=new Huesped("Brenda", "Siwonia",36233661,LocalDate.of(1992, 03, 26), "siwonia@gmail.com",56566,"Planta567",true);
-        HuespedData hue=new HuespedData();
-//          hue.modificarHuesped(Luis);
-////        hue.cargarHuesped(Luis);
-hue.bajaHuesped(333333333);
-//hue.cargarHuesped(Luca);
+//        Huesped Luis=new Huesped (9,"Roberto","Martin",333333333,LocalDate.of(1982, 2, 27),"agu@gmail.com", 4535,"San luis",true);
+//////Huesped Luca=new Huesped("Brenda", "Siwonia",36233661,LocalDate.of(1992, 03, 26), "siwonia@gmail.com",56566,"Planta567",true);
+//        HuespedData hue=new HuespedData();
+////          hue.modificarHuesped(Luis);
+//////        hue.cargarHuesped(Luis);
+//hue.bajaHuesped(333333333);
+////hue.cargarHuesped(Luca);
 ////        Huesped huespedEncontrado =hue.buscarHuesped(1);
 ////        if(huespedEncontrado != null){
 //        
@@ -51,13 +51,13 @@ hue.bajaHuesped(333333333);
 
      
       
-//  TipoDeHabitacion habi1= new TipoDeHabitacion("capacidades visuales",4, 3, "matri y simple",10.000,true);
+  TipoDeHabitacion habi1= new TipoDeHabitacion("capacidades visuales",4, 3, "matri y simple",10.000,true);
 //  TipoDeHabitacion habi1= new TipoDeHabitacion("triple",3,3,"simple y doble",15.000,true);
 //       TipoDeHabitacionData hd=new TipoDeHabitacionData();
-////       hd.guardarTipoDeHabitacion(habi1);
+       hd.guardarTipoDeHabitacion(habi1);
 //    hd.modificarTipoDeHabitacion(habi1);
 ////       Habitacion habi=new Habitacion("quintuple", true, true);
-//      HabitacionData hd=new HabitacionData();
+      HabitacionData hd=new HabitacionData();
 //      hd.guardarHabitacion(habi);
 // TipoDeHabitacion habi1= new TipoDeHabitacion(3),"quintuple", 5, 5, "matri y 2 simple",25.000,true);
 //       TipoDeHabitacionData hd=new TipoDeHabitacionData();
@@ -66,6 +66,7 @@ hue.bajaHuesped(333333333);
 //Reserva re=new Reserva(3,2,1,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
 //ReservaData redata=new ReservaData();
 //redata.guardarReserva(re);
+hd.listarHabitacion();
     }
    
 }

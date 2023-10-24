@@ -253,8 +253,8 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
    TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
    jtIdCama.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
    jtTipo.setText(tipoSeleccionado.getTipoCama());
-   jEstado.setSelected(isIcon);
-   jRefaccion.setSelected(isIcon);
+
+   
 //        // TODO add your handling code here:
 //        
 //       try {
