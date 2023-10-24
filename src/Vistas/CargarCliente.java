@@ -531,9 +531,9 @@ public class CargarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtIdKeyPressed
 
     private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
-        if (!Character.isLetter(evt.getKeyChar())) {
-            evt.consume();
-        }
+     if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+    evt.consume(); 
+}
     }//GEN-LAST:event_jtApellidoKeyTyped
 
     private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
@@ -543,9 +543,9 @@ public class CargarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtIdKeyTyped
 
     private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
-        if (!Character.isLetter(evt.getKeyChar())) {
-            evt.consume();
-        }        // TODO add your handling code here:
+       if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+    evt.consume(); 
+}        // TODO add your handling code here:
     }//GEN-LAST:event_jtNombreKeyTyped
 
     private void jtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCorreoActionPerformed
@@ -558,9 +558,7 @@ public class CargarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtCorreoKeyTyped
 
     private void jtDomicilioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDomicilioKeyTyped
-        if (!Character.isLetter(evt.getKeyChar())) {
-            evt.consume();
-        }
+        
     }//GEN-LAST:event_jtDomicilioKeyTyped
 
     private void jtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoKeyTyped

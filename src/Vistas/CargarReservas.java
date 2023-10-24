@@ -267,41 +267,26 @@ public class CargarReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-//        Reserva reserva = new Reserva();
-//        reserva.setIdHuesped(1);
-//        reserva.setIdHabitacion(2);
-//        reserva.setFechaIngreso(LocalDate.now());
-//        reserva.setFechaSalida(LocalDate.now().plusDays(3));
-//        reserva.setCantidadPersonas(2);
-//        reserva.setPrecioTotal(200);
-//        reserva.setEstado(true);
-
-        
-        reseData.guardarReserva(reservaActual);
+        System.out.println("aaaaaaa");
         try {
-            
+            System.out.println("bbbbbbbb");
             int idHabitacion = Integer.parseInt(jtIDseleccionado.getText());
             System.out.println("1");
             int idHuesped = Integer.parseInt(jtIDhuesped.getText());
             LocalDate fechaIngreso = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaSalida = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            double PrecioTotal = Double.parseDouble(jtPrecioTotal.getText());                     
+            double precioTotal = Double.parseDouble(jtPrecioTotal.getText());                     
             System.out.println("2");
             int cantidadPersonas = Integer.parseInt(jtCpersonas.getText());
-            boolean estado = jCheckEstado.isSelected();
-            
-//            if (cpersonas == 0 || ptotal == 0 ) {
-//                JOptionPane.showMessageDialog(this, "no puede haber campos vacios");
-//                return;
-//            }
+            boolean estado = jCheckEstado.isSelected();   
 
             if (reservaActual == null) {
-                Reserva res = new Reserva(idHabitacion,idHuesped,fechaIngreso,fechaSalida,cantidadPersonas,PrecioTotal,estado);
+                Reserva res = new Reserva(idHabitacion,idHuesped,fechaIngreso,fechaSalida,cantidadPersonas,precioTotal,estado);
                 //Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
                 reseData.guardarReserva(res);
             }
 
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
             
 

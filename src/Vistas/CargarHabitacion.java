@@ -6,15 +6,12 @@ import AccesoADatos.TipoDeHabitacionData;
 import Entidades.TipoDeHabitacion;
 import Entidades.Habitacion;
 import Entidades.Huesped;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class CargarHabitacion extends javax.swing.JInternalFrame {
 
-    private DefaultTableModel modelo;
     private TipoDeHabitacionData th;
     private HabitacionData habidata;
     private HuespedData hd;
@@ -24,7 +21,6 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     public CargarHabitacion() {
         initComponents();
 
-        modelo = new DefaultTableModel();
         th = new TipoDeHabitacionData();
         hd = new HuespedData();
         huespedActual = new Huesped();
@@ -328,23 +324,20 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
         try {
 
-            System.out.println("ets");
-           
             int idTipodehabitacion = Integer.parseInt(jtIdCama.getText());
-            System.out.println("4");
+
             double precioNoche = Double.parseDouble(jtPrecioNoche.getText());
-            System.out.println("5");
+
             String descripcion = jtTipo.getText();
-            System.out.println("6");
+
             boolean refaccion = jRefaccion.isSelected();
-            System.out.println("7");
+
             boolean estado = jEstado.isSelected();
-            System.out.println("8");
 
             if (habi != null) {
-                System.out.println("asndoasi");
+
                 Habitacion habitacion = new Habitacion(idTipodehabitacion, precioNoche, descripcion, refaccion, estado);
-                
+
                 habidata.guardarHabitacion(habitacion);
             } else {
                 JOptionPane.showMessageDialog(null, "operación imposible");
@@ -359,11 +352,36 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jtPrecioNocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPrecioNocheActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtPrecioNocheActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
 
+        
+        try {
+
+            boolean estado = jEstado.isSelected();
+
+            System.out.println("antes del  if");
+            if (habi != null) {
+
+                habi.setEstado(false);
+
+                JOptionPane.showMessageDialog(null, "eliminado");
+                habidata.eliminarHabitacion(estado);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "no se puede eliminar");
+            }
+        } catch (NumberFormatException e) {
+            
+            
+            Limpiar();
+        }
+        
+        
+        
+        
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -371,7 +389,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jtIdCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdCamaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtIdCamaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

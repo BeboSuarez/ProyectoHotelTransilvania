@@ -51,13 +51,13 @@ public class ProyectoHotelTransilvania {
 
      
       
-  TipoDeHabitacion habi1= new TipoDeHabitacion("capacidades visuales",4, 3, "matri y simple",10.000,true);
+  //TipoDeHabitacion habi1= new TipoDeHabitacion("capacidades visuales",4, 3, "matri y simple",10.000,true);
 //  TipoDeHabitacion habi1= new TipoDeHabitacion("triple",3,3,"simple y doble",15.000,true);
 //       TipoDeHabitacionData hd=new TipoDeHabitacionData();
-       hd.guardarTipoDeHabitacion(habi1);
+      // hd.guardarTipoDeHabitacion(habi1);
 //    hd.modificarTipoDeHabitacion(habi1);
 ////       Habitacion habi=new Habitacion("quintuple", true, true);
-      HabitacionData hd=new HabitacionData();
+  //    HabitacionData hd=new HabitacionData();
 //      hd.guardarHabitacion(habi);
 // TipoDeHabitacion habi1= new TipoDeHabitacion(3),"quintuple", 5, 5, "matri y 2 simple",25.000,true);
 //       TipoDeHabitacionData hd=new TipoDeHabitacionData();
@@ -66,7 +66,7 @@ public class ProyectoHotelTransilvania {
 //Reserva re=new Reserva(3,2,1,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
 //ReservaData redata=new ReservaData();
 //redata.guardarReserva(re);
-hd.listarHabitacion();
+//hd.listarHabitacion();
     }
    
 }

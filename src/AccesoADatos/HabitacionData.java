@@ -151,20 +151,20 @@ public class HabitacionData {
         }
         return habitaciones;
     }
-//    public void eliminarHabitacion(int id) {
-//        String sql = "DELETE FROM `habitacion` WHERE 1";
-//        try {
-//
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setInt(1, id);
-//            int exito = ps.executeUpdate();
-//
-//            if (exito == 1) {
-//                JOptionPane.showMessageDialog(null, " Se actualizo el estado de la habitacion");
-//            }
-//            ps.close();
-//        } catch (SQLException e) {
-//            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
-//        }
-//    }
+    public void eliminarHabitacion(boolean estado) {
+        String sql = "DELETE FROM `habitacion` WHERE estado = 0";
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setBoolean(1, estado);
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, " Se elimino la habitacionn");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
+        }
+    }
 }
