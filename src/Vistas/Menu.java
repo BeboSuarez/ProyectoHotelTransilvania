@@ -43,6 +43,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmCHabitacion1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -108,6 +109,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jmCHabitacion1);
+
+        jMenuItem2.setText("Info Reservas");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -208,9 +217,15 @@ escritorio.removeAll();
         escritorio.moveToFront(fReservas);  
     }//GEN-LAST:event_jmCHabitacion1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        InfoReservas IReservas = new InfoReservas();
+        IReservas.setVisible(true);
+        escritorio.add(IReservas);
+        escritorio.moveToFront(IReservas);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -271,6 +286,7 @@ escritorio.removeAll();
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jmCHabitacion;
     private javax.swing.JMenuItem jmCHabitacion1;
     private javax.swing.JMenuItem jmCargarth;

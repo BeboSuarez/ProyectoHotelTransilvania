@@ -130,16 +130,14 @@ public class HabitacionData {
         String sql = "SELECT * FROM habitacion ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
-
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
-           
+
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-                         habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
+                habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
-       
                 habitacion.setRefaccion(rs.getBoolean("refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);

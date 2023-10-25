@@ -93,31 +93,32 @@ public class ReservaData {
         }
     }
 
-    public List<Reserva> obtenerReserva() {
-        ArrayList<Reserva> reservadas = new ArrayList<>();
-        String sql = "SELECT * FROM Reserva ";
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Reserva res = new Reserva();
-//                res.setIdReserva(rs.getInt("idReserva"));
-//                 Habitacion hab = habDa.obtenerHabitacionPorId(rs.getInt("idHabitacion"));
-//                Huesped hue = hd.buscarHuesped(rs.getInt("idHuesped"));
-//               
-//                res.setIdReserva(res);
-//                res.setIdHabitacion(hab);
-//                res.setIdHuesped(hue);
-//                reservadas.add(res);
-            }
-            ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a las reservas");
-        }
-        return reservadas;
-    }
+//    public List<Reserva> obtenerReserva() {
+//        ArrayList<Reserva> reservadas = new ArrayList<>();
+//        String sql = "SELECT * FROM Reserva ";
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                Reserva res = new Reserva();
+////                res.setIdReserva(rs.getInt("idReserva"));
+////                 Habitacion hab = habDa.obtenerHabitacionPorId(rs.getInt("idHabitacion"));
+////                Huesped hue = hd.buscarHuesped(rs.getInt("idHuesped"));
+////               
+////                res.setIdReserva(res);
+////                res.setIdHabitacion(hab);
+////                res.setIdHuesped(hue);
+////                reservadas.add(res);
+//            }
+//            ps.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al acceder a las reservas");
+//        }
+//        return reservadas;
+//    }
 
     public ArrayList<Reserva> obtenerReservaPorHuesped(int idHuesped) {
+       
         ArrayList<Reserva> reservas = new ArrayList<>();
 
         String sql = "SELECT* FROM reserva WHERE idHuesped = ?";
@@ -130,7 +131,8 @@ public class ReservaData {
             while (rs.next()) {
                 Reserva res = new Reserva();
                 res.setIdReserva(rs.getInt("idReserva"));
-                Huesped hue = hd.buscarHuesped(rs.getInt("idHuesped"));
+                
+                Huesped huesped = huespedData.buscarHuesped(idHuesped);
             }
 
             ps.close();
@@ -138,7 +140,34 @@ public class ReservaData {
             JOptionPane.showMessageDialog(null, "Error al obtener la reserva por idHuesped");
         }
         return reservas;
-
     }
+    
+        public List<Reserva> obtenerReserva() {
+       String sql = "SELECT * FROM reserva WHERE estado = 1";
+            ArrayList<Reserva> reservadas = new ArrayList<>();
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Reserva reserva = new Reserva();
+
+                reserva.setIdReserva(rs.getInt("idReserva"));
+                reserva.setIdHabitacion(rs.getInt("idHabitacion"));
+                reserva.setIdHuesped(rs.getInt("idHuesped"));
+                reserva.setFechaIngreso(rs.getDate("fechaIngreso").toLocalDate());
+                reserva.setFechaSalida(rs.getDate("fechaSalida").toLocalDate());
+                reserva.setCantidadPersonas(rs.getInt("cantidadPersonas"));
+                reserva.setPrecioTotal(rs.getDouble("precioTotal"));
+                reserva.setEstado(rs.getBoolean("estado"));
+                
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Reserva " + ex.getMessage());
+        }
+        return reservadas;
+        }
 
 }

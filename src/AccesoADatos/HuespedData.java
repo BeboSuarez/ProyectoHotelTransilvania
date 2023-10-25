@@ -130,18 +130,18 @@ public class HuespedData {
 
     }
 
-    public Huesped buscarHuesped(int id) {//
-        Huesped huesped = null;
+    public Huesped buscarHuesped() {//
+        Huesped huesped = new Huesped();
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM huesped WHERE idHuesped = ? AND estado = 1";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+           
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 huesped = new Huesped();
-                huesped.setIdHuesped(id);
+                
                 huesped.setDni(rs.getInt("dni"));
                 huesped.setApellido(rs.getString("apellido"));
                 huesped.setNombre(rs.getString("nombre"));
