@@ -44,7 +44,7 @@ public class ReservaData {
             ps.setInt(5, re.getCantidadPersonas());
             ps.setDouble(6, re.getPrecioTotal());
             ps.setBoolean(7, re.isEstado());
-           
+
             System.out.println("2");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -54,20 +54,31 @@ public class ReservaData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de reserva");
+            JOptionPane.showMessageDialog(null, "habitacion ocupada");
         }
     }
 
-    public void modificarReserva(int idHuesped, int idHabitacion, int idReserva) {
-        try {
-            String sql = "UPDATE inscripcion SET reserva = ? WHERE idHuesped=? AND idReserva=?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setDouble(1, idReserva);
-            ps.setInt(2, idHuesped);
-            ps.setInt(3, idHabitacion);
-            int filas = ps.executeUpdate();
-            if (filas > 0) {
-                JOptionPane.showMessageDialog(null, "Reserva actualizada");
+    public void modificarReserva(Reserva reserva) {
+       String sql = "UPDATE reserva SET idHabitacion=?, idHuesped=?, fechaIngreso=?,fechaSalida=?,cantidadPersonas=?,precioTotal=?,estado=? WHERE idReserva =?";
+        PreparedStatement ps = null;
+       try {
+           
+           ps=con.prepareStatement(sql);
+            ps.setInt(1, reserva.getIdHabitacion());
+            
+            ps.setInt(2, reserva.getIdHuesped());
+            ps.setDate(3, Date.valueOf(reserva.getFechaIngreso()));
+            ps.setDate(4, Date.valueOf(reserva.getFechaSalida()));
+            ps.setInt(5, reserva.getCantidadPersonas());
+            ps.setDouble(6, reserva.getPrecioTotal());
+            ps.setBoolean(7, reserva.isEstado());
+            ps.setInt(8, reserva.getIdReserva());
+            System.out.println("10");
+               int exito = ps.executeUpdate();
+             if (exito == 0) {
+                JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "la reserva no existe");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -116,9 +127,8 @@ public class ReservaData {
 //        }
 //        return reservadas;
 //    }
-
     public ArrayList<Reserva> obtenerReservaPorHuesped(int idHuesped) {
-       
+
         ArrayList<Reserva> reservas = new ArrayList<>();
 
         String sql = "SELECT* FROM reserva WHERE idHuesped = ?";
@@ -131,8 +141,16 @@ public class ReservaData {
             while (rs.next()) {
                 Reserva res = new Reserva();
                 res.setIdReserva(rs.getInt("idReserva"));
-                
-                Huesped huesped = huespedData.buscarHuesped(idHuesped);
+                res.setIdHabitacion(rs.getInt("idHabitacion"));
+                res.setIdHuesped(rs.getInt("idHuesped"));
+                res.setFechaIngreso(rs.getDate("fechaIngreso").toLocalDate());
+                res.setFechaSalida(rs.getDate("fechaSalida").toLocalDate());
+                res.setCantidadPersonas(rs.getInt("cantidadPersonas"));
+                res.setPrecioTotal(rs.getDouble("precioTotal"));
+                res.setEstado(rs.getBoolean("estado"));
+
+                reservas.add(res);
+
             }
 
             ps.close();
@@ -141,11 +159,11 @@ public class ReservaData {
         }
         return reservas;
     }
-    
-        public List<Reserva> obtenerReserva() {
-       String sql = "SELECT * FROM reserva WHERE estado = 1";
-            ArrayList<Reserva> reservadas = new ArrayList<>();
-        
+
+    public List<Reserva> obtenerReserva() {
+        String sql = "SELECT * FROM reserva WHERE estado = 1";
+        ArrayList<Reserva> reservadas = new ArrayList<>();
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -160,7 +178,7 @@ public class ReservaData {
                 reserva.setCantidadPersonas(rs.getInt("cantidadPersonas"));
                 reserva.setPrecioTotal(rs.getDouble("precioTotal"));
                 reserva.setEstado(rs.getBoolean("estado"));
-                
+
             }
             ps.close();
 
@@ -168,6 +186,6 @@ public class ReservaData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Reserva " + ex.getMessage());
         }
         return reservadas;
-        }
+    }
 
 }

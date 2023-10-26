@@ -12,6 +12,7 @@ import Entidades.TipoDeHabitacion;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 //
 //
 //
@@ -21,10 +22,10 @@ public class ProyectoHotelTransilvania {
         Connection con=Conexion.getConexion();
 //        
 //        Huesped Luis=new Huesped (9,"Roberto","Martin",333333333,LocalDate.of(1982, 2, 27),"agu@gmail.com", 4535,"San luis",true);
-//////Huesped Luca=new Huesped("Brenda", "Siwonia",36233661,LocalDate.of(1992, 03, 26), "siwonia@gmail.com",56566,"Planta567",true);
-//        HuespedData hue=new HuespedData();
-////          hue.modificarHuesped(Luis);
-//////        hue.cargarHuesped(Luis);
+//Huesped Luca=new Huesped("Brenda", "Siwonia",362361,LocalDate.of(1992, 03, 26), "siwonia@gmail.com",56566,"Planta567",true);
+        HuespedData hue=new HuespedData();
+//////          hue.modificarHuesped(Luis);
+//        hue.cargarHuesped(Luca);
 //hue.bajaHuesped(333333333);
 ////hue.cargarHuesped(Luca);
 ////        Huesped huespedEncontrado =hue.buscarHuesped(1);
@@ -63,10 +64,47 @@ public class ProyectoHotelTransilvania {
 //       TipoDeHabitacionData hd=new TipoDeHabitacionData();
 //       hd.guardarTipoDeHabitacion(habi1);
 //     hd.modificarTipoDeHabitacion(habi1);
-//Reserva re=new Reserva(3,2,1,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
-//ReservaData redata=new ReservaData();
-//redata.guardarReserva(re);
+////Reserva re=new Reserva(3,2,1,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
+ReservaData redata=new ReservaData();
+List<Reserva> reservas=redata.obtenerReservaPorHuesped(8);
+        for (Reserva reserva : reservas) {
+            System.out.println("fg"+reserva.getIdReserva());
+            
+        }
+            
+        }
+// list 
+
+
+////        if(huespedEncontrado != null){
+//        
+//            System.out.println("ID: "+huespedEncontrado.getIdHuesped());
+//            System.out.println("Nombre: "+ huespedEncontrado.getNombre());
+//            System.out.println("Apellido: "+ huespedEncontrado.getApellido());
+//            System.out.println("Dni: "+ huespedEncontrado.getDni());
+//            System.out.println("Fecha de nacimiennto: " + huespedEncontrado.getFechaNacimiento());
+//            System.out.println("Correo electronico: "+ huespedEncontrado.getCorreo());
+//            System.out.println("Telefono: "+ huespedEncontrado.getTelefono());
+//            System.out.println("Domicilio "+ huespedEncontrado.getDomicilio());
+//            System.out.println("Estado: "+huespedEncontrado.isEstado());
+
+//////        if(huespedEncontrado != null){
+////        
+//            System.out.println("ID: "+huespedEncontrado.getIdHuesped());
+//            System.out.println("Nombre: "+ huespedEncontrado.getNombre());
+//            System.out.println("Apellido: "+ huespedEncontrado.getApellido());
+//            System.out.println("Dni: "+ huespedEncontrado.getDni());
+//            System.out.println("Fecha de nacimiennto: " + huespedEncontrado.getFechaNacimiento());
+//            System.out.println("Correo electronico: "+ huespedEncontrado.getCorreo());
+//            System.out.println("Telefono: "+ huespedEncontrado.getTelefono());
+//            System.out.println("Domicilio "+ huespedEncontrado.getDomicilio());
+//            System.out.println("Estado: "+huespedEncontrado.isEstado());
+
+          
+        }
+     
 //hd.listarHabitacion();
-    }
+
+    
    
-}
+

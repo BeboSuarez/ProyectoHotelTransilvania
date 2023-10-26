@@ -78,12 +78,13 @@ public class Habitacion {
         this.estado = estado;
     }
 
-
     @Override
     public String toString() {
-        return  descripcion ;
+        return "Habitacion{" + "idHabitacion=" + idHabitacion + ", idTipodehabitacion=" + idTipodehabitacion + ", precioNoche=" + precioNoche + ", descripcion=" + descripcion + ", refaccion=" + refaccion + ", estado=" + estado + '}';
     }
 
+
+ 
  
     
     

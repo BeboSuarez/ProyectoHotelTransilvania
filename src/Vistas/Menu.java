@@ -44,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jmCHabitacion1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -97,11 +98,9 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 620, Short.MAX_VALUE)
         );
 
-        jMenu1.setForeground(new java.awt.Color(0, 0, 0));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro.png"))); // NOI18N
 
         jmCHabitacion1.setFont(new java.awt.Font("Tamil Sangam MN", 0, 24)); // NOI18N
-        jmCHabitacion1.setForeground(new java.awt.Color(0, 0, 0));
         jmCHabitacion1.setText("Reserva");
         jmCHabitacion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,12 +117,19 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/usuario.png"))); // NOI18N
 
         jMenuItem1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
-        jMenuItem1.setForeground(new java.awt.Color(0, 0, 0));
         jMenuItem1.setText("Cargar Huésped");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +143,6 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/habitacion.png"))); // NOI18N
 
         jmCargarth.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
-        jmCargarth.setForeground(new java.awt.Color(0, 0, 0));
         jmCargarth.setText("Cargar Tipo de Habitación");
         jmCargarth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +152,6 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.add(jmCargarth);
 
         jmCHabitacion.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
-        jmCHabitacion.setForeground(new java.awt.Color(0, 0, 0));
         jmCHabitacion.setText("Cargar Habitación");
         jmCHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,6 +230,15 @@ escritorio.removeAll();
         escritorio.moveToFront(IReservas);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+         escritorio.removeAll();
+        escritorio.repaint();
+        ModificarReservas1 IReserva = new ModificarReservas1();
+        IReserva.setVisible(true);
+        escritorio.add(IReserva);
+        escritorio.moveToFront(IReserva);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -287,6 +300,7 @@ escritorio.removeAll();
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jmCHabitacion;
     private javax.swing.JMenuItem jmCHabitacion1;
     private javax.swing.JMenuItem jmCargarth;
