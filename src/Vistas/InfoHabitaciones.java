@@ -30,11 +30,11 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         initComponents();
         ArmarCabecera();
         CargarComboHabitaciones();
-        CargarComboboxHabitaciones();
-       CargarComboHabitaciones();
-       cargarTablaHabitacionD(tipohabitacion.getIdTipodehabitacion());
-      cargarTablaHabitacionND(tipohabitacion.getIdTipodehabitacion());
-      
+//        CargarComboboxHabitaciones();
+    
+//       cargarTablaHabitacionD(tipohabitacion.isEstado(),tipohabitacion.getIdTipodehabitacion());
+//      cargarTablaHabitacionND(tipohabitacion.isEstado(),tipohabitacion.getIdTipodehabitacion());
+//      
         modelo = (DefaultTableModel) jTabla.getModel();
         habitacionData=new HabitacionData();
         tipohabitacion = new TipoDeHabitacion();
@@ -69,12 +69,28 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jrbHabitacionD = new javax.swing.JRadioButton();
         jrbHabitacionND = new javax.swing.JRadioButton();
+        idTipoHabi = new javax.swing.JTextField();
 
         jLabel1.setText("Informacion de las Habitaciones");
 
         jbModificar.setText("MODIFICAR HABITACION");
 
         jbEliminar.setText("BAJA");
+
+        jcbComboHabitaciones.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                jcbComboHabitacionesPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
+        jcbComboHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbComboHabitacionesActionPerformed(evt);
+            }
+        });
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -160,6 +176,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
             }
         });
 
+        idTipoHabi.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -209,7 +227,9 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                         .addGap(101, 101, 101)
                         .addComponent(jLabel1)
                         .addGap(75, 75, 75)
-                        .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(idTipoHabi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(jrbHabitacionD)
@@ -223,7 +243,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTipoHabi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jrbHabitacionD)
@@ -283,9 +304,9 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jpTotalActionPerformed
 
     private void jcbHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbHabitacionActionPerformed
-        Habitacion habiseleccionada = (Habitacion) jcbHabitacion.getSelectedItem();
-
-        jtHabitacion.setText(habiseleccionada.getIdHabitacion() + "");
+//        Habitacion habiseleccionada = (Habitacion) jcbHabitacion.getSelectedItem();
+//
+//        jtHabitacion.setText(habiseleccionada.getIdHabitacion() + "");
 
     }//GEN-LAST:event_jcbHabitacionActionPerformed
 
@@ -331,21 +352,31 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
-         TipoDeHabitacion habi = (TipoDeHabitacion)jcbComboHabitaciones.getSelectedItem();
-       
-         borrarFilas();
-         if (habi != null) {
-            if (jrbHabitacionD.isSelected()) {
-                cargarTablaHabitacionD(habi.getIdTipodehabitacion());
-            } else if (jrbHabitacionND.isSelected()) {
-                cargarTablaHabitacionND(habi.getIdTipodehabitacion());
-            }
-        }
+//         TipoDeHabitacion tipohabi = (TipoDeHabitacion)jcbComboHabitaciones.getSelectedItem();
+//       
+//         borrarFilas();
+//         if (tipohabi != null) {
+//            if (jrbHabitacionD.isSelected()) {
+//                cargarTablaHabitacionD(tipohabi.getIdTipodehabitacion());
+//            }
+//        }
     }//GEN-LAST:event_jrbHabitacionDActionPerformed
 
     private void jrbHabitacionNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionNDActionPerformed
-        // TODO add your handling code here:
+// TipoDeHabitacion tipohabi = (TipoDeHabitacion)jcbComboHabitaciones.getSelectedItem();
+// borrarFilas();
+//   cargarTablaHabitacionND(tipohabi.getIdTipodehabitacion());
     }//GEN-LAST:event_jrbHabitacionNDActionPerformed
+
+    private void jcbComboHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbComboHabitacionesActionPerformed
+//    TipoDeHabitacion tipohabi = (TipoDeHabitacion)jcbComboHabitaciones.getSelectedItem();
+//    borrarFilas();
+//     idTipoHabi.getText() tipohabi.getIdTipodehabitacion()+"":
+    }//GEN-LAST:event_jcbComboHabitacionesActionPerformed
+
+    private void jcbComboHabitacionesPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbComboHabitacionesPopupMenuWillBecomeInvisible
+        cargarTablaHabitacionD(habitacion.getIdTipodehabitacion());        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbComboHabitacionesPopupMenuWillBecomeInvisible
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -353,6 +384,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel idHabitacion;
+    private javax.swing.JTextField idTipoHabi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
@@ -402,15 +434,15 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         }
     }
 
-    private void CargarComboboxHabitaciones() {
-        HabitacionData Habi = new HabitacionData();
-
-        List<Habitacion> ha = Habi.listarHabitacion();
-        for (Habitacion habitacion : ha) {
-            jcbHabitacion.addItem(habitacion);
-
-        }
-    }
+//    private void CargarComboboxHabitaciones() {
+//        HabitacionData Habi = new HabitacionData();
+//
+//        List<Habitacion> ha = Habi.listarHabitacion();
+//        for (Habitacion habitacion : ha) {
+//            jcbHabitacion.addItem(habitacion);
+//
+//        }
+//    }
 
     private void ArmarCabecera() {
 
@@ -425,26 +457,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
     }
 
-    private void cargarTabla(int idHuesped) {
-
-        ReservaData resDa = new ReservaData();
-        //  Huesped r = (Huesped) jcbCargarCliente.getSelectedItem();
-        List<Reserva> res = resDa.obtenerReservaPorHuesped(idHuesped);
-        for (Reserva reserva : res) {
-
-            modelo.addRow(new Object[]{
-                reserva.getIdReserva(),
-                reserva.getIdHabitacion(),
-                reserva.getIdHuesped(),
-                reserva.getFechaIngreso(),
-                reserva.getFechaSalida(),
-                reserva.getCantidadPersonas(),
-                reserva.getPrecioTotal(),
-                reserva.isEstado()
-            });
-
-        }
-    }
+//////
 private void cargarTablaHabitacionD(int idTipoHabitacion) {
        HabitacionData hd = new HabitacionData();
        List<Habitacion> disponible = hd.listarHabitacionDisponibles(true, idTipoHabitacion);
@@ -460,21 +473,21 @@ private void cargarTablaHabitacionD(int idTipoHabitacion) {
        
        });
        }
-        }
-private void cargarTablaHabitacionND(int idTipoHabitacion) {
-       HabitacionData hd = new HabitacionData();
-       List<Habitacion> disponible = hd.listarHabitacionOcupadas(false, idTipoHabitacion);
-       borrarFilas();
-       for(Habitacion disponibles : disponible){
-       
-           modelo.addRow(new Object[]{
-       
-                    disponibles.getIdTipodehabitacion()
-                   ,disponibles.getDescripcion()
-                   ,disponibles.getIdHabitacion()
-                   ,disponibles.getPrecioNoche()
-       
-       });
-       }
-        }
-}
+//////        }
+//////private void cargarTablaHabitacionND(boolean estado, int idTipoHabitacion) {
+//////       HabitacionData hd = new HabitacionData();
+//////       List<Habitacion> disponible = hd.listarHabitacionOcupadas(false, idTipoHabitacion);
+//////       borrarFilas();
+//////       for(Habitacion disponibles : disponible){
+//////       
+//////           modelo.addRow(new Object[]{
+//////       
+//////                    disponibles.getIdTipodehabitacion()
+//////                   ,disponibles.getDescripcion()
+//////                   ,disponibles.getIdHabitacion()
+//////                   ,disponibles.getPrecioNoche()
+//////       
+//////       });
+//////       }
+//////        }
+

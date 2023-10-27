@@ -252,7 +252,7 @@ escritorio.removeAll();
     private void jmCHabitacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion2ActionPerformed
           escritorio.removeAll();
         escritorio.repaint();
-        InfoHabitaciones habi = new InfoHabitaciones();
+        InfoHabitacion habi = new InfoHabitacion();
        habi.setVisible(true);
         escritorio.add(habi);
         escritorio.moveToFront(habi);

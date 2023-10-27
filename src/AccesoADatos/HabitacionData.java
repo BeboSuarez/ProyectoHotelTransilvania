@@ -136,6 +136,7 @@ public class HabitacionData {
                 Habitacion habitacion = new Habitacion();
 
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
                 habitacion.setRefaccion(rs.getBoolean("refaccion"));
@@ -177,9 +178,9 @@ public class HabitacionData {
                 Habitacion habitacion = new Habitacion();
 
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                    habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
+                          habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
                 habitacion.setDescripcion(rs.getString("Descripcion"));
-               habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
-                habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
                 habitacion.setRefaccion(rs.getBoolean("Refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
