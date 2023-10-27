@@ -148,6 +148,12 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         jLabel8.setText("IdReserva");
 
+        jComboHuesped.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboHuespedActionPerformed(evt);
+            }
+        });
+
         jLabel9.setText("Huesped");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -333,9 +339,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         int filaSeleccionada = jTabla.getSelectedRow();
         jidReserva.setText(modelo.getValueAt(filaSeleccionada, 0).toString());
-        jtHuesped.setText(modelo.getValueAt(filaSeleccionada, 1).toString());
-        jtHabitacion.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
-        LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
+               jtHabitacion.setText(modelo.getValueAt(filaSeleccionada, 1).toString());
+        jtHuesped.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
+LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
         jfechaIngreso.setDate(java.sql.Date.valueOf(fechaIngreso));
         LocalDate fechaSalida = (LocalDate) modelo.getValueAt(filaSeleccionada, 4);
         jfechaSalida.setDate(java.sql.Date.valueOf(fechaSalida));
@@ -361,6 +367,12 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     private void jrEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrEstadoActionPerformed
+
+    private void jComboHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboHuespedActionPerformed
+        Huesped huespedseleccionado = (Huesped) jComboHuesped.getSelectedItem();
+
+        jtHuesped.setText(huespedseleccionado.getIdHuesped() + "");
+    }//GEN-LAST:event_jComboHuespedActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
