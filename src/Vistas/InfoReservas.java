@@ -288,19 +288,17 @@ private Reserva reservaNueva=null;
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-//        ReservaData modData = new ReservaData();
+        ReservaData modData = new ReservaData();
 ////
-//        int filaSeleccionada = jTabla.getSelectedRow();
-//        int idHabitacion = (Integer) jTabla.getValueAt(filaSeleccionada, 1);
-//        int idHuesped = (Integer) jTabla.getValueAt(filaSeleccionada, 2);
-//        LocalDate fechaIngreso = (LocalDate) jTabla.getValueAt(filaSeleccionada, 3);
-//        LocalDate fechaSalida = (LocalDate) jTabla.getValueAt(filaSeleccionada, 4);
-//
-//        System.out.println("2");
-//        int cantidadPersonas = (Integer) jTabla.getValueAt(filaSeleccionada, 5);
-//        double precioTotal = (double) jTabla.getValueAt(filaSeleccionada, 6);
-//        boolean estado = (boolean) jTabla.getValueAt(filaSeleccionada, 7);
-//        Reserva modificar = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
+        int filaSeleccionada = jTabla.getSelectedRow();
+        int idHabitacion = (Integer) jTabla.getValueAt(filaSeleccionada, 1);
+        int idHuesped = (Integer) jTabla.getValueAt(filaSeleccionada, 2);
+        LocalDate fechaIngreso = (LocalDate)jfechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate fechaSalida = (LocalDate)jfechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        int cantidadPersonas = (Integer) jTabla.getValueAt(filaSeleccionada, 5);
+        double precioTotal = (double) jTabla.getValueAt(filaSeleccionada, 6);
+        boolean estado = (boolean) jTabla.getValueAt(filaSeleccionada, 7);
+        Reserva modificar = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
 //        if (filaSeleccionada != -1) {
 //
 //            modData.modificarReserva(modificar);
