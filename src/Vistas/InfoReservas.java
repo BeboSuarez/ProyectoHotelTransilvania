@@ -54,7 +54,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jtHabitacion = new javax.swing.JTextField();
+        jtidHabitacion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jrEstado = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
@@ -122,6 +122,8 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         idHabitacion.setText("Habitaciones disponibles");
 
+        jidReserva.setEnabled(false);
+
         jcPersonas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcPersonasActionPerformed(evt);
@@ -140,9 +142,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Estado");
 
-        jtHabitacion.addActionListener(new java.awt.event.ActionListener() {
+        jtidHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtHabitacionActionPerformed(evt);
+                jtidHabitacionActionPerformed(evt);
             }
         });
 
@@ -191,7 +193,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jComboHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -260,7 +262,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(jtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
                         .addComponent(jidReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -314,17 +316,28 @@ borrarFilas();
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
      
         try {
-            int filaSeleccionada = jTabla.getSelectedRow();
-            int idHabitacion = (Integer) jTabla.getValueAt(filaSeleccionada, 1);
-            int idHuesped = (Integer) jTabla.getValueAt(filaSeleccionada, 2);
-            LocalDate fechaIngreso = (LocalDate) jfechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            LocalDate fechaSalida = (LocalDate) jfechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            int cantidadPersonas = (Integer) jTabla.getValueAt(filaSeleccionada, 5);
-            double precioTotal = (double) jTabla.getValueAt(filaSeleccionada, 6);
-            boolean estado = (boolean) jTabla.getValueAt(filaSeleccionada, 7);
-            Reserva modificar = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
-
-            reservaData.modificarReserva(modificar);
+//            int filaSeleccionada = jTabla.getSelectedRow();
+//           int idReserva =(Integer)jTabla.getValueAt(filaSeleccionada, 0);
+//            int idHabitacion = (Integer) jTabla.getValueAt(filaSeleccionada, 1);
+//            int idHuesped = (Integer) jTabla.getValueAt(filaSeleccionada, 2);
+//            LocalDate fechaIngreso = (LocalDate) jfechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//            LocalDate fechaSalida = (LocalDate) jfechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//            int cantidadPersonas = (Integer) jTabla.getValueAt(filaSeleccionada, 5);
+//            double precioTotal = (double) jTabla.getValueAt(filaSeleccionada, 6);
+//            boolean estado = (boolean) jTabla.getValueAt(filaSeleccionada, 7);
+//            Reserva modificar = new Reserva(idReserva,idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
+int idReserva= Integer.parseInt(jidReserva.getText()+"");
+int idHabitacion= Integer.parseInt(jtidHabitacion.getText()+"");
+int idHuesped= Integer.parseInt(jtHuesped.getText()+"");
+LocalDate fechaIngreso= jfechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+LocalDate fechaSalida=jfechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+int cantidadPersonas= Integer.parseInt(jcPersonas.getText()+"");
+double precioTotal= Double.parseDouble(jpTotal.getText()+"");
+boolean estado= jrEstado.isSelected();
+Reserva r=new Reserva(idReserva, idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
+            reservaData.modificarReserva(r);
+           
+            
         } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(null, "HOLA :)");
@@ -343,7 +356,7 @@ borrarFilas();
     private void jcbHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbHabitacionActionPerformed
         Habitacion habiseleccionada = (Habitacion) jcbHabitacion.getSelectedItem();
 
-        jtHabitacion.setText(habiseleccionada.getIdHabitacion() + "");
+        jtidHabitacion.setText(habiseleccionada.getIdHabitacion() + "");
 
     }//GEN-LAST:event_jcbHabitacionActionPerformed
 
@@ -355,7 +368,7 @@ borrarFilas();
 
         int filaSeleccionada = jTabla.getSelectedRow();
         jidReserva.setText(modelo.getValueAt(filaSeleccionada, 0).toString());
-               jtHabitacion.setText(modelo.getValueAt(filaSeleccionada, 1).toString());
+               jtidHabitacion.setText(modelo.getValueAt(filaSeleccionada, 1).toString());
         jtHuesped.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
 LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
         jfechaIngreso.setDate(java.sql.Date.valueOf(fechaIngreso));
@@ -376,9 +389,9 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
 
     }//GEN-LAST:event_jTablaMouseClicked
 
-    private void jtHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtHabitacionActionPerformed
+    private void jtidHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtidHabitacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtHabitacionActionPerformed
+    }//GEN-LAST:event_jtidHabitacionActionPerformed
 
     private void jrEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoActionPerformed
         // TODO add your handling code here:
@@ -434,8 +447,8 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
     private javax.swing.JTextField jidReserva;
     private javax.swing.JTextField jpTotal;
     private javax.swing.JRadioButton jrEstado;
-    private javax.swing.JTextField jtHabitacion;
     private javax.swing.JTextField jtHuesped;
+    private javax.swing.JTextField jtidHabitacion;
     // End of variables declaration//GEN-END:variables
 
     private void borrarFilas() {

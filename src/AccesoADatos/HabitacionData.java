@@ -171,7 +171,7 @@ public class HabitacionData {
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
-            
+            ps.setInt(1, idTipodehabitacion);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
@@ -191,12 +191,13 @@ public class HabitacionData {
         }
         return habitaciones;
     }
-    public List<Habitacion> listarHabitacionDisponibles() {
+    public List<Habitacion> listarHabitacionDisponibles(boolean estado, int idTipodehabitacion) {
         String sql = "SELECT * FROM habitacion WHERE estado = 0 AND idTipodehabitacion = ? ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
+           ps.setInt(1,idTipodehabitacion);
             
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

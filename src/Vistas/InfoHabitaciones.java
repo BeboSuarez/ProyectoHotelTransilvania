@@ -32,8 +32,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         CargarComboHabitaciones();
         CargarComboboxHabitaciones();
        CargarComboHabitaciones();
-       cargarTablaHabitacionD();
-      cargarTablaHabitacionND();
+       cargarTablaHabitacionD(tipohabitacion.getIdTipodehabitacion());
+      cargarTablaHabitacionND(tipohabitacion.getIdTipodehabitacion());
       
         modelo = (DefaultTableModel) jTabla.getModel();
         habitacionData=new HabitacionData();
@@ -332,12 +332,13 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
     private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
          TipoDeHabitacion habi = (TipoDeHabitacion)jcbComboHabitaciones.getSelectedItem();
+       
          borrarFilas();
          if (habi != null) {
             if (jrbHabitacionD.isSelected()) {
-                cargarTablaHabitacionD();
+                cargarTablaHabitacionD(habi.getIdTipodehabitacion());
             } else if (jrbHabitacionND.isSelected()) {
-               cargarTablaHabitacionND();
+                cargarTablaHabitacionND(habi.getIdTipodehabitacion());
             }
         }
     }//GEN-LAST:event_jrbHabitacionDActionPerformed
@@ -444,9 +445,9 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
         }
     }
-private void cargarTablaHabitacionD() {
+private void cargarTablaHabitacionD(int idTipoHabitacion) {
        HabitacionData hd = new HabitacionData();
-       List<Habitacion> disponible = hd.listarHabitacionDisponibles();
+       List<Habitacion> disponible = hd.listarHabitacionDisponibles(true, idTipoHabitacion);
        borrarFilas();
        for(Habitacion disponibles : disponible){
        
@@ -460,9 +461,9 @@ private void cargarTablaHabitacionD() {
        });
        }
         }
-private void cargarTablaHabitacionND() {
+private void cargarTablaHabitacionND(int idTipoHabitacion) {
        HabitacionData hd = new HabitacionData();
-       List<Habitacion> disponible = hd.listarHabitacionNoDisponible();
+       List<Habitacion> disponible = hd.listarHabitacionOcupadas(false, idTipoHabitacion);
        borrarFilas();
        for(Habitacion disponibles : disponible){
        

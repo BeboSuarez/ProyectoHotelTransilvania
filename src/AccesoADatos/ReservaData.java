@@ -18,13 +18,19 @@ import javax.swing.JOptionPane;
 public class ReservaData {
 
     private Connection con = null;
+    
 
     private HuespedData hd = new HuespedData();
     private HabitacionData habDa = new HabitacionData();
 
     public ReservaData() {
 
-        con = Conexion.getConexion();
+        try {
+            con = Conexion.getConexion();
+            con.setAutoCommit(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservaData.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void guardarReserva(Reserva re) {
@@ -62,10 +68,11 @@ public class ReservaData {
         //UPDATE `reserva` SET `idReserva`='[value-1]',`idHabitacion`='[value-2]',`idHuesped`='[value-3]',
        // `fechaIngreso`='[value-4]',`fechaSalida`='[value-5]',`cantidadPersonas`='[value-6]',`precioTotal`='[value-7]'
        // ,`estado`='[value-8]' WHERE 1
-       String sql = "UPDATE reserva SET idReserva = ?,idHabitacion = ?"
+       String sql = "UPDATE reserva SET idHabitacion = ?"
                + ", idHuesped = ?, fechaIngreso = ?,fechaSalida = ?"
-               + ",cantidadPersonas = ?,precioTotal = ?,estado = ? WHERE idReserva";
-        PreparedStatement ps = null;
+               + ",cantidadPersonas = ?,precioTotal = ?,estado = ? WHERE idReserva=?";
+   
+       PreparedStatement ps = null;
        try {
            
            ps=con.prepareStatement(sql);
@@ -78,13 +85,15 @@ public class ReservaData {
             ps.setDouble(6, reserva.getPrecioTotal());
             ps.setBoolean(7, reserva.isEstado());
              ps.setInt(8, reserva.getIdReserva());
-            System.out.println("10");
+            System.out.println("1");
                int exito = ps.executeUpdate();
+               System.out.println(exito);
              if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "la reserva no existe");
             }
+           con.commit();
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Reserva");
