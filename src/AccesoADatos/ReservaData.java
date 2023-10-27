@@ -93,9 +93,10 @@ public class ReservaData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idHuesped);
             ps.setInt(2, idReserva);
-
+            System.out.println("no entre");
             int filas = ps.executeUpdate();
             if (filas > 0) {
+                
                 JOptionPane.showMessageDialog(null, "Reserva borrada");
             }
         } catch (SQLException ex) {

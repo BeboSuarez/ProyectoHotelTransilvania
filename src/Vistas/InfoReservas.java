@@ -19,6 +19,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel();
     private Reserva reservaNueva = null;
+    private ReservaData reservaData;
 
     public InfoReservas() {
         initComponents();
@@ -27,6 +28,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         CargarComboBox();
         CargarComboHuesped();
         modelo = (DefaultTableModel) jTabla.getModel();
+        reservaData=new ReservaData();
     }
 
     @SuppressWarnings("unchecked")
@@ -70,6 +72,11 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
 
         jbEliminar.setText("BAJA");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jcbCargarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,7 +303,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbConsultarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
-        ReservaData modData = new ReservaData();
+     
         try {
             int filaSeleccionada = jTabla.getSelectedRow();
             int idHabitacion = (Integer) jTabla.getValueAt(filaSeleccionada, 1);
@@ -308,7 +315,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             boolean estado = (boolean) jTabla.getValueAt(filaSeleccionada, 7);
             Reserva modificar = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
 
-            modData.modificarReserva(modificar);
+            reservaData.modificarReserva(modificar);
         } catch (NumberFormatException e) {
 
             JOptionPane.showMessageDialog(null, "HOLA :)");
@@ -348,7 +355,7 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
         jcPersonas.setText(modelo.getValueAt(filaSeleccionada, 5).toString());
         jpTotal.setText(modelo.getValueAt(filaSeleccionada, 6).toString());
         jrEstado.setSelected(true);
-
+borrarFilas();
 //     LocalDate fechaIngreso =(LocalDate) modelo.getValueAt(filaSeleccionada, 3);
 //       jfechaIngreso.setDate(java.sql.Date.valueOf(fechaIngreso));
 //        LocalDate fechaSalida =(LocalDate) modelo.getValueAt(filaSeleccionada, 4);
@@ -356,7 +363,7 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
 //      Habitacion h = (Habitacion) jTabla.getValueAt(filaSeleccionada, 1);
 //        System.out.println(h);
 //   jcbHabitacion.getSelectedIndex(idHabitacion));
-        System.out.println(modelo.getValueAt(filaSeleccionada, 1));
+        
 
     }//GEN-LAST:event_jTablaMouseClicked
 
@@ -373,6 +380,19 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
 
         jtHuesped.setText(huespedseleccionado.getIdHuesped() + "");
     }//GEN-LAST:event_jComboHuespedActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        int filaSeleccionada = jTabla.getSelectedRow();
+            if(filaSeleccionada != -1){
+            
+            int idHuesped = (int) modelo.getValueAt(filaSeleccionada, 2);
+            int idReserva = (int) modelo.getValueAt(filaSeleccionada, 0);
+           reservaData.BajaReserva(idHuesped,idReserva);
+            borrarFilas();
+            
+            
+            }
+    }//GEN-LAST:event_jbEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
