@@ -62,22 +62,22 @@ public class ReservaData {
         //UPDATE `reserva` SET `idReserva`='[value-1]',`idHabitacion`='[value-2]',`idHuesped`='[value-3]',
        // `fechaIngreso`='[value-4]',`fechaSalida`='[value-5]',`cantidadPersonas`='[value-6]',`precioTotal`='[value-7]'
        // ,`estado`='[value-8]' WHERE 1
-       String sql = "UPDATE reserva SET idReserva = ?,idHabitacion=?, idHuesped=?, fechaIngreso=?,fechaSalida=?"
-               + ",cantidadPersonas=?,precioTotal=? WHERE estado = ?";
+       String sql = "UPDATE reserva SET idReserva = ?,idHabitacion = ?"
+               + ", idHuesped = ?, fechaIngreso = ?,fechaSalida = ?"
+               + ",cantidadPersonas = ?,precioTotal = ?,estado = ? WHERE idReserva";
         PreparedStatement ps = null;
        try {
            
            ps=con.prepareStatement(sql);
-           ps.setInt(1, reserva.getIdReserva());
-            ps.setInt(2, reserva.getIdHabitacion());
             
-            ps.setInt(3, reserva.getIdHuesped());
-            ps.setDate(4, Date.valueOf(reserva.getFechaIngreso()));
-            ps.setDate(5, Date.valueOf(reserva.getFechaSalida()));
-            ps.setInt(6, reserva.getCantidadPersonas());
-            ps.setDouble(7, reserva.getPrecioTotal());
-            ps.setBoolean(8, reserva.isEstado());
-            
+            ps.setInt(1, reserva.getIdHabitacion());
+            ps.setInt(2, reserva.getIdHuesped());
+            ps.setDate(3, Date.valueOf(reserva.getFechaIngreso()));
+            ps.setDate(4, Date.valueOf(reserva.getFechaSalida()));
+            ps.setInt(5, reserva.getCantidadPersonas());
+            ps.setDouble(6, reserva.getPrecioTotal());
+            ps.setBoolean(7, reserva.isEstado());
+             ps.setInt(8, reserva.getIdReserva());
             System.out.println("10");
                int exito = ps.executeUpdate();
              if (exito == 1) {

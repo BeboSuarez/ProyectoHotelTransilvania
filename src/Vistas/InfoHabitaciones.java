@@ -3,9 +3,11 @@ package Vistas;
 import AccesoADatos.HabitacionData;
 import AccesoADatos.HuespedData;
 import AccesoADatos.ReservaData;
+import AccesoADatos.TipoDeHabitacionData;
 import Entidades.Habitacion;
 import Entidades.Huesped;
 import Entidades.Reserva;
+import Entidades.TipoDeHabitacion;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneId;
@@ -20,15 +22,22 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo = new DefaultTableModel();
     private Habitacion habitacion = null;
     private HabitacionData habitacionData;
-
+    private TipoDeHabitacion tipohabitacion;
+    
+    
+    
     public InfoHabitaciones() {
         initComponents();
         ArmarCabecera();
         CargarComboHabitaciones();
         CargarComboboxHabitaciones();
        CargarComboHabitaciones();
+       cargarTablaHabitacionD();
+      cargarTablaHabitacionND();
+      
         modelo = (DefaultTableModel) jTabla.getModel();
         habitacionData=new HabitacionData();
+        tipohabitacion = new TipoDeHabitacion();
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +53,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jcbComboHabitaciones = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
-        jbConsultar = new javax.swing.JButton();
         jcbHabitacion = new javax.swing.JComboBox<>();
         idHabitacion = new javax.swing.JLabel();
         jidReserva = new javax.swing.JTextField();
@@ -59,8 +67,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jrbHabitacionD = new javax.swing.JRadioButton();
+        jrbHabitacionND = new javax.swing.JRadioButton();
 
         jLabel1.setText("Informacion de las Habitaciones");
 
@@ -85,8 +93,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane2.setViewportView(jTabla);
-
-        jbConsultar.setText("consultar");
 
         jcbHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,19 +144,19 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Refaccion");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("HABITACION DISPONIBLE");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jrbHabitacionD);
+        jrbHabitacionD.setText("HABITACION DISPONIBLE");
+        jrbHabitacionD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jrbHabitacionDActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("HABITACION ");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jrbHabitacionND);
+        jrbHabitacionND.setText("HABITACION N/D ");
+        jrbHabitacionND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                jrbHabitacionNDActionPerformed(evt);
             }
         });
 
@@ -161,12 +167,9 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(jbModificar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(idHabitacion)
                                     .addComponent(jLabel6)
@@ -181,7 +184,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jrEstado)
                                             .addComponent(jtHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jRadioButton1))))))
+                                            .addComponent(jRadioButton1)))))
+                            .addComponent(jbModificar))
                         .addGap(104, 104, 104)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -197,9 +201,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                                     .addComponent(jpTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jidReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jcPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -207,14 +209,12 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                         .addGap(101, 101, 101)
                         .addComponent(jLabel1)
                         .addGap(75, 75, 75)
-                        .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jbConsultar))
+                        .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jrbHabitacionD)
                         .addGap(183, 183, 183)
-                        .addComponent(jRadioButton3)))
+                        .addComponent(jrbHabitacionND)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -223,12 +223,11 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbConsultar))
-                .addGap(39, 39, 39)
+                    .addComponent(jcbComboHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(jrbHabitacionD)
+                    .addComponent(jrbHabitacionND))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -245,30 +244,31 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
                         .addComponent(jidReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(7, 7, 7)
-                            .addComponent(jrEstado)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jRadioButton1)
-                            .addGap(82, 82, 82))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(15, 15, 15)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(jpTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(101, 101, 101)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbModificar)
-                    .addComponent(jbEliminar))
-                .addContainerGap())
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jpTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(139, 139, 139))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jrEstado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton1)
+                                .addGap(40, 40, 40))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbModificar)
+                            .addComponent(jbEliminar))
+                        .addGap(21, 21, 21))))
         );
 
         pack();
@@ -330,13 +330,21 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
+         TipoDeHabitacion habi = (TipoDeHabitacion)jcbComboHabitaciones.getSelectedItem();
+         borrarFilas();
+         if (habi != null) {
+            if (jrbHabitacionD.isSelected()) {
+                cargarTablaHabitacionD();
+            } else if (jrbHabitacionND.isSelected()) {
+               cargarTablaHabitacionND();
+            }
+        }
+    }//GEN-LAST:event_jrbHabitacionDActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void jrbHabitacionNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionNDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_jrbHabitacionNDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -352,19 +360,18 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTabla;
-    private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JTextField jcPersonas;
-    private javax.swing.JComboBox<Habitacion> jcbComboHabitaciones;
+    private javax.swing.JComboBox<TipoDeHabitacion> jcbComboHabitaciones;
     private javax.swing.JComboBox<Habitacion> jcbHabitacion;
     private javax.swing.JTextField jidReserva;
     private javax.swing.JTextField jpTotal;
     private javax.swing.JRadioButton jrEstado;
+    private javax.swing.JRadioButton jrbHabitacionD;
+    private javax.swing.JRadioButton jrbHabitacionND;
     private javax.swing.JTextField jtHabitacion;
     // End of variables declaration//GEN-END:variables
 
@@ -385,11 +392,11 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 //    }
 
     private void CargarComboHabitaciones() {
-        HabitacionData Habi = new HabitacionData();
+        TipoDeHabitacionData Habi = new TipoDeHabitacionData();
 
-        List<Habitacion> ha = Habi.listarHabitacion();
-        for (Habitacion habitacion : ha) {
-            jcbComboHabitaciones.addItem(habitacion);
+        List<TipoDeHabitacion> ha = Habi.listarTipoDeHabitacion();
+        for (TipoDeHabitacion tipohabitacion : ha) {
+            jcbComboHabitaciones.addItem(tipohabitacion);
 
         }
     }
@@ -437,5 +444,36 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
         }
     }
-
+private void cargarTablaHabitacionD() {
+       HabitacionData hd = new HabitacionData();
+       List<Habitacion> disponible = hd.listarHabitacionDisponibles();
+       borrarFilas();
+       for(Habitacion disponibles : disponible){
+       
+           modelo.addRow(new Object[]{
+       
+                    disponibles.getIdTipodehabitacion()
+                   ,disponibles.getDescripcion()
+                   ,disponibles.getIdHabitacion()
+                   ,disponibles.getPrecioNoche()
+       
+       });
+       }
+        }
+private void cargarTablaHabitacionND() {
+       HabitacionData hd = new HabitacionData();
+       List<Habitacion> disponible = hd.listarHabitacionNoDisponible();
+       borrarFilas();
+       for(Habitacion disponibles : disponible){
+       
+           modelo.addRow(new Object[]{
+       
+                    disponibles.getIdTipodehabitacion()
+                   ,disponibles.getDescripcion()
+                   ,disponibles.getIdHabitacion()
+                   ,disponibles.getPrecioNoche()
+       
+       });
+       }
+        }
 }

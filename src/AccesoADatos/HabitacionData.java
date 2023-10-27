@@ -82,7 +82,7 @@ public class HabitacionData {
     }
 
     public void modificarHabitacion(Habitacion habitacion) {
-
+        
         String sql = "UPDATE habitacion SET idHabitacion = ? ,precioNoche=?,descripcion = ?,refaccion = ?,estado = ?";
         PreparedStatement ps = null;
 
@@ -109,7 +109,7 @@ public class HabitacionData {
         }
 
     }
-  public void disponibilidadHabitacion(int id) {
+  public void habitacionDisponible(int id) {
         String sql = "UPDATE habitacion SET estado = 1 WHERE idHabitacion = ? ";
         try {
 
@@ -164,5 +164,83 @@ public class HabitacionData {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
         }
+    }
+    public List<Habitacion> listarHabitacionOcupadas(boolean estado, int idTipodehabitacion) {
+        String sql = "SELECT * FROM habitacion WHERE estado = 1 AND idTipodehabitacion = ? ";
+        ArrayList<Habitacion> habitaciones = new ArrayList<>();
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Habitacion habitacion = new Habitacion();
+
+                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setDescripcion(rs.getString("Descripcion"));
+               habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
+                habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
+                habitacion.setRefaccion(rs.getBoolean("Refaccion"));
+                habitacion.setEstado(rs.getBoolean("estado"));
+                habitaciones.add(habitacion);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());
+        }
+        return habitaciones;
+    }
+    public List<Habitacion> listarHabitacionDisponibles() {
+        String sql = "SELECT * FROM habitacion WHERE estado = 0 AND idTipodehabitacion = ? ";
+        ArrayList<Habitacion> habitaciones = new ArrayList<>();
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Habitacion habitacion = new Habitacion();
+
+                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setDescripcion(rs.getString("Descripcion"));
+               habitacion.setIdTipodehabitacion(rs.getInt("Tipodehabitacion"));
+                habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
+                habitacion.setRefaccion(rs.getBoolean("Refaccion"));
+                habitacion.setEstado(rs.getBoolean("estado"));
+                habitaciones.add(habitacion);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Habitacion " + ex.getMessage());
+        }
+        return habitaciones;
+    }
+    public List<Habitacion> listarHabitacionNoDisponible() {
+        String sql = "SELECT * FROM habitacion WHERE estado = 1 AND idTipodehabitacion = ? ";
+        ArrayList<Habitacion> habitaciones = new ArrayList<>();
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Habitacion habitacion = new Habitacion();
+
+                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setDescripcion(rs.getString("Descripcion"));
+               habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
+                habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
+                habitacion.setRefaccion(rs.getBoolean("Refaccion"));
+                habitacion.setEstado(rs.getBoolean("estado"));
+                habitaciones.add(habitacion);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());
+        }
+        return habitaciones;
     }
 }

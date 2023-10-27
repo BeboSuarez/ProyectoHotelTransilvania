@@ -62,7 +62,10 @@ ps.setBoolean(6, th.isEstado());
 
     public void modificarTipoDeHabitacion(TipoDeHabitacion th) {
 
-        String sql = "UPDATE tipodehabitacion SET descripcion = ?, cantidadCamas = ?, cantidadPersonas = ?, tipoCama = ?,precioNoche = ?, estado=? where idTipodehabitacion=?";
+        String sql = "UPDATE tipodehabitacion SET descripcion = ?,"
+                + " cantidadCamas = ?, cantidadPersonas = ?,"
+                + " tipoCama = ?,precioNoche = ?, estado=? "
+                + "where idTipodehabitacion=?";
         PreparedStatement ps = null;
 
         try {
