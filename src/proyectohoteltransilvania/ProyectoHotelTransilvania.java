@@ -65,10 +65,10 @@ public class ProyectoHotelTransilvania {
 //       hd.guardarTipoDeHabitacion(habi1);
 //     hd.modificarTipoDeHabitacion(habi1);
 ////Reserva re=new Reserva(3,2,1,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
-ReservaData redata=new ReservaData();
-List<Reserva> reservas=redata.obtenerReservaPorHuesped(8);
-        for (Reserva reserva : reservas) {
-            System.out.println("fg"+reserva.getIdReserva());
+//ReservaData redata=new ReservaData();
+//List<Reserva> reservas=redata.obtenerReservaPorHuesped(8);
+//        for (Reserva reserva : reservas) {
+//            System.out.println("fg"+reserva.getIdReserva());
             
         }
             
@@ -101,7 +101,7 @@ List<Reserva> reservas=redata.obtenerReservaPorHuesped(8);
 //            System.out.println("Estado: "+huespedEncontrado.isEstado());
 
           
-        }
+//        }
      
 //hd.listarHabitacion();
 
