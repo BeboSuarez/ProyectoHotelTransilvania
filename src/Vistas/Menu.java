@@ -50,6 +50,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jmCargarth = new javax.swing.JMenuItem();
         jmCHabitacion = new javax.swing.JMenuItem();
+        jmCHabitacion2 = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -160,6 +161,15 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jmCHabitacion);
 
+        jmCHabitacion2.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
+        jmCHabitacion2.setText("Informacion Habitaciones");
+        jmCHabitacion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmCHabitacion2ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jmCHabitacion2);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -239,6 +249,15 @@ escritorio.removeAll();
         escritorio.moveToFront(IReserva);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jmCHabitacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion2ActionPerformed
+          escritorio.removeAll();
+        escritorio.repaint();
+        InfoHabitaciones habi = new InfoHabitaciones();
+       habi.setVisible(true);
+        escritorio.add(habi);
+        escritorio.moveToFront(habi);
+    }//GEN-LAST:event_jmCHabitacion2ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -303,6 +322,7 @@ escritorio.removeAll();
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jmCHabitacion;
     private javax.swing.JMenuItem jmCHabitacion1;
+    private javax.swing.JMenuItem jmCHabitacion2;
     private javax.swing.JMenuItem jmCargarth;
     // End of variables declaration//GEN-END:variables
 }

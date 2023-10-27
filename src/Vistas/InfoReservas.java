@@ -290,7 +290,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbCargarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCargarClienteActionPerformed
-
+borrarFilas();
     }//GEN-LAST:event_jcbCargarClienteActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
@@ -355,7 +355,7 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
         jcPersonas.setText(modelo.getValueAt(filaSeleccionada, 5).toString());
         jpTotal.setText(modelo.getValueAt(filaSeleccionada, 6).toString());
         jrEstado.setSelected(true);
-borrarFilas();
+
 //     LocalDate fechaIngreso =(LocalDate) modelo.getValueAt(filaSeleccionada, 3);
 //       jfechaIngreso.setDate(java.sql.Date.valueOf(fechaIngreso));
 //        LocalDate fechaSalida =(LocalDate) modelo.getValueAt(filaSeleccionada, 4);
