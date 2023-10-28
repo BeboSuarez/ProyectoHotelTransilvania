@@ -89,7 +89,7 @@
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Component id="jcbComboHabitaciones" min="-2" pref="202" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="idTipoHabi" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtidTipoHabi" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbComboHabitaciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idTipoHabi" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtidTipoHabi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -357,7 +357,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbHabitacionNDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="idTipoHabi">
+    <Component class="javax.swing.JTextField" name="jtidTipoHabi">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>

@@ -166,7 +166,7 @@ public class HabitacionData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
         }
     }
-    public List<Habitacion> listarHabitacionOcupadas(boolean estado, int idTipodehabitacion) {
+    public List<Habitacion> listarHabitacionOcupadas(int idTipodehabitacion) {
         String sql = "SELECT * FROM habitacion WHERE estado = 1 AND idTipodehabitacion = ? ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
@@ -192,7 +192,7 @@ public class HabitacionData {
         }
         return habitaciones;
     }
-    public List<Habitacion> listarHabitacionDisponibles(boolean estado, int idTipodehabitacion) {
+    public List<Habitacion> listarHabitacionDisponibles(int idTipodehabitacion) {
         String sql = "SELECT * FROM habitacion WHERE estado = 0 AND idTipodehabitacion = ? ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
@@ -204,10 +204,10 @@ public class HabitacionData {
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
 
-                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                    habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
+                          habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
                 habitacion.setDescripcion(rs.getString("Descripcion"));
-               habitacion.setIdTipodehabitacion(rs.getInt("Tipodehabitacion"));
-                habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
                 habitacion.setRefaccion(rs.getBoolean("Refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
