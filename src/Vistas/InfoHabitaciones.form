@@ -39,7 +39,7 @@
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jcbHabitacion" min="-2" pref="133" max="-2" attributes="0"/>
@@ -48,9 +48,13 @@
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jrEstado" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jtHabitacion" min="-2" pref="33" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jrRefaccion" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jtThabitacion" min="-2" pref="47" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -71,9 +75,9 @@
                               </Group>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jpTotal" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="jidReserva" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="jcPersonas" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="jtPrecioNoche" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="jtIDhabitacion" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="jtDescripcion" min="-2" pref="69" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jbEliminar" min="-2" pref="89" max="-2" attributes="0"/>
@@ -87,9 +91,7 @@
                       <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                      <Component id="jcbComboHabitaciones" min="-2" pref="202" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jtidTipoHabi" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbTipoHabitacion" min="-2" pref="202" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
@@ -108,8 +110,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jcbComboHabitaciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtidTipoHabi" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -123,17 +124,17 @@
                   <Component id="idHabitacion" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="jcbHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="jcPersonas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtThabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jidReserva" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jtIDhabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -141,7 +142,7 @@
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jpTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtPrecioNoche" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
@@ -151,17 +152,18 @@
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Component id="jrEstado" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jrRefaccion" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jbModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jbEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -189,15 +191,15 @@
         <Property name="text" type="java.lang.String" value="BAJA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jcbComboHabitaciones">
+    <Component class="javax.swing.JComboBox" name="jcbTipoHabitacion">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="jcbComboHabitacionesPopupMenuWillBecomeInvisible"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbComboHabitacionesActionPerformed"/>
+        <EventHandler event="popupMenuWillBecomeInvisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="jcbTipoHabitacionPopupMenuWillBecomeInvisible"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbTipoHabitacionActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;TipoDeHabitacion&gt;"/>
@@ -278,16 +280,16 @@
         <Property name="text" type="java.lang.String" value="Tipo de Habitacion"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jidReserva">
+    <Component class="javax.swing.JTextField" name="jtIDhabitacion">
     </Component>
-    <Component class="javax.swing.JTextField" name="jcPersonas">
+    <Component class="javax.swing.JTextField" name="jtDescripcion">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcPersonasActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtDescripcionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jpTotal">
+    <Component class="javax.swing.JTextField" name="jtPrecioNoche">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jpTotalActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtPrecioNocheActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -305,11 +307,6 @@
         <Property name="text" type="java.lang.String" value="Estado"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtHabitacion">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtHabitacionActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="idHabitacion"/>
@@ -325,9 +322,9 @@
         <Property name="text" type="java.lang.String" value="IdTipoHabitacion"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+    <Component class="javax.swing.JRadioButton" name="jrRefaccion">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrRefaccionActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -357,9 +354,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jrbHabitacionNDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtidTipoHabi">
+    <Component class="javax.swing.JTextField" name="jtThabitacion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>

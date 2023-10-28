@@ -19,11 +19,11 @@ import java.util.List;
 public class ProyectoHotelTransilvania {
 //
     public static void main(String[] args) {
-        Connection con=Conexion.getConexion();
+//        Connection con=Conexion.getConexion();
 //        
 //        Huesped Luis=new Huesped (9,"Roberto","Martin",333333333,LocalDate.of(1982, 2, 27),"agu@gmail.com", 4535,"San luis",true);
 //Huesped Luca=new Huesped("Brenda", "Siwonia",362361,LocalDate.of(1992, 03, 26), "siwonia@gmail.com",56566,"Planta567",true);
-        HuespedData hue=new HuespedData();
+//        HuespedData hue=new HuespedData();
 //////          hue.modificarHuesped(Luis);
 //        hue.cargarHuesped(Luca);
 //hue.bajaHuesped(333333333);
@@ -58,7 +58,7 @@ public class ProyectoHotelTransilvania {
       // hd.guardarTipoDeHabitacion(habi1);
 //    hd.modificarTipoDeHabitacion(habi1);
 ////       Habitacion habi=new Habitacion("quintuple", true, true);
-      HabitacionData hd=new HabitacionData();
+//      HabitacionData hd=new HabitacionData();
 //      hd.guardarHabitacion(habi);
 // TipoDeHabitacion habi1= new TipoDeHabitacion(3),"quintuple", 5, 5, "matri y 2 simple",25.000,true);
 //       TipoDeHabitacionData hd=new TipoDeHabitacionData();
@@ -66,13 +66,13 @@ public class ProyectoHotelTransilvania {
 //     hd.modificarTipoDeHabitacion(habi1);
 ////Reserva re=new Reserva(3,2,1,LocalDate.of(2023, 10, 13),LocalDate.of(2023, 10, 15), 2, 26545, true);
 //ReservaData redata=new ReservaData();
-List<Habitacion> habitacion=hd.listarHabitacionOcupadas(true, 0);
-        for (Habitacion habitacione : habitacion) {
-            System.out.println(habitacione.toString());
+//List<Habitacion> habitacion=hd.listarHabitacionOcupadas(true, 0);
+//        for (Habitacion habitacione : habitacion) {
+//            System.out.println(habitacione.toString());
             
-        }
-    }
-}
+//        }
+//    }
+//}
 // list 
 
 
@@ -99,12 +99,10 @@ List<Habitacion> habitacion=hd.listarHabitacionOcupadas(true, 0);
 //            System.out.println("Telefono: "+ huespedEncontrado.getTelefono());
 //            System.out.println("Domicilio "+ huespedEncontrado.getDomicilio());
 //            System.out.println("Estado: "+huespedEncontrado.isEstado());
-
+    }
           
-//        }
+        }
      
-//hd.listarHabitacion();
-
     
    
 
