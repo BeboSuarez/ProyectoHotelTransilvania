@@ -31,7 +31,7 @@ public class HabitacionData {
 
         public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,descripcion,refaccion,estado) VALUES ( ?,?, ?,?,?)";
+        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,descripcion,estado) VALUES ( ?,?, ?,?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -42,8 +42,8 @@ public class HabitacionData {
             ps.setDouble(2, habitacion.getPrecioNoche());
             ps.setString (3, habitacion.getDescripcion());
    
-            ps.setBoolean(4, habitacion.isRefaccion());
-            ps.setBoolean(5, habitacion.isEstado());
+
+            ps.setBoolean(4, habitacion.isEstado());
         
                     ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -64,7 +64,7 @@ public class HabitacionData {
     
     public Habitacion obtenerHabitacionPorId(int idHabitacion) {
         Habitacion habitacion = null;
-        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,precioNoche,descripcion,refaccion,estado"
+        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,precioNoche,descripcion,estado"
                 + "  FROM habitacion WHERE idHabitacion = ?", Statement.RETURN_GENERATED_KEYS)){
             ps.setInt(1, idHabitacion);
             
@@ -83,7 +83,7 @@ public class HabitacionData {
 
     public void modificarHabitacion(Habitacion habitacion) {
         
-        String sql = "UPDATE habitacion SET idHabitacion = ? ,precioNoche=?,descripcion = ?,refaccion = ?,estado = ?";
+        String sql = "UPDATE habitacion SET idHabitacion = ? ,precioNoche=?,descripcion = ?,estado = ?";
         PreparedStatement ps = null;
 
         try {
@@ -93,8 +93,8 @@ public class HabitacionData {
                  ps.setDouble(2, habitacion.getPrecioNoche());
             ps.setString(3, habitacion.getDescripcion());
          
-            ps.setBoolean(4, habitacion.isRefaccion());
-            ps.setBoolean(5, habitacion.isEstado());
+       
+            ps.setBoolean(4, habitacion.isEstado());
             
             int exito = ps.executeUpdate();
 
@@ -139,7 +139,6 @@ public class HabitacionData {
                 
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
-                habitacion.setRefaccion(rs.getBoolean("refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }
@@ -181,7 +180,6 @@ public class HabitacionData {
                     habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                           habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
                 habitacion.setDescripcion(rs.getString("Descripcion"));
-                habitacion.setRefaccion(rs.getBoolean("Refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }
@@ -208,7 +206,6 @@ public class HabitacionData {
                     habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                           habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
                 habitacion.setDescripcion(rs.getString("Descripcion"));
-                habitacion.setRefaccion(rs.getBoolean("Refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }
@@ -234,7 +231,6 @@ public class HabitacionData {
                 habitacion.setDescripcion(rs.getString("Descripcion"));
                habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                 habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
-                habitacion.setRefaccion(rs.getBoolean("Refaccion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }

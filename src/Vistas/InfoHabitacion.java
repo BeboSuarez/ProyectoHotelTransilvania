@@ -124,8 +124,6 @@ cargarTabla();        // TODO add your handling code here:
         modelo.addColumn("ID TipoHabitacion");
         modelo.addColumn("Precio Noche");
         modelo.addColumn("Descripcion");
-        modelo.addColumn("Refraccion");
-
         modelo.addColumn("Estado");
         jTabla.setModel(modelo);
 
@@ -139,7 +137,6 @@ cargarTabla();        // TODO add your handling code here:
              habitacion.getIdTipodehabitacion(),
              habitacion.getPrecioNoche(),
              habitacion.getDescripcion(),
-             habitacion.isRefaccion(),
              habitacion.isEstado()
          });
          }

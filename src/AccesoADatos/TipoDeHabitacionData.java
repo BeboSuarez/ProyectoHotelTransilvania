@@ -143,21 +143,22 @@ ps.setBoolean(6, th.isEstado());
     }
      public void eliminarTipoDeHabitacion(int idTipodehabitacion){
 
-        String sql = " UPDATE tipodehabitacion SET estado=0 WHERE idTipodehabitacion=? ";
+      
         
  
         try {
+              String sql = " DELETE FROM tipodehabitacion WHERE idTipodehabitacion=? ";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idTipodehabitacion);
             int exito = ps.executeUpdate();
 
-            if (exito == 1) {
+            if (exito==1) {
                 JOptionPane.showMessageDialog(null, "eliminada");
                 
             } else {
                 JOptionPane.showMessageDialog(null, "La habitacion no existe.");
             }
-            ps.close();
+           
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Tipo De Habitacion." + ex.getMessage());
         }

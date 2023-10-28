@@ -1,5 +1,6 @@
 package Vistas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -85,7 +86,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        escritorio.setBackground(new java.awt.Color(204, 204, 255));
+        escritorio.setBackground(new java.awt.Color(19, 20, 130));
         escritorio.setForeground(new java.awt.Color(255, 255, 51));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
@@ -178,13 +179,13 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -236,8 +237,10 @@ escritorio.removeAll();
         escritorio.repaint();
         InfoReservas IReservas = new InfoReservas();
         IReservas.setVisible(true);
+        IReservas.getContentPane().setBackground(new Color (19,20,130));
         escritorio.add(IReservas);
         escritorio.moveToFront(IReservas);
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -247,6 +250,7 @@ escritorio.removeAll();
         IReserva.setVisible(true);
         escritorio.add(IReserva);
         escritorio.moveToFront(IReserva);
+    
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmCHabitacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion2ActionPerformed

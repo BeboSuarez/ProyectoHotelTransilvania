@@ -60,10 +60,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jrEstado = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jrRefaccion = new javax.swing.JRadioButton();
-        jLabel10 = new javax.swing.JLabel();
         jrbHabitacionD = new javax.swing.JRadioButton();
         jrbHabitacionND = new javax.swing.JRadioButton();
         jtThabitacion = new javax.swing.JTextField();
@@ -75,12 +72,12 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jbEliminar.setText("BAJA");
 
         jcbTipoHabitacion.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 jcbTipoHabitacionPopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
         jcbTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
@@ -135,21 +132,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
         jLabel7.setText("idHabitacion");
 
-        jrEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrEstadoActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("IdTipoHabitacion");
-
-        jrRefaccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrRefaccionActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setText("Refaccion");
 
         buttonGroup1.add(jrbHabitacionD);
         jrbHabitacionD.setText("HABITACION DISPONIBLE");
@@ -182,17 +165,11 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(idHabitacion)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel10)
                                     .addComponent(jLabel8))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(jcbHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jrEstado)
-                                            .addComponent(jrRefaccion)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jtThabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,19 +241,9 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                             .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(139, 139, 139))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(jrEstado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jrRefaccion)
-                            .addComponent(jLabel10))
-                        .addGap(40, 40, 40)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbModificar)
                             .addComponent(jbEliminar))
@@ -310,19 +277,10 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jtThabitacion.setText(modelo.getValueAt(filaSeleccionada, 1).toString());
         jtPrecioNoche.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
         jtDescripcion.setText(modelo.getValueAt(filaSeleccionada, 3).toString());
-        jrEstado.setSelected(isIcon);
-        jrRefaccion.setSelected(isIcon);
-
+      
+      
         
     }//GEN-LAST:event_jTablaMouseClicked
-
-    private void jrEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrEstadoActionPerformed
-
-    private void jrRefaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrRefaccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrRefaccionActionPerformed
 
     private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
@@ -359,7 +317,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel idHabitacion;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -371,8 +328,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbModificar;
     private javax.swing.JComboBox<Habitacion> jcbHabitacion;
     private javax.swing.JComboBox<TipoDeHabitacion> jcbTipoHabitacion;
-    private javax.swing.JRadioButton jrEstado;
-    private javax.swing.JRadioButton jrRefaccion;
     private javax.swing.JRadioButton jrbHabitacionD;
     private javax.swing.JRadioButton jrbHabitacionND;
     private javax.swing.JTextField jtDescripcion;
@@ -421,7 +376,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         modelo.addColumn("ID TipoHabitacion");
         modelo.addColumn("PrecioNoche");
         modelo.addColumn("Descripcion");
-        modelo.addColumn("Refaccion");
         modelo.addColumn("Estado");
 
         jTabla.setModel(modelo);
@@ -440,7 +394,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                 disponibles.getIdTipodehabitacion(),
                 disponibles.getPrecioNoche(),
                 disponibles.getDescripcion(),
-                disponibles.isRefaccion(),
                 disponibles.isEstado()
  });
         }
@@ -457,7 +410,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                 disponibles.getIdTipodehabitacion(),
                 disponibles.getPrecioNoche(),
                 disponibles.getDescripcion(),
-                disponibles.isRefaccion(),
                 disponibles.isEstado()
 
             });
