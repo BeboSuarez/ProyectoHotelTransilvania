@@ -8,6 +8,7 @@ import Entidades.Huesped;
 import Entidades.Reserva;
 import Entidades.TipoDeHabitacion;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
@@ -51,8 +52,11 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         jtIDhuesped = new javax.swing.JTextField();
         jtCpersonas = new javax.swing.JTextField();
         jcbHabitacion = new javax.swing.JComboBox<>();
-        jtPrecioTotal = new javax.swing.JTextField();
+        jtPrecioNoche = new javax.swing.JTextField();
         jtidHabitacion = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jtPrecioTotal = new javax.swing.JTextField();
+        jbCalcular = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
@@ -66,7 +70,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         jLabel4.setText("ID Habitacion");
 
         jLabel5.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
-        jLabel5.setText("Precio Total");
+        jLabel5.setText("Precio x Noche");
 
         jLabel6.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel6.setText("C/Personas");
@@ -104,6 +108,12 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             }
         });
 
+        jdFechaSalida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jdFechaSalidaMouseClicked(evt);
+            }
+        });
+
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -127,9 +137,18 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jtPrecioTotal.addActionListener(new java.awt.event.ActionListener() {
+        jtPrecioNoche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtPrecioTotalActionPerformed(evt);
+                jtPrecioNocheActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Precio Total");
+
+        jbCalcular.setText("CALCULAR");
+        jbCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCalcularActionPerformed(evt);
             }
         });
 
@@ -141,46 +160,52 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCheckEstado)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jbGuardar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbModificar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jbEliminar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbEliminar)
+                        .addGap(726, 726, 726)
                         .addComponent(jbSalir)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(248, 248, 248)
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel8)
                                     .addComponent(jLabel5))
                                 .addGap(76, 76, 76)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtCpersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                    .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(137, 137, 137)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel9)
-                                    .addComponent(jLabel7))))
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbCalcular)
+                                .addGap(493, 493, 493)))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jCheckEstado)
+                                .addGap(0, 0, 0))
                             .addComponent(jdFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jdFechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtIDhuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(115, 115, 115))
                             .addGroup(layout.createSequentialGroup()
@@ -218,12 +243,21 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckEstado)
-                    .addComponent(jLabel8))
-                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbCalcular)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jCheckEstado))))
+                .addGap(145, 145, 145)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbGuardar)
                     .addComponent(jbModificar)
@@ -245,6 +279,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         System.out.println("aaaaaaa");
+        
         try {
             System.out.println("bbbbbbbb");
             int idHabitacion = Integer.parseInt(jtidHabitacion.getText());
@@ -271,7 +306,40 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         
 
         jbGuardar.setEnabled(false);
-         }                        
+         }        
+       LocalDate fecha1=jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    LocalDate fecha2=jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    System.out.println("fech1: "+fecha1);
+    System.out.println("fech2: "+fecha2);
+
+    int anioACT = fecha2.getYear();
+    int mesACT = fecha2.getMonthValue();
+    int diaACT = fecha2.getDayOfMonth();
+
+    int resAnio = 0;
+
+    int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth();
+    int resMes = fecha2.getMonthValue() - fecha1.getMonthValue();
+
+    if(fecha2.getYear() > fecha1.getYear()) {
+       if(fecha2.getMonthValue() == fecha1.getMonthValue()) {
+
+
+                if(fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
+                    resAnio = fecha2.getYear() - fecha1.getYear();
+                }
+            }else {
+                resAnio = fecha2.getYear() - fecha1.getYear() - 1;
+            }
+        }                                                   
+        
+        System.out.println("dias: "+resDia);
+      double Precio = Double.parseDouble(jtPrecioNoche.getText());
+      
+      double PrecioTotal = Precio * resDia;
+        System.out.println(PrecioTotal);
+        
+       
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -301,25 +369,130 @@ public class CargarReservas extends javax.swing.JInternalFrame {
       
 
      jtidHabitacion.setText(habitacionseleccionado.getIdHabitacion()+"");
-     jtPrecioTotal.setText(habitacionseleccionado.getPrecioNoche()+"");
+     jtPrecioNoche.setText(habitacionseleccionado.getPrecioNoche()+"");
          
      
 
     }//GEN-LAST:event_jcbHabitacionActionPerformed
 
-    private void jtPrecioTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPrecioTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtPrecioTotalActionPerformed
+    private void jtPrecioNocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPrecioNocheActionPerformed
+//       LocalDate fecha1=LocalDate.of(1990,8,18);
+//    LocalDate fecha2=LocalDate.now();
+//    System.out.println("fech1: "+fecha1);
+//    System.out.println("fech2: "+fecha2);
+//
+//    int anioACT = fecha2.getYear();
+//    int mesACT = fecha2.getMonthValue();
+//    int diaACT = fecha2.getDayOfMonth();
+//
+//    int resAnio = 0;
+//
+//    int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth() + 1;
+//    int resMes = fecha2.getMonthValue() - fecha1.getMonthValue() -1;
+//
+//    if(fecha2.getYear() > fecha1.getYear()) {
+//       if(fecha2.getMonthValue() == fecha1.getMonthValue()) {
+//
+//
+//                if(fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
+//                    resAnio = fecha2.getYear() - fecha1.getYear();
+//                }
+//            }else {
+//                resAnio = fecha2.getYear() - fecha1.getYear() - 1;
+//            }
+//        }                                                   
+//
+//        System.out.println("dias: "+resDia);
+//        System.out.println("meses: "+resMes);
+//        System.out.println("anios: "+resAnio);
+//    
+//    
+
+    }//GEN-LAST:event_jtPrecioNocheActionPerformed
 
     private void jtIDhuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIDhuespedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtIDhuespedActionPerformed
+
+    private void jdFechaSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jdFechaSalidaMouseClicked
+
+    }//GEN-LAST:event_jdFechaSalidaMouseClicked
+
+    private void jbCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcularActionPerformed
+        System.out.println("aaaaaaa");
+        
+        if(jtPrecioTotal != null){
+        
+            jtPrecioTotal.setText("");
+        }
+        
+        
+        try {
+            System.out.println("bbbbbbbb");
+            int idHabitacion = Integer.parseInt(jtidHabitacion.getText());
+            System.out.println("1");
+            int idHuesped = Integer.parseInt(jtIDhuesped.getText());
+            LocalDate fechaIngreso = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fechaSalida = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            double precioTotal = Double.parseDouble(jtPrecioNoche.getText());                     
+            System.out.println("2");
+            int cantidadPersonas = Integer.parseInt(jtCpersonas.getText());
+            boolean estado = jCheckEstado.isSelected();   
+
+            if (reservaActual == null) {
+                Reserva res = new Reserva(idHabitacion,idHuesped,fechaIngreso,fechaSalida,cantidadPersonas,precioTotal,estado);
+                //Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
+              
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
+           
+         }        
+       LocalDate fecha1=jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    LocalDate fecha2=jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    System.out.println("fech1: "+fecha1);
+    System.out.println("fech2: "+fecha2);
+
+    int anioACT = fecha2.getYear();
+    int mesACT = fecha2.getMonthValue();
+    int diaACT = fecha2.getDayOfMonth();
+
+    int resAnio = 0;
+
+    int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth();
+    int resMes = fecha2.getMonthValue() - fecha1.getMonthValue();
+
+    if(fecha2.getYear() > fecha1.getYear()) {
+       if(fecha2.getMonthValue() == fecha1.getMonthValue()) {
+
+
+                if(fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
+                    resAnio = fecha2.getYear() - fecha1.getYear();
+                }
+            }else {
+                resAnio = fecha2.getYear() - fecha1.getYear() - 1;
+            }
+        }                                                   
+        
+        System.out.println("dias: "+resDia);
+      double Precio = Double.parseDouble(jtPrecioNoche.getText());
+      
+      double PrecioTotal = Precio * resDia;
+        System.out.println(PrecioTotal);
+        jtPrecioTotal.setText((PrecioTotal)+"");
+        
+        
+//         PrecioTotal = jtPrecioCalculado.getText().toString(); 
+        
+    }//GEN-LAST:event_jbCalcularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckEstado;
     private javax.swing.JComboBox<Huesped> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -327,6 +500,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jbCalcular;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbModificar;
@@ -336,6 +510,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser jdFechaSalida;
     private javax.swing.JTextField jtCpersonas;
     private javax.swing.JTextField jtIDhuesped;
+    private javax.swing.JTextField jtPrecioNoche;
     private javax.swing.JTextField jtPrecioTotal;
     private javax.swing.JTextField jtidHabitacion;
     // End of variables declaration//GEN-END:variables
