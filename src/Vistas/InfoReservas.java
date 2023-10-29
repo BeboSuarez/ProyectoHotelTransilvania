@@ -21,6 +21,8 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     private Reserva reservaNueva = null;
     private ReservaData reservaData;
       private Reserva reservaActual = null;
+        HabitacionData Habi = new HabitacionData();
+        Habitacion Hab = new Habitacion();
 
     public InfoReservas() {
         initComponents();
@@ -71,7 +73,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Informacion de las reservas");
+        jLabel1.setText("Informacion de las reservas  por Nombre");
 
         jbModificar.setBackground(new java.awt.Color(0, 0, 153));
         jbModificar.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,14 +289,14 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                                 .addComponent(jButton1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jcbCargarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(64, 64, 64)
-                                .addComponent(jbConsultar))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jcbCargarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(jbConsultar)))
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -341,7 +343,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                                         .addComponent(jLabel3))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
@@ -629,9 +631,10 @@ jtPrecioNoche.setText(title);
     }
 
     private void CargarComboHabitaciones() {
-        HabitacionData Habi = new HabitacionData();
+        
+      
 
-        List<Habitacion> ha = Habi.listarHabitacion();
+        List<Habitacion> ha = Habi.listarHabitacionDispo();
         for (Habitacion habitacion : ha) {
             jcbHabitacion.addItem(habitacion);
 

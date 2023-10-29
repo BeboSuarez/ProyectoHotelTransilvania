@@ -14,12 +14,10 @@ public class TipoDeHabitacionData {
 
     private Connection con = null;
 
-    
-
     public TipoDeHabitacionData() {
 
         con = Conexion.getConexion();
-       
+
     }
 
     public void guardarTipoDeHabitacion(TipoDeHabitacion th) {
@@ -37,7 +35,7 @@ public class TipoDeHabitacionData {
             ps.setString(4, th.getTipoCama());
             System.out.println("2");
             ps.setDouble(5, th.getPrecioNoche());
-ps.setBoolean(6, th.isEstado());
+            ps.setBoolean(6, th.isEstado());
             System.out.println("3");
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -45,7 +43,7 @@ ps.setBoolean(6, th.isEstado());
                 System.out.println("4");
                 th.setIdTipodehabitacion(rs.getInt(1));
                 System.out.println("5");
-                
+
                 JOptionPane.showMessageDialog(null, "habitacion registrada");
 
             } else {
@@ -55,8 +53,8 @@ ps.setBoolean(6, th.isEstado());
         } catch (SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "Ya existe ese formato de habitacion");
-        }catch (NumberFormatException ex){
-            JOptionPane.showMessageDialog(null,"No se puede" +ex);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "No se puede" + ex);
         }
     }
 
@@ -70,8 +68,7 @@ ps.setBoolean(6, th.isEstado());
 
         try {
             ps = con.prepareStatement(sql);
-            
-       
+
             ps.setString(1, th.getDescripcion());
             ps.setInt(2, th.getCantidadCamas());
             ps.setInt(3, th.getCantidadPersonas());
@@ -89,8 +86,8 @@ ps.setBoolean(6, th.isEstado());
             }
             ps.close();
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null,"Es necesario que ingresen un Tipo de Habitacion.");
-      
+            JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
+
         }
 
     }
@@ -111,7 +108,7 @@ ps.setBoolean(6, th.isEstado());
                 tipo.setTipoCama(rs.getString("tipoCama"));
                 tipo.setPrecioNoche(rs.getDouble("precioNoche"));
                 tipo.setEstado(rs.getBoolean("estado"));
-        
+
                 th.add(tipo);
 
             }
@@ -141,29 +138,26 @@ ps.setBoolean(6, th.isEstado());
         }
         return habitacion;
     }
-     public void eliminarTipoDeHabitacion(int idTipodehabitacion){
 
-      
-        
- 
+    public void eliminarTipoDeHabitacion(int idTipodehabitacion) {
+
         try {
-              String sql = " DELETE FROM tipodehabitacion WHERE idTipodehabitacion=? ";
+            String sql = " DELETE FROM tipodehabitacion WHERE idTipodehabitacion=? ";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, idTipodehabitacion);
             int exito = ps.executeUpdate();
 
-            if (exito==1) {
+            if (exito == 1) {
                 JOptionPane.showMessageDialog(null, "eliminada");
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "La habitacion no existe.");
             }
-           
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Tipo De Habitacion." + ex.getMessage());
         }
 
     }
-   
 
 }

@@ -215,10 +215,10 @@ public class HabitacionData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Habitacion " + ex.getMessage());
         }
         return habitaciones;
+    
     }
-
-    public List<Habitacion> listarHabitacionNoDisponible() {
-        String sql = "SELECT * FROM habitacion WHERE estado = 1 AND idTipodehabitacion = ? ";
+    public List<Habitacion> listarHabitacionDispo() {
+        String sql = "SELECT * FROM habitacion WHERE estado = 1";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
 
