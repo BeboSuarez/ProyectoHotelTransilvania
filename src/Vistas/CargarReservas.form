@@ -52,9 +52,11 @@
                               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jComboBox1" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
-                                  <Component id="jtCpersonas" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jtPrecioNoche" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
                                   <Component id="jtPrecioTotal" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jtCpersonas" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jtPrecioNoche" alignment="0" pref="97" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -74,10 +76,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jCheckEstado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jCheckEstado" min="-2" max="-2" attributes="0"/>
                           <Component id="jdFechaSalida" max="32767" attributes="0"/>
                           <Component id="jdFechaIngreso" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -298,6 +297,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtCpersonas">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtCpersonasKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jcbHabitacion">
       <Properties>
@@ -315,6 +317,7 @@
     <Component class="javax.swing.JTextField" name="jtPrecioNoche">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtPrecioNocheActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtPrecioNocheKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtidHabitacion">
@@ -325,6 +328,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtPrecioTotal">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtPrecioTotalKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbCalcular">
       <Properties>

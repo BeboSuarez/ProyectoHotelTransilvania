@@ -132,6 +132,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                 jtPrecioNocheActionPerformed(evt);
             }
         });
+        jtPrecioNoche.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtPrecioNocheKeyTyped(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel11.setText("Descripcion");
@@ -368,6 +373,14 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private void jEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jEstadoActionPerformed
+
+    private void jtPrecioNocheKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioNocheKeyTyped
+char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == '.')) {
+            evt.consume();
+        }            
+       
+    }//GEN-LAST:event_jtPrecioNocheKeyTyped
 
     private void CargarComboBoxTipoDeHabitacion() {
 

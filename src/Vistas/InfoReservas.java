@@ -20,6 +20,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo = new DefaultTableModel();
     private Reserva reservaNueva = null;
     private ReservaData reservaData;
+      private Reserva reservaActual = null;
 
     public InfoReservas() {
         initComponents();
@@ -27,8 +28,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         CargarComboHabitaciones();
         CargarComboBox();
         CargarComboHuesped();
-        modelo = (DefaultTableModel) jTabla.getModel();
+        modelo = (DefaultTableModel) jtPrecioTotal.getModel();
         reservaData=new ReservaData();
+//        ((JTextFieldDateEditor).getDateEditor()).setEditable(false)
     }
 
     @SuppressWarnings("unchecked")
@@ -40,27 +42,30 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jbEliminar = new javax.swing.JButton();
         jcbCargarCliente = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTabla = new javax.swing.JTable();
+        jtPrecioTotal = new javax.swing.JTable();
         jbConsultar = new javax.swing.JButton();
-        jfechaIngreso = new com.toedter.calendar.JDateChooser();
-        jfechaSalida = new com.toedter.calendar.JDateChooser();
+        jdFechaIngreso = new com.toedter.calendar.JDateChooser();
+        jdFechaSalida = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jcbHabitacion = new javax.swing.JComboBox<>();
         jidReserva = new javax.swing.JTextField();
-        jcPersonas = new javax.swing.JTextField();
-        jpTotal = new javax.swing.JTextField();
+        jtCpersonas = new javax.swing.JTextField();
+        jtPrecioNoche = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jtidHabitacion = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jrEstado = new javax.swing.JRadioButton();
+        jCheckEstado = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
         jComboHuesped = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jtHuesped = new javax.swing.JTextField();
+        jtIDhuesped = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        Calcular = new javax.swing.JButton();
+        jPrecioTotal = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 102));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -95,7 +100,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         jScrollPane2.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTabla.setModel(new javax.swing.table.DefaultTableModel(
+        jtPrecioTotal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -106,12 +111,12 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTabla.addMouseListener(new java.awt.event.MouseAdapter() {
+        jtPrecioTotal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTablaMouseClicked(evt);
+                jtPrecioTotalMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTabla);
+        jScrollPane2.setViewportView(jtPrecioTotal);
 
         jbConsultar.setBackground(new java.awt.Color(0, 0, 153));
         jbConsultar.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,9 +127,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jfechaIngreso.setForeground(new java.awt.Color(0, 0, 51));
+        jdFechaIngreso.setForeground(new java.awt.Color(0, 0, 51));
 
-        jfechaSalida.setForeground(new java.awt.Color(0, 0, 51));
+        jdFechaSalida.setForeground(new java.awt.Color(0, 0, 51));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha Ingreso");
@@ -142,17 +147,17 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jidReserva.setForeground(new java.awt.Color(0, 0, 51));
         jidReserva.setEnabled(false);
 
-        jcPersonas.setForeground(new java.awt.Color(0, 0, 51));
-        jcPersonas.addActionListener(new java.awt.event.ActionListener() {
+        jtCpersonas.setForeground(new java.awt.Color(0, 0, 51));
+        jtCpersonas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcPersonasActionPerformed(evt);
+                jtCpersonasActionPerformed(evt);
             }
         });
 
-        jpTotal.setForeground(new java.awt.Color(0, 0, 51));
-        jpTotal.addActionListener(new java.awt.event.ActionListener() {
+        jtPrecioNoche.setForeground(new java.awt.Color(0, 0, 51));
+        jtPrecioNoche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jpTotalActionPerformed(evt);
+                jtPrecioNocheActionPerformed(evt);
             }
         });
 
@@ -160,7 +165,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel4.setText("Personas");
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("PrecioTotal");
+        jLabel5.setText("PrecioNoche");
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Estado");
@@ -175,10 +180,10 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Habitacion");
 
-        jrEstado.setForeground(new java.awt.Color(255, 255, 255));
-        jrEstado.addActionListener(new java.awt.event.ActionListener() {
+        jCheckEstado.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrEstadoActionPerformed(evt);
+                jCheckEstadoActionPerformed(evt);
             }
         });
 
@@ -195,7 +200,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Huesped");
 
-        jtHuesped.setForeground(new java.awt.Color(0, 0, 51));
+        jtIDhuesped.setForeground(new java.awt.Color(0, 0, 51));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 153));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,6 +210,22 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        Calcular.setText("Calcular");
+        Calcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalcularActionPerformed(evt);
+            }
+        });
+
+        jPrecioTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPrecioTotalActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("total");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,29 +243,42 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel3))
                                 .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jtHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jComboHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jfechaSalida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jcbHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(jfechaIngreso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(139, 139, 139)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(jtIDhuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jComboHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(jcbHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(jdFechaIngreso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(139, 139, 139))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jdFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Calcular)
+                                        .addGap(28, 28, 28)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6))
-                                .addGap(81, 81, 81)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jrEstado)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jpTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                                        .addComponent(jcPersonas, javax.swing.GroupLayout.Alignment.LEADING))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(72, 72, 72)
+                                        .addComponent(jCheckEstado))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(57, 57, 57)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jtPrecioNoche, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                                            .addComponent(jtCpersonas, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jPrecioTotal, javax.swing.GroupLayout.Alignment.TRAILING)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jbModificar)
                                 .addGap(54, 54, 54)
@@ -291,38 +325,46 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6)
-                                    .addComponent(jrEstado))
+                                    .addComponent(jCheckEstado))
                                 .addGap(19, 19, 19)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(jcPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jpTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jtCpersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(jLabel7)
                                 .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                         .addComponent(jLabel3))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
-                                        .addComponent(jfechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jdFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jfechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jdFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(Calcular)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtIDhuesped, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jcbHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbModificar)
                     .addComponent(jbEliminar)
@@ -361,12 +403,12 @@ borrarFilas();
 //            Reserva modificar = new Reserva(idReserva,idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
 int idReserva= Integer.parseInt(jidReserva.getText()+"");
 int idHabitacion= Integer.parseInt(jtidHabitacion.getText()+"");
-int idHuesped= Integer.parseInt(jtHuesped.getText()+"");
-LocalDate fechaIngreso= jfechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-LocalDate fechaSalida=jfechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-int cantidadPersonas= Integer.parseInt(jcPersonas.getText()+"");
-double precioTotal= Double.parseDouble(jpTotal.getText()+"");
-boolean estado= jrEstado.isSelected();
+int idHuesped= Integer.parseInt(jtIDhuesped.getText()+"");
+LocalDate fechaIngreso= jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+LocalDate fechaSalida=jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+int cantidadPersonas= Integer.parseInt(jtCpersonas.getText()+"");
+double precioTotal= Double.parseDouble(jtPrecioNoche.getText()+"");
+boolean estado= jCheckEstado.isSelected();
 Reserva r=new Reserva(idReserva, idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
             reservaData.modificarReserva(r);
            
@@ -378,39 +420,44 @@ Reserva r=new Reserva(idReserva, idHabitacion, idHuesped, fechaIngreso, fechaSal
 
     }//GEN-LAST:event_jbModificarActionPerformed
 
-    private void jcPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcPersonasActionPerformed
+    private void jtCpersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCpersonasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcPersonasActionPerformed
+    }//GEN-LAST:event_jtCpersonasActionPerformed
 
-    private void jpTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpTotalActionPerformed
+    private void jtPrecioNocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPrecioNocheActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jpTotalActionPerformed
+    }//GEN-LAST:event_jtPrecioNocheActionPerformed
 
     private void jcbHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbHabitacionActionPerformed
         Habitacion habiseleccionada = (Habitacion) jcbHabitacion.getSelectedItem();
 
-        jtidHabitacion.setText(habiseleccionada.getIdHabitacion() + "");
+        jtidHabitacion.setText(habiseleccionada.getIdHabitacion()+"");
+
+jtPrecioNoche.setText(habiseleccionada.getPrecioNoche()+"");
 
     }//GEN-LAST:event_jcbHabitacionActionPerformed
 
-    private void jTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablaMouseClicked
+    private void jtPrecioTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtPrecioTotalMouseClicked
         ReservaData resDa = new ReservaData();
         Huesped huesped = new Huesped();
+        Habitacion habitacion= new Habitacion();
+
+        
 //                     Huesped hue = (Huesped) jcbCargarCliente.getSelectedItem();
 //Reserva rese=(Reserva) jTabla.se;
 
-        int filaSeleccionada = jTabla.getSelectedRow();
+        int filaSeleccionada = jtPrecioTotal.getSelectedRow();
         jidReserva.setText(modelo.getValueAt(filaSeleccionada, 0).toString());
                jtidHabitacion.setText(modelo.getValueAt(filaSeleccionada, 1).toString());
-        jtHuesped.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
+        jtIDhuesped.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
 LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
-        jfechaIngreso.setDate(java.sql.Date.valueOf(fechaIngreso));
+        jdFechaIngreso.setDate(java.sql.Date.valueOf(fechaIngreso));
         LocalDate fechaSalida = (LocalDate) modelo.getValueAt(filaSeleccionada, 4);
-        jfechaSalida.setDate(java.sql.Date.valueOf(fechaSalida));
-        jcPersonas.setText(modelo.getValueAt(filaSeleccionada, 5).toString());
-        jpTotal.setText(modelo.getValueAt(filaSeleccionada, 6).toString());
-        jrEstado.setSelected(true);
-
+        jdFechaSalida.setDate(java.sql.Date.valueOf(fechaSalida));
+        jtCpersonas.setText(modelo.getValueAt(filaSeleccionada, 5).toString());
+        jPrecioTotal.setText(modelo.getValueAt(filaSeleccionada,6).toString());
+        jCheckEstado.setSelected(true);
+jtPrecioNoche.setText(title);
 //     LocalDate fechaIngreso =(LocalDate) modelo.getValueAt(filaSeleccionada, 3);
 //       jfechaIngreso.setDate(java.sql.Date.valueOf(fechaIngreso));
 //        LocalDate fechaSalida =(LocalDate) modelo.getValueAt(filaSeleccionada, 4);
@@ -420,24 +467,24 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
 //   jcbHabitacion.getSelectedIndex(idHabitacion));
         
 
-    }//GEN-LAST:event_jTablaMouseClicked
+    }//GEN-LAST:event_jtPrecioTotalMouseClicked
 
     private void jtidHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtidHabitacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtidHabitacionActionPerformed
 
-    private void jrEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoActionPerformed
+    private void jCheckEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckEstadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jrEstadoActionPerformed
+    }//GEN-LAST:event_jCheckEstadoActionPerformed
 
     private void jComboHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboHuespedActionPerformed
         Huesped huespedseleccionado = (Huesped) jComboHuesped.getSelectedItem();
 
-        jtHuesped.setText(huespedseleccionado.getIdHuesped() + "");
+        jtIDhuesped.setText(huespedseleccionado.getIdHuesped() + "");
     }//GEN-LAST:event_jComboHuespedActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-        int filaSeleccionada = jTabla.getSelectedRow();
+        int filaSeleccionada = jtPrecioTotal.getSelectedRow();
             if(filaSeleccionada != -1){
             
             int idHuesped = (int) modelo.getValueAt(filaSeleccionada, 2);
@@ -453,11 +500,85 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
         dispose();       
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
+        System.out.println("aaaaaaa");
+        
+        if(jtPrecioTotal != null){
+        
+            jPrecioTotal.setText("");
+        }
+        
+        
+        try {
+            System.out.println("bbbbbbbb");
+            int idHabitacion = Integer.parseInt(jtidHabitacion.getText());
+            System.out.println("1");
+            int idHuesped = Integer.parseInt(jtIDhuesped.getText());
+            LocalDate fechaIngreso = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fechaSalida = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            double precioTotal = Double.parseDouble(jtPrecioNoche.getText());                     
+            System.out.println("2");
+            int cantidadPersonas = Integer.parseInt(jtCpersonas.getText());
+            boolean estado = jCheckEstado.isSelected();   
+
+            if (reservaActual == null) {
+                Reserva res = new Reserva(idHabitacion,idHuesped,fechaIngreso,fechaSalida,cantidadPersonas,precioTotal,estado);
+                //Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
+              
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
+           
+         }        
+       LocalDate fecha1=jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    LocalDate fecha2=jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    System.out.println("fech1: "+fecha1);
+    System.out.println("fech2: "+fecha2);
+
+    int anioACT = fecha2.getYear();
+    int mesACT = fecha2.getMonthValue();
+    int diaACT = fecha2.getDayOfMonth();
+
+    int resAnio = 0;
+
+    int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth();
+    int resMes = fecha2.getMonthValue() - fecha1.getMonthValue();
+
+    if(fecha2.getYear() > fecha1.getYear()) {
+       if(fecha2.getMonthValue() == fecha1.getMonthValue()) {
+
+
+                if(fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
+                    resAnio = fecha2.getYear() - fecha1.getYear();
+                }
+            }else {
+                resAnio = fecha2.getYear() - fecha1.getYear() - 1;
+            }
+        }                                                   
+        
+        System.out.println("dias: "+resDia);
+      double Precio = Double.parseDouble(jtPrecioNoche.getText());
+      
+      double PrecioTotal = Precio * resDia;
+        System.out.println(PrecioTotal);
+        jPrecioTotal.setText((PrecioTotal)+"");
+        
+                // TODO add your handling code here:
+    }//GEN-LAST:event_CalcularActionPerformed
+
+    private void jPrecioTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPrecioTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPrecioTotalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Calcular;
     private javax.swing.JButton jButton1;
+    private javax.swing.JRadioButton jCheckEstado;
     private javax.swing.JComboBox<Huesped> jComboHuesped;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -466,25 +587,25 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jPrecioTotal;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTabla;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
-    private javax.swing.JTextField jcPersonas;
     private javax.swing.JComboBox<Huesped> jcbCargarCliente;
     private javax.swing.JComboBox<Habitacion> jcbHabitacion;
-    private com.toedter.calendar.JDateChooser jfechaIngreso;
-    private com.toedter.calendar.JDateChooser jfechaSalida;
+    private com.toedter.calendar.JDateChooser jdFechaIngreso;
+    private com.toedter.calendar.JDateChooser jdFechaSalida;
     private javax.swing.JTextField jidReserva;
-    private javax.swing.JTextField jpTotal;
-    private javax.swing.JRadioButton jrEstado;
-    private javax.swing.JTextField jtHuesped;
+    private javax.swing.JTextField jtCpersonas;
+    private javax.swing.JTextField jtIDhuesped;
+    private javax.swing.JTextField jtPrecioNoche;
+    private javax.swing.JTable jtPrecioTotal;
     private javax.swing.JTextField jtidHabitacion;
     // End of variables declaration//GEN-END:variables
 
     private void borrarFilas() {
-        int filas = jTabla.getRowCount() - 1;
+        int filas = jtPrecioTotal.getRowCount() - 1;
         for (int i = filas; i >= 0; i--) {
             modelo.removeRow(i);
         }
@@ -526,7 +647,7 @@ LocalDate fechaIngreso = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
         modelo.addColumn("cantidadPersonas");
         modelo.addColumn("Precio Total");
         modelo.addColumn("Estado");
-        jTabla.setModel(modelo);
+        jtPrecioTotal.setModel(modelo);
 
     }
 

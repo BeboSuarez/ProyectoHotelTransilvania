@@ -31,7 +31,7 @@ public class HabitacionData {
 
         public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,descripcion,estado) VALUES ( ?,?, ?,?,?)";
+        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,descripcion,estado) VALUES ( ?,?, ?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

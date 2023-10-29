@@ -7,6 +7,9 @@ import Entidades.Habitacion;
 import Entidades.Huesped;
 import Entidades.Reserva;
 import Entidades.TipoDeHabitacion;
+import com.toedter.calendar.JDateChooser;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.ZoneId;
@@ -131,6 +134,12 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             }
         });
 
+        jtCpersonas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtCpersonasKeyTyped(evt);
+            }
+        });
+
         jcbHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbHabitacionActionPerformed(evt);
@@ -142,8 +151,19 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                 jtPrecioNocheActionPerformed(evt);
             }
         });
+        jtPrecioNoche.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtPrecioNocheKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("Precio Total");
+
+        jtPrecioTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtPrecioTotalKeyTyped(evt);
+            }
+        });
 
         jbCalcular.setText("CALCULAR");
         jbCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -181,9 +201,10 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                                 .addGap(76, 76, 76)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtCpersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jtCpersonas, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jtPrecioNoche, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)))
                                 .addGap(137, 137, 137)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -198,9 +219,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                                 .addGap(493, 493, 493)))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCheckEstado)
-                                .addGap(0, 0, 0))
+                            .addComponent(jCheckEstado)
                             .addComponent(jdFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jdFechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
@@ -487,6 +506,32 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jbCalcularActionPerformed
 
+    private void jtPrecioNocheKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioNocheKeyTyped
+char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == '.')) {
+            evt.consume();
+        }
+//
+ //Permite ingresar SOLO caracteres
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtPrecioNocheKeyTyped
+
+    private void jtCpersonasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCpersonasKeyTyped
+    char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == '.')) {
+            evt.consume();
+        }
+  
+    }//GEN-LAST:event_jtCpersonasKeyTyped
+
+    private void jtPrecioTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioTotalKeyTyped
+      char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == '.')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtPrecioTotalKeyTyped
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckEstado;
