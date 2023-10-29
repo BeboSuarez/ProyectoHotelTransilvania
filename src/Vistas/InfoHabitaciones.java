@@ -1,20 +1,10 @@
 package Vistas;
 
 import AccesoADatos.HabitacionData;
-import AccesoADatos.HuespedData;
-import AccesoADatos.ReservaData;
 import AccesoADatos.TipoDeHabitacionData;
 import Entidades.Habitacion;
-import Entidades.Huesped;
-import Entidades.Reserva;
 import Entidades.TipoDeHabitacion;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class InfoHabitaciones extends javax.swing.JInternalFrame {
@@ -28,11 +18,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         initComponents();
         ArmarCabecera();
         CargarComboHabitaciones();
-//        CargarComboboxHabitaciones();
 
-//       cargarTablaHabitacionD(tipohabitacion.isEstado(),tipohabitacion.getIdTipodehabitacion());
-//      cargarTablaHabitacionND(tipohabitacion.isEstado(),tipohabitacion.getIdTipodehabitacion());
-//      
         modelo = (DefaultTableModel) jTabla.getModel();
         habitacionData = new HabitacionData();
         tipohabitacion = new TipoDeHabitacion();
@@ -51,16 +37,17 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jTabla = new javax.swing.JTable();
         jrbHabitacionD = new javax.swing.JRadioButton();
         jrbHabitacionND = new javax.swing.JRadioButton();
+        jtThabitacion = new javax.swing.JTextField();
 
         jLabel1.setText("Informacion de las Habitaciones");
 
         jcbTipoHabitacion.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 jcbTipoHabitacionPopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
         });
         jcbTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +67,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
-        jTabla.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTablaMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(jTabla);
 
         buttonGroup1.add(jrbHabitacionD);
@@ -103,6 +85,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
             }
         });
 
+        jtThabitacion.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,13 +100,15 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                         .addGap(101, 101, 101)
                         .addComponent(jLabel1)
                         .addGap(75, 75, 75)
-                        .addComponent(jcbTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jcbTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtThabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(jrbHabitacionD)
                         .addGap(183, 183, 183)
                         .addComponent(jrbHabitacionND)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,32 +116,19 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jcbTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtThabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jrbHabitacionD)
                     .addComponent(jrbHabitacionND))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(287, 287, 287))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablaMouseClicked
-
-         TipoDeHabitacion th = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
-        
-        int filaSeleccionada = jTabla.getSelectedRow();
-        jtIDhabitacion.setText(modelo.getValueAt(filaSeleccionada, 0).toString());
-        jtThabitacion.setText(modelo.getValueAt(filaSeleccionada, 1).toString());
-        jtPrecioNoche.setText(modelo.getValueAt(filaSeleccionada, 2).toString());
-        jtDescripcion.setText(modelo.getValueAt(filaSeleccionada, 3).toString());
-      
-      
-        
-    }//GEN-LAST:event_jTablaMouseClicked
 
     private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
@@ -182,7 +155,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbTipoHabitacionActionPerformed
 
     private void jcbTipoHabitacionPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jcbTipoHabitacionPopupMenuWillBecomeInvisible
-//        cargarTablaHabitacionD(habitacion.getIdTipodehabitacion());        // TODO add your handling code here:
+
     }//GEN-LAST:event_jcbTipoHabitacionPopupMenuWillBecomeInvisible
 
 
@@ -196,6 +169,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<TipoDeHabitacion> jcbTipoHabitacion;
     private javax.swing.JRadioButton jrbHabitacionD;
     private javax.swing.JRadioButton jrbHabitacionND;
+    private javax.swing.JTextField jtThabitacion;
     // End of variables declaration//GEN-END:variables
 
     private void borrarFilas() {
@@ -205,14 +179,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         }
     }
 
-//    private void CargarComboBox() {
-//        HuespedData hues = new HuespedData();
-//        List<Huesped> h = hues.listarHuesped();
-//        for (Huesped huesped : h) {
-//            jcbComboHabitaciones.addItem(huesped);
-//
-//        }
-//    }
     private void CargarComboHabitaciones() {
         TipoDeHabitacionData Habi = new TipoDeHabitacionData();
 
@@ -223,15 +189,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         }
     }
 
-//    private void CargarComboboxHabitaciones() {
-//        HabitacionData Habi = new HabitacionData();
-//
-//        List<Habitacion> ha = Habi.listarHabitacion();
-//        for (Habitacion habitacion : ha) {
-//            jcbHabitacion.addItem(habitacion);
-//
-//        }
-//    }
     private void ArmarCabecera() {
 
         modelo.addColumn("ID Habitacion");
@@ -244,7 +201,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
     }
 
-//////
     private void cargarTablaHabitacionD(int idTipoHabitacion) {
         HabitacionData hd = new HabitacionData();
         List<Habitacion> disponible = hd.listarHabitacionDisponibles(idTipoHabitacion);
@@ -252,12 +208,12 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         for (Habitacion disponibles : disponible) {
 
             modelo.addRow(new Object[]{
-               disponibles.getIdHabitacion(),
+                disponibles.getIdHabitacion(),
                 disponibles.getIdTipodehabitacion(),
                 disponibles.getPrecioNoche(),
                 disponibles.getDescripcion(),
                 disponibles.isEstado()
- });
+            });
         }
     }
 
@@ -267,8 +223,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         borrarFilas();
         for (Habitacion disponibles : disponible) {
 
-              modelo.addRow(new Object[]{
-               disponibles.getIdHabitacion(),
+            modelo.addRow(new Object[]{
+                disponibles.getIdHabitacion(),
                 disponibles.getIdTipodehabitacion(),
                 disponibles.getPrecioNoche(),
                 disponibles.getDescripcion(),

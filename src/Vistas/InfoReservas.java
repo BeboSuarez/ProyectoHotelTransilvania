@@ -413,11 +413,15 @@ double precioTotal= Double.parseDouble(jtPrecioNoche.getText()+"");
 boolean estado= jCheckEstado.isSelected();
 Reserva r=new Reserva(idReserva, idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
             reservaData.modificarReserva(r);
+           if(r != null){
            
+               JOptionPane.showMessageDialog(null, "Reserva Guardada");
+           
+           }
             
         } catch (NumberFormatException e) {
 
-            JOptionPane.showMessageDialog(null, "HOLA :)");
+            JOptionPane.showMessageDialog(null, "No se puede modiificar la reserva");
         }
 
     }//GEN-LAST:event_jbModificarActionPerformed
@@ -631,8 +635,6 @@ jtPrecioNoche.setText(title);
     }
 
     private void CargarComboHabitaciones() {
-        
-      
 
         List<Habitacion> ha = Habi.listarHabitacionDispo();
         for (Habitacion habitacion : ha) {

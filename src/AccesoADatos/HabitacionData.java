@@ -218,7 +218,7 @@ public class HabitacionData {
     
     }
     public List<Habitacion> listarHabitacionDispo() {
-        String sql = "SELECT * FROM habitacion WHERE estado = 1";
+        String sql = "SELECT * FROM habitacion WHERE estado = 0";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
 
