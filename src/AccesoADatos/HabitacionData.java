@@ -16,12 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-
 public class HabitacionData {
-    
-    
+
     private Connection con = null;
-    
 
     public HabitacionData() {
 
@@ -29,23 +26,22 @@ public class HabitacionData {
 
     }
 
-        public void guardarHabitacion(Habitacion habitacion) {
+    public void guardarHabitacion(Habitacion habitacion) {
 
-        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,descripcion,estado) VALUES ( ?,?, ?,?)";
+        String sql = "INSERT INTO habitacion (idTipodehabitacion,precioNoche,cantidadPersonas,descripcion,estado) VALUES ( ?,?,?,?,?)";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             System.out.println("1");
-            
 
             ps.setInt(1, habitacion.getIdTipodehabitacion());
             ps.setDouble(2, habitacion.getPrecioNoche());
-            ps.setString (3, habitacion.getDescripcion());
-   
+            ps.setInt(3, habitacion.getCantidadpersonas());
+            ps.setString(4, habitacion.getDescripcion());
 
-            ps.setBoolean(4, habitacion.isEstado());
-        
-                    ps.executeUpdate();
+            ps.setBoolean(5, habitacion.isEstado());
+
+            ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
@@ -61,41 +57,41 @@ public class HabitacionData {
 
         }
     }
-    
+
     public Habitacion obtenerHabitacionPorId(int idHabitacion) {
         Habitacion habitacion = null;
-        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,precioNoche,descripcion,estado"
-                + "  FROM habitacion WHERE idHabitacion = ?", Statement.RETURN_GENERATED_KEYS)){
+        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,precioNoche,cantidadPersonas,descripcion,estado"
+                + "  FROM habitacion WHERE idHabitacion = ?", Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, idHabitacion);
-            
+
             ResultSet rs = ps.executeQuery();
-                    
+
             while (rs.next()) {
 //                habitacion = new Habitacion(rs.getInt("idHabitacion");
 //                        , rs.getBoolean("refaccion"),rs.getBoolean("estado"));
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Ha ocurrido un error al intentar obtener la habitacion id: "
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error al intentar obtener la habitacion id: "
                     + idHabitacion + ". Error: " + ex.getMessage());
         }
         return habitacion;
     }
 
     public void modificarHabitacion(Habitacion habitacion) {
-        
-        String sql = "UPDATE habitacion SET idHabitacion = ? ,precioNoche=?,descripcion = ?,estado = ?";
+
+        String sql = "UPDATE habitacion SET idHabitacion = ? ,precioNoche=?,cantidadPersonas=?,descripcion = ?,estado = ?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
-      
+
             ps.setInt(1, habitacion.getIdHabitacion());
-                 ps.setDouble(2, habitacion.getPrecioNoche());
-            ps.setString(3, habitacion.getDescripcion());
-         
-       
-            ps.setBoolean(4, habitacion.isEstado());
-            
+            ps.setDouble(2, habitacion.getPrecioNoche());
+            ps.setInt(3, habitacion.getCantidadpersonas());
+            ps.setString(4, habitacion.getDescripcion());
+
+            ps.setBoolean(5, habitacion.isEstado());
+
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
@@ -109,7 +105,8 @@ public class HabitacionData {
         }
 
     }
-  public void habitacionDisponible(int id) {
+
+    public void habitacionDisponible(int id) {
         String sql = "UPDATE habitacion SET estado = 1 WHERE idHabitacion = ? ";
         try {
 
@@ -125,7 +122,7 @@ public class HabitacionData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
         }
     }
-  
+
     public List<Habitacion> listarHabitacion() {
         String sql = "SELECT * FROM habitacion ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
@@ -136,8 +133,9 @@ public class HabitacionData {
                 Habitacion habitacion = new Habitacion();
 
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-                
+
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
+                habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
@@ -149,6 +147,7 @@ public class HabitacionData {
         }
         return habitaciones;
     }
+
     public void eliminarHabitacion(boolean estado) {
         String sql = "DELETE FROM `habitacion` WHERE estado = 0";
         try {
@@ -165,6 +164,7 @@ public class HabitacionData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
         }
     }
+
     public List<Habitacion> listarHabitacionOcupadas(int idTipodehabitacion) {
         String sql = "SELECT * FROM habitacion WHERE estado = 1 AND idTipodehabitacion = ? ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
@@ -175,11 +175,10 @@ public class HabitacionData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
-
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-                    habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
-                          habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
-                habitacion.setDescripcion(rs.getString("Descripcion"));
+                habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
+                habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
+                habitacion.setDescripcion(rs.getString("descripcion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }
@@ -190,22 +189,23 @@ public class HabitacionData {
         }
         return habitaciones;
     }
+
     public List<Habitacion> listarHabitacionDisponibles(int idTipodehabitacion) {
         String sql = "SELECT * FROM habitacion WHERE estado = 0 AND idTipodehabitacion = ? ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
-           ps.setInt(1,idTipodehabitacion);
-            
+            ps.setInt(1, idTipodehabitacion);
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
 
-                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-                    habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
-                          habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
-                habitacion.setDescripcion(rs.getString("Descripcion"));
+                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
+                habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
+                habitacion.setDescripcion(rs.getString("descripcion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }
@@ -216,21 +216,21 @@ public class HabitacionData {
         }
         return habitaciones;
     }
+
     public List<Habitacion> listarHabitacionNoDisponible() {
         String sql = "SELECT * FROM habitacion WHERE estado = 1 AND idTipodehabitacion = ? ";
         ArrayList<Habitacion> habitaciones = new ArrayList<>();
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
-            
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Habitacion habitacion = new Habitacion();
-
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
-                habitacion.setDescripcion(rs.getString("Descripcion"));
-               habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
-                habitacion.setPrecioNoche(rs.getDouble("PrecioNoche"));
+                habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
+                habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
+                habitacion.setDescripcion(rs.getString("descripcion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
             }

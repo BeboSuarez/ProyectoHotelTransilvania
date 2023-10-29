@@ -54,6 +54,8 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jtIdCama = new javax.swing.JTextField();
         jEstado = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        jtCantidadpersonas = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,6 +129,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel3.setText("ID TH");
 
+        jtPrecioNoche.setEditable(false);
         jtPrecioNoche.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtPrecioNocheActionPerformed(evt);
@@ -140,6 +143,8 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
         jLabel11.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel11.setText("Descripcion");
+
+        jtTipo.setEditable(false);
 
         jLabel9.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel9.setText("Precio Noche");
@@ -158,6 +163,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                 jEstadoActionPerformed(evt);
             }
         });
+
+        jLabel10.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
+        jLabel10.setText("CantidadPersonas");
+
+        jtCantidadpersonas.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,10 +211,13 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                                         .addGap(49, 49, 49)
                                         .addComponent(jLabel9))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(73, 73, 73)
-                                        .addComponent(jEstado)))))
+                                        .addGap(72, 72, 72)
+                                        .addComponent(jEstado))))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
-                        .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtPrecioNoche, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                            .addComponent(jtCantidadpersonas))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jLabel2)
                 .addContainerGap(12, Short.MAX_VALUE))
@@ -220,9 +233,9 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jcbTipoHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -236,29 +249,31 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel11)
                                     .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jEstado))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jtIdCama, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jbGuardar)
-                                    .addComponent(jbModificar)
-                                    .addComponent(jbEliminar))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jButton2)
-                                    .addContainerGap()))
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(jLabel10)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtPrecioNoche, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(33, 33, 33)
+                        .addComponent(jtCantidadpersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtIdCama, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jEstado)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbGuardar)
+                            .addComponent(jbModificar)
+                            .addComponent(jbEliminar))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jButton2)
+                            .addContainerGap()))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
         pack();
@@ -270,6 +285,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jtIdCama.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
         jtTipo.setText(tipoSeleccionado.getTipoCama());
         jtPrecioNoche.setText(tipoSeleccionado.getPrecioNoche() + "");
+        jtCantidadpersonas.setText(tipoSeleccionado.getCantidadPersonas()+"");
 
 //        // TODO add your handling code here:
 //        
@@ -299,6 +315,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
             int idTipodehabitacion = Integer.parseInt(jtIdCama.getText());
 
             double precioNoche = Double.parseDouble(jtPrecioNoche.getText());
+            int cantidadPersonas= Integer.parseInt(jtCantidadpersonas.getText());
 
             String descripcion = jtTipo.getText();
 
@@ -306,7 +323,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
             if (habi != null) {
 
-                Habitacion habitacion = new Habitacion(idTipodehabitacion, precioNoche, descripcion, estado);
+                Habitacion habitacion = new Habitacion(idTipodehabitacion, precioNoche,cantidadPersonas, descripcion, estado);
 
                 habidata.guardarHabitacion(habitacion);
             } else {
@@ -397,6 +414,7 @@ char c = evt.getKeyChar();
         jtPrecioNoche.setText("");
         jtTipo.setText("");
         jtPrecioNoche.setText(""); 
+        jtCantidadpersonas.setText("");
         jEstado.setSelected(false);
         jbGuardar.setEnabled(true);
 
@@ -408,6 +426,7 @@ char c = evt.getKeyChar();
     private javax.swing.JButton jButton2;
     private javax.swing.JRadioButton jEstado;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -419,6 +438,7 @@ char c = evt.getKeyChar();
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JComboBox<TipoDeHabitacion> jcbTipoHab;
+    private javax.swing.JTextField jtCantidadpersonas;
     private javax.swing.JTextField jtIdCama;
     private javax.swing.JTextField jtPrecioNoche;
     private javax.swing.JTextField jtTipo;

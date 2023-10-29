@@ -134,6 +134,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             }
         });
 
+        jtCpersonas.setEditable(false);
         jtCpersonas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtCpersonasKeyTyped(evt);
@@ -219,7 +220,6 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                                 .addGap(493, 493, 493)))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckEstado)
                             .addComponent(jdFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jdFechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
@@ -228,7 +228,9 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                                 .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(115, 115, 115))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jcbHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckEstado)
+                                    .addComponent(jcbHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap())))))
         );
         layout.setVerticalGroup(
@@ -385,10 +387,11 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
     private void jcbHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbHabitacionActionPerformed
      Habitacion habitacionseleccionado=(Habitacion) jcbHabitacion.getSelectedItem();
-      
-
+     HabitacionData hd=new HabitacionData();
+ 
      jtidHabitacion.setText(habitacionseleccionado.getIdHabitacion()+"");
      jtPrecioNoche.setText(habitacionseleccionado.getPrecioNoche()+"");
+     jtCpersonas.setText(habitacionseleccionado.getCantidadpersonas()+"");
          
      
 
@@ -573,7 +576,8 @@ char c = evt.getKeyChar();
          HabitacionData habiData = new HabitacionData();
         List<Habitacion> hab = habiData.listarHabitacion();
         for(Habitacion habitacion : hab )
-        jcbHabitacion.addItem(habitacion);
+       
+            jcbHabitacion.addItem(habitacion);
        
     }
 

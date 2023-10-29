@@ -6,6 +6,7 @@ public class Habitacion {
     private int idHabitacion;
     private int idTipodehabitacion;
     private double precioNoche;
+    private int cantidadpersonas;
     private String descripcion;
 
     private boolean estado;
@@ -13,17 +14,19 @@ public class Habitacion {
     public Habitacion() {
     }
 
-    public Habitacion(int idHabitacion, int idTipodehabitacion, double precioNoche, String descripcion, boolean estado) {
+    public Habitacion(int idHabitacion, int idTipodehabitacion, double precioNoche, int cantidadpersonas, String descripcion, boolean estado) {
         this.idHabitacion = idHabitacion;
         this.idTipodehabitacion = idTipodehabitacion;
         this.precioNoche = precioNoche;
+        this.cantidadpersonas = cantidadpersonas;
         this.descripcion = descripcion;
         this.estado = estado;
     }
 
-    public Habitacion(int idTipodehabitacion, double precioNoche, String descripcion, boolean estado) {
+    public Habitacion(int idTipodehabitacion, double precioNoche, int cantidadpersonas, String descripcion, boolean estado) {
         this.idTipodehabitacion = idTipodehabitacion;
         this.precioNoche = precioNoche;
+        this.cantidadpersonas = cantidadpersonas;
         this.descripcion = descripcion;
         this.estado = estado;
     }
@@ -52,6 +55,14 @@ public class Habitacion {
         this.precioNoche = precioNoche;
     }
 
+    public int getCantidadpersonas() {
+        return cantidadpersonas;
+    }
+
+    public void setCantidadpersonas(int cantidadpersonas) {
+        this.cantidadpersonas = cantidadpersonas;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -67,6 +78,7 @@ public class Habitacion {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
 
 
     @Override
