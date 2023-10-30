@@ -1,10 +1,9 @@
 package Entidades;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Huesped {
-    
+
     private int idHuesped;
     private String nombre;
     private String apellido;
@@ -115,6 +114,7 @@ public class Huesped {
 
     @Override
     public String toString() {
-        return nombre + " "+apellido+ " "+idHuesped;
+
+        return nombre + " " + apellido + " " + idHuesped;
     }
 }

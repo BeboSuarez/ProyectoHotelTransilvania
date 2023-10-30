@@ -1,17 +1,15 @@
 package Entidades;
 
 public class TipoDeHabitacion {
-    
- private int idTipodehabitacion;
+
+    private int idTipodehabitacion;
     private String descripcion;
     private int cantidadCamas;
     private int cantidadPersonas;
     private String tipoCama;
     private double precioNoche;
     private boolean estado;
-  
-   
-    
+
     public TipoDeHabitacion() {
     }
 
@@ -92,9 +90,7 @@ public class TipoDeHabitacion {
 
     @Override
     public String toString() {
-        return  + idTipodehabitacion + " " + descripcion ;
+
+        return +idTipodehabitacion + " " + descripcion;
     }
-
-   
-
-     }
+}

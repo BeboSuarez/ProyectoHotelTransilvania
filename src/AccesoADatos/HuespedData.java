@@ -26,86 +26,79 @@ public class HuespedData {
 
         String sql = "INSERT INTO huesped (nombre, apellido, dni, fechaNacimiento, correo, telefono, domicilio, estado)"
                 + " VALUES(?,?,?,?,?,?,?,?)";
+
         try {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setString(1, huesped.getNombre());
-            System.out.println("a");
             ps.setString(2, huesped.getApellido());
-            System.out.println("b");
             ps.setInt(3, huesped.getDni());
-            System.out.println("c");
             ps.setDate(4, Date.valueOf(huesped.getFechaNacimiento()));
-            System.out.println("d");
             ps.setString(5, huesped.getCorreo());
-            System.out.println("e");
             ps.setInt(6, huesped.getTelefono());
-            System.out.println("f");
             ps.setString(7, huesped.getDomicilio());
-            System.out.println("g");
             ps.setBoolean(8, huesped.isEstado());
+
             ps.executeUpdate();
-            System.out.println("1");
+
             ResultSet rs = ps.getGeneratedKeys();
+
             if (rs.next()) {
-                System.out.println("Hola");
+
                 huesped.setIdHuesped(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Huesped registrado exitosamente");
-                System.out.println("chau");
-            }else{
-                    System.out.println("dni duplicado");
+                JOptionPane.showMessageDialog(null, "HUESPED REGISTRADO");
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "DNI DUPLICADO");
             }
+
             ps.close();
+
         } catch (SQLException e) {
-               if (e.getErrorCode() == 1062 && e.getSQLState().equals("23000")) {
-        // Manejo de la excepción específica de duplicación de entrada en la clave 'dni'
-        // Aquí puedes implementar la lógica para solucionar el problema
-            JOptionPane.showMessageDialog(null, "Error al registrar el huesped");
+
+            if (e.getErrorCode() == 1062 && e.getSQLState().equals("23000")) {
+                // Manejo de la excepción específica de duplicación de entrada en la clave 'dni'
+
+                JOptionPane.showMessageDialog(null, "ERROR AL REGISTRAR EL HUESPED");
+            }
+
         }
+    }
 
-    } }
-
-    public void modificarHuesped(Huesped huesped) { //(M)odificar
+    public void modificarHuesped(Huesped huesped) {
 
         String sql = "UPDATE huesped SET nombre = ?, apellido = ?, "
                 + "dni = ? ,fechaNacimiento = ?,correo = ?, telefono = ?"
-                + ", domicilio = ?,estado=? WHERE idHuesped=?" ;
+                + ", domicilio = ?,estado=? WHERE idHuesped=?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
-      
+
             ps.setString(1, huesped.getNombre());
-         
             ps.setString(2, huesped.getApellido());
-         
             ps.setInt(3, huesped.getDni());
-       
             ps.setDate(4, Date.valueOf(huesped.getFechaNacimiento()));
-          
             ps.setString(5, huesped.getCorreo());
-    
             ps.setInt(6, huesped.getTelefono());
-          
             ps.setString(7, huesped.getDomicilio());
-           
             ps.setBoolean(8, huesped.isEstado());
-        
-          ps.setInt(9, huesped.getIdHuesped());
-       
-         int exito=ps.executeUpdate();
-         if(exito==1){
-        ;
-  
+            ps.setInt(9, huesped.getIdHuesped());
+
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                ;
+
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
-           
-  }else{
-          JOptionPane.showMessageDialog(null, "no se puede modificar");
-         }
-          
-             
-               ps.close();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "no se puede modificar");
+            }
+
+            ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped" + ex.getMessage());
 
@@ -118,7 +111,9 @@ public class HuespedData {
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
+
             ps.setInt(1, dni);
+
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
@@ -126,24 +121,30 @@ public class HuespedData {
 
             }
             ps.close();
+
         } catch (SQLException ex) {
+
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped");
         }
 
     }
 
-    public Huesped buscarHuesped() {//
+    public Huesped buscarHuesped() {
+
         Huesped huesped = new Huesped();
+
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM huesped WHERE idHuesped = ? AND estado = 1";
+
         PreparedStatement ps = null;
+
         try {
             ps = con.prepareStatement(sql);
-           
+
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 huesped = new Huesped();
-                
+
                 huesped.setDni(rs.getInt("dni"));
                 huesped.setApellido(rs.getString("apellido"));
                 huesped.setNombre(rs.getString("nombre"));
@@ -152,7 +153,8 @@ public class HuespedData {
 
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped " + ex.getMessage());
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped ");
 
         }
 
@@ -162,12 +164,18 @@ public class HuespedData {
     public List<Huesped> listarHuesped() {
 
         String sql = "SELECT * FROM huesped ";
+
         ArrayList<Huesped> huespedes = new ArrayList<>();
+
         try {
+
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
+
             while (rs.next()) {
+
                 Huesped huesped = new Huesped();
+
                 huesped.setIdHuesped(rs.getInt("idHuesped"));
                 huesped.setNombre(rs.getString("nombre"));
                 huesped.setApellido(rs.getString("apellido"));
@@ -181,7 +189,9 @@ public class HuespedData {
 
             }
             ps.close();
+
         } catch (SQLException ex) {
+
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped" + ex.getMessage());
         }
         return huespedes;

@@ -1,9 +1,9 @@
 package Entidades;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Reserva {
+
     private int idReserva;
     private int idHabitacion;
     private int idHuesped;
@@ -103,8 +103,8 @@ public class Reserva {
 
     @Override
     public String toString() {
+
         return "Reserva{" + "idReserva=" + idReserva + ", idHabitacion=" + idHabitacion + ", idHuesped=" + idHuesped + ", fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", cantidadPersonas=" + cantidadPersonas + ", precioTotal=" + precioTotal + ", estado=" + estado + '}';
     }
 
-     
 }

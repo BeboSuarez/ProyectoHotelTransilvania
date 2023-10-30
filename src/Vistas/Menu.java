@@ -3,6 +3,8 @@ package Vistas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.time.LocalDate;
+import java.time.Month;
 import javax.swing.ImageIcon;
 
 
@@ -11,7 +13,8 @@ public class Menu extends javax.swing.JFrame {
    
     public Menu() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -88,6 +91,7 @@ public class Menu extends javax.swing.JFrame {
 
         escritorio.setBackground(new java.awt.Color(19, 20, 130));
         escritorio.setForeground(new java.awt.Color(255, 255, 51));
+        escritorio.setPreferredSize(new java.awt.Dimension(1107, 900));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -97,7 +101,7 @@ public class Menu extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro.png"))); // NOI18N
@@ -111,6 +115,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jmCHabitacion1);
 
+        jMenuItem2.setFont(new java.awt.Font("Tamil Sangam MN", 0, 24)); // NOI18N
         jMenuItem2.setText("Info Reservas");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +184,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +202,8 @@ escritorio.removeAll();
         CargarCliente formulario = new CargarCliente();
         formulario.setVisible(true);
         escritorio.add(formulario);
-        escritorio.moveToFront(formulario);   //         // TODO add your handling code here:
+        escritorio.moveToFront(formulario);
+      formulario.getContentPane().setBackground(new Color (32,169,155));
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmCargarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargarthActionPerformed
@@ -207,6 +213,7 @@ escritorio.removeAll();
         fHabitacion.setVisible(true);
         escritorio.add(fHabitacion);
         escritorio.moveToFront(fHabitacion);  
+        fHabitacion.getContentPane().setBackground(new Color (19,20,130));
        
                                             
     }//GEN-LAST:event_jmCargarthActionPerformed
@@ -218,7 +225,8 @@ escritorio.removeAll();
         CargarHabitacion fTipoHabitacion = new CargarHabitacion();
         fTipoHabitacion.setVisible(true);
         escritorio.add(fTipoHabitacion);
-        escritorio.moveToFront(fTipoHabitacion);  
+        escritorio.moveToFront(fTipoHabitacion);
+        fTipoHabitacion.getContentPane().setBackground(new Color (19,20,130));
     }//GEN-LAST:event_jmCHabitacionActionPerformed
 
     private void jmCHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion1ActionPerformed
@@ -228,16 +236,17 @@ escritorio.removeAll();
        fReservas.setVisible(true);
         escritorio.add(fReservas);
         escritorio.moveToFront(fReservas);  
+        fReservas.getContentPane().setBackground(new Color (19,20,130));
     }//GEN-LAST:event_jmCHabitacion1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         InfoReservas IReservas = new InfoReservas();
-        IReservas.setVisible(true);
-        IReservas.getContentPane().setBackground(new Color (19,20,130));
+        IReservas.setVisible(true);      
         escritorio.add(IReservas);
         escritorio.moveToFront(IReservas);
+         IReservas.getContentPane().setBackground(new Color (19,20,130));
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -248,7 +257,7 @@ escritorio.removeAll();
         IReserva.setVisible(true);
         escritorio.add(IReserva);
         escritorio.moveToFront(IReserva);
-    
+    IReserva.getContentPane().setBackground(new Color (19,20,130));
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmCHabitacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion2ActionPerformed
@@ -258,40 +267,12 @@ escritorio.removeAll();
        habi.setVisible(true);
         escritorio.add(habi);
         escritorio.moveToFront(habi);
+        habi.getContentPane().setBackground(new Color (19,20,130));
     }//GEN-LAST:event_jmCHabitacion2ActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+  
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);

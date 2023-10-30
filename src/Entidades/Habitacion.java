@@ -1,8 +1,7 @@
 package Entidades;
 
 public class Habitacion {
-    
-    
+
     private int idHabitacion;
     private int idTipodehabitacion;
     private double precioNoche;
@@ -79,16 +78,10 @@ public class Habitacion {
         this.estado = estado;
     }
 
-
-
     @Override
     public String toString() {
-        return  idHabitacion + " " + descripcion;
+
+        return idHabitacion + " " + descripcion;
+
     }
-
-
- 
- 
-    
-    
 }
