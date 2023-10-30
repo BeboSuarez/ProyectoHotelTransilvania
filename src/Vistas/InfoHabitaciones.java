@@ -38,7 +38,11 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jrbHabitacionD = new javax.swing.JRadioButton();
         jrbHabitacionND = new javax.swing.JRadioButton();
         jtThabitacion = new javax.swing.JTextField();
+        jbSalir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
         jLabel1.setText("Informacion de las Habitaciones");
 
         jcbTipoHabitacion.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
@@ -56,8 +60,16 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
             }
         });
 
+        jTabla.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 12)); // NOI18N
+        jTabla.setForeground(new java.awt.Color(255, 255, 255));
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -70,6 +82,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jTabla);
 
         buttonGroup1.add(jrbHabitacionD);
+        jrbHabitacionD.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
         jrbHabitacionD.setText("HABITACION DISPONIBLE");
         jrbHabitacionD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +91,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         });
 
         buttonGroup1.add(jrbHabitacionND);
-        jrbHabitacionND.setText("HABITACION N/D ");
+        jrbHabitacionND.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
+        jrbHabitacionND.setText("HABITACIONN NO DISPONIBLE");
         jrbHabitacionND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrbHabitacionNDActionPerformed(evt);
@@ -87,33 +101,43 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
         jtThabitacion.setEditable(false);
 
+        jbSalir.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
+        jbSalir.setText("SALIR");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel1)
-                        .addGap(75, 75, 75)
-                        .addComponent(jcbTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtThabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jrbHabitacionD)
-                        .addGap(183, 183, 183)
-                        .addComponent(jrbHabitacionND)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jbSalir)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(99, 99, 99)
+                            .addComponent(jrbHabitacionD)
+                            .addGap(92, 92, 92)
+                            .addComponent(jrbHabitacionND))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jLabel1)
+                            .addGap(18, 18, 18)
+                            .addComponent(jcbTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(47, 47, 47)
+                            .addComponent(jtThabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jcbTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,8 +147,9 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                     .addComponent(jrbHabitacionD)
                     .addComponent(jrbHabitacionND))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbSalir))
         );
 
         pack();
@@ -133,18 +158,20 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
 
-        borrarFilas();
+       
         if (tipohabi != null) {
             if (jrbHabitacionD.isSelected()) {
                 cargarTablaHabitacionD(tipohabi.getIdTipodehabitacion());
             }
+             borrarFilas();
         }
     }//GEN-LAST:event_jrbHabitacionDActionPerformed
 
     private void jrbHabitacionNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionNDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
-        borrarFilas();
+        
         cargarTablaHabitacionND(tipohabi.getIdTipodehabitacion());
+        borrarFilas();
     }//GEN-LAST:event_jrbHabitacionNDActionPerformed
 
     private void jcbTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabitacionActionPerformed
@@ -158,6 +185,10 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jcbTipoHabitacionPopupMenuWillBecomeInvisible
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+                dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -166,6 +197,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTabla;
+    private javax.swing.JButton jbSalir;
     private javax.swing.JComboBox<TipoDeHabitacion> jcbTipoHabitacion;
     private javax.swing.JRadioButton jrbHabitacionD;
     private javax.swing.JRadioButton jrbHabitacionND;

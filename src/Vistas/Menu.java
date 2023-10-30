@@ -48,7 +48,6 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jmCHabitacion1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -89,8 +88,8 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        escritorio.setBackground(new java.awt.Color(19, 20, 130));
-        escritorio.setForeground(new java.awt.Color(255, 255, 51));
+        escritorio.setBackground(new java.awt.Color(51, 51, 51));
+        escritorio.setForeground(new java.awt.Color(255, 255, 255));
         escritorio.setPreferredSize(new java.awt.Dimension(1107, 900));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
@@ -106,7 +105,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro.png"))); // NOI18N
 
-        jmCHabitacion1.setFont(new java.awt.Font("Tamil Sangam MN", 0, 24)); // NOI18N
+        jmCHabitacion1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jmCHabitacion1.setText("Reserva");
         jmCHabitacion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +114,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jmCHabitacion1);
 
-        jMenuItem2.setFont(new java.awt.Font("Tamil Sangam MN", 0, 24)); // NOI18N
+        jMenuItem2.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jMenuItem2.setText("Info Reservas");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,14 +122,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("jMenuItem3");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
 
@@ -203,7 +194,7 @@ escritorio.removeAll();
         formulario.setVisible(true);
         escritorio.add(formulario);
         escritorio.moveToFront(formulario);
-      formulario.getContentPane().setBackground(new Color (32,169,155));
+      formulario.getContentPane().setBackground(new Color (102,102,102));
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmCargarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargarthActionPerformed
@@ -213,7 +204,7 @@ escritorio.removeAll();
         fHabitacion.setVisible(true);
         escritorio.add(fHabitacion);
         escritorio.moveToFront(fHabitacion);  
-        fHabitacion.getContentPane().setBackground(new Color (19,20,130));
+        fHabitacion.getContentPane().setBackground(new Color (102,102,102));
        
                                             
     }//GEN-LAST:event_jmCargarthActionPerformed
@@ -226,7 +217,7 @@ escritorio.removeAll();
         fTipoHabitacion.setVisible(true);
         escritorio.add(fTipoHabitacion);
         escritorio.moveToFront(fTipoHabitacion);
-        fTipoHabitacion.getContentPane().setBackground(new Color (19,20,130));
+        fTipoHabitacion.getContentPane().setBackground(new Color (102,102,102));
     }//GEN-LAST:event_jmCHabitacionActionPerformed
 
     private void jmCHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion1ActionPerformed
@@ -236,7 +227,7 @@ escritorio.removeAll();
        fReservas.setVisible(true);
         escritorio.add(fReservas);
         escritorio.moveToFront(fReservas);  
-        fReservas.getContentPane().setBackground(new Color (19,20,130));
+        fReservas.getContentPane().setBackground(new Color (102,102,102));
     }//GEN-LAST:event_jmCHabitacion1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -246,19 +237,9 @@ escritorio.removeAll();
         IReservas.setVisible(true);      
         escritorio.add(IReservas);
         escritorio.moveToFront(IReservas);
-         IReservas.getContentPane().setBackground(new Color (19,20,130));
+        IReservas.getContentPane().setBackground(new Color (102,102,102));
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-         escritorio.removeAll();
-        escritorio.repaint();
-        ModificarReservas1 IReserva = new ModificarReservas1();
-        IReserva.setVisible(true);
-        escritorio.add(IReserva);
-        escritorio.moveToFront(IReserva);
-    IReserva.getContentPane().setBackground(new Color (19,20,130));
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmCHabitacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion2ActionPerformed
           escritorio.removeAll();
@@ -267,7 +248,7 @@ escritorio.removeAll();
        habi.setVisible(true);
         escritorio.add(habi);
         escritorio.moveToFront(habi);
-        habi.getContentPane().setBackground(new Color (19,20,130));
+        habi.getContentPane().setBackground(new Color (102,102,102));
     }//GEN-LAST:event_jmCHabitacion2ActionPerformed
 
     public static void main(String args[]) {
@@ -302,7 +283,6 @@ escritorio.removeAll();
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jmCHabitacion;
     private javax.swing.JMenuItem jmCHabitacion1;
     private javax.swing.JMenuItem jmCHabitacion2;

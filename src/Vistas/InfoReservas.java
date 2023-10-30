@@ -73,8 +73,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Informacion de las reservas  por Nombre");
 
-        jbModificar.setBackground(new java.awt.Color(0, 0, 153));
-        jbModificar.setForeground(new java.awt.Color(255, 255, 255));
+        jbModificar.setBackground(new java.awt.Color(102, 102, 102));
+        jbModificar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
+        jbModificar.setForeground(new java.awt.Color(51, 51, 51));
         jbModificar.setText("MODIFICAR RESERVA");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,8 +83,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbEliminar.setBackground(new java.awt.Color(0, 0, 153));
-        jbEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jbEliminar.setBackground(new java.awt.Color(51, 51, 51));
+        jbEliminar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
+        jbEliminar.setForeground(new java.awt.Color(51, 51, 51));
         jbEliminar.setText("BAJA");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +93,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jcbCargarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jcbCargarCliente.setForeground(new java.awt.Color(51, 51, 51));
         jcbCargarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbCargarClienteActionPerformed(evt);
@@ -120,8 +122,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtPrecioTotal);
 
-        jbConsultar.setBackground(new java.awt.Color(0, 0, 153));
-        jbConsultar.setForeground(new java.awt.Color(255, 255, 255));
+        jbConsultar.setBackground(new java.awt.Color(51, 51, 51));
+        jbConsultar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
+        jbConsultar.setForeground(new java.awt.Color(51, 51, 51));
         jbConsultar.setText("consultar");
         jbConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,9 +132,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jdFechaIngreso.setForeground(new java.awt.Color(0, 0, 51));
+        jdFechaIngreso.setForeground(new java.awt.Color(51, 51, 51));
 
-        jdFechaSalida.setForeground(new java.awt.Color(0, 0, 51));
+        jdFechaSalida.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha Ingreso");
@@ -139,7 +142,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fecha Salida");
 
-        jcbHabitacion.setForeground(new java.awt.Color(0, 0, 51));
+        jcbHabitacion.setForeground(new java.awt.Color(51, 51, 51));
         jcbHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbHabitacionActionPerformed(evt);
@@ -192,7 +195,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("ID-Reserva");
 
-        jComboHuesped.setForeground(new java.awt.Color(0, 0, 51));
+        jComboHuesped.setForeground(new java.awt.Color(51, 51, 51));
         jComboHuesped.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboHuespedActionPerformed(evt);
@@ -204,8 +207,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         jtIDhuesped.setForeground(new java.awt.Color(0, 0, 51));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 153));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(51, 51, 51));
+        jButton1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,14 +320,10 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jLabel7)
-                                        .addGap(23, 23, 23))
-                                    .addComponent(jLabel4))
-                                .addGap(24, 24, 24))
+                                .addComponent(jLabel9)
+                                .addGap(29, 29, 29)
+                                .addComponent(jLabel7)
+                                .addGap(47, 47, 47))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -336,7 +336,8 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jcbHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtCpersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jtCpersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jdFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2))
@@ -345,7 +346,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel3))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jdFechaSalida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
