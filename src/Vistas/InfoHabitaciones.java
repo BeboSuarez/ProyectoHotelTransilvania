@@ -46,12 +46,12 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jLabel1.setText("Informacion de las Habitaciones");
 
         jcbTipoHabitacion.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 jcbTipoHabitacionPopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
         jcbTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +100,8 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         });
 
         jtThabitacion.setEditable(false);
+        jtThabitacion.setBackground(new java.awt.Color(255, 255, 255));
+        jtThabitacion.setForeground(new java.awt.Color(153, 153, 153));
 
         jbSalir.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
         jbSalir.setText("SALIR");
@@ -157,20 +159,20 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
 
     private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
-
+borrarFilas();
         if (tipohabi != null) {
             if (jrbHabitacionD.isSelected()) {
                 cargarTablaHabitacionD(tipohabi.getIdTipodehabitacion());
             }
-            borrarFilas();
+           
         }
     }//GEN-LAST:event_jrbHabitacionDActionPerformed
 
     private void jrbHabitacionNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionNDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
-
-        cargarTablaHabitacionND(tipohabi.getIdTipodehabitacion());
         borrarFilas();
+        cargarTablaHabitacionND(tipohabi.getIdTipodehabitacion());
+
     }//GEN-LAST:event_jrbHabitacionNDActionPerformed
 
     private void jcbTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabitacionActionPerformed

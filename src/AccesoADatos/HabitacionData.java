@@ -61,7 +61,7 @@ public class HabitacionData {
 
         Habitacion habitacion = null;
 
-        try (PreparedStatement ps = con.prepareStatement("SELECT idHabitacion,precioNoche,cantidadPersonas,descripcion,estado"
+        try (PreparedStatement ps = con.prepareStatement("SELECT idTipodeabitacion,precioNoche,cantidadPersonas,descripcion,estado"
                 + "  FROM habitacion WHERE idHabitacion = ?", Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setInt(1, idHabitacion);
@@ -80,14 +80,14 @@ public class HabitacionData {
     //SE MODIFICA LA HABITACION//
     public void modificarHabitacion(Habitacion habitacion) {
 
-        String sql = "UPDATE habitacion SET idHabitacion = ? ,precioNoche=?,cantidadPersonas=?,descripcion = ?,estado = ?";
+        String sql = "UPDATE habitacion SET idTipodeabitacion=?,precioNoche=?,cantidadPersonas=?,descripcion = ?,estado = ?";
         PreparedStatement ps = null;
 
         try {
 
             ps = con.prepareStatement(sql);
 
-            ps.setInt(1, habitacion.getIdHabitacion());
+            ps.setInt(1, habitacion.getIdTipodehabitacion());
             ps.setDouble(2, habitacion.getPrecioNoche());
             ps.setInt(3, habitacion.getCantidadpersonas());
             ps.setString(4, habitacion.getDescripcion());
@@ -156,6 +156,7 @@ public class HabitacionData {
                 Habitacion habitacion = new Habitacion();
 
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
@@ -221,12 +222,12 @@ public class HabitacionData {
                 Habitacion habitacion = new Habitacion();
 
                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
                 habitacion.setEstado(rs.getBoolean("estado"));
                 habitaciones.add(habitacion);
-
             }
 
             ps.close();
@@ -257,7 +258,8 @@ public class HabitacionData {
 
                 Habitacion habitacion = new Habitacion();
 
-                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                  habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
                 habitacion.setDescripcion(rs.getString("descripcion"));
@@ -290,7 +292,8 @@ public class HabitacionData {
 
                 Habitacion habitacion = new Habitacion();
 
-                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
                 habitacion.setDescripcion(rs.getString("descripcion"));

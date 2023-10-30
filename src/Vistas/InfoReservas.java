@@ -85,7 +85,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         jbEliminar.setBackground(new java.awt.Color(51, 51, 51));
         jbEliminar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
-        jbEliminar.setForeground(new java.awt.Color(51, 51, 51));
+        jbEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jbEliminar.setText("BAJA");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +115,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtPrecioTotal.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jtPrecioTotal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtPrecioTotalMouseClicked(evt);
@@ -122,9 +123,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtPrecioTotal);
 
-        jbConsultar.setBackground(new java.awt.Color(51, 51, 51));
+        jbConsultar.setBackground(new java.awt.Color(0, 0, 0));
         jbConsultar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
-        jbConsultar.setForeground(new java.awt.Color(51, 51, 51));
+        jbConsultar.setForeground(new java.awt.Color(255, 255, 255));
         jbConsultar.setText("consultar");
         jbConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +210,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,11 +314,11 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jidReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
@@ -359,7 +360,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Calcular))))
-                .addGap(39, 39, 39)
+                .addGap(368, 368, 368)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbModificar)
                     .addComponent(jbEliminar)
