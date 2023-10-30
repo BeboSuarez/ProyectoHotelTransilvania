@@ -281,7 +281,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtPrecioActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-     
+
         try {
 
             String descripcion = jtTipoHabitacion.getText();
@@ -289,7 +289,6 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             int cantidadPersonas = Integer.parseInt(jcbCantPersonas.getSelectedItem().toString());
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
-            
 
             if (thabi != null) {
                 TipoDeHabitacion tHabitacion = new TipoDeHabitacion(descripcion, cantidadCamas, cantidadPersonas, tipoCama, precioNoche, isIcon);
@@ -299,9 +298,9 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showConfirmDialog(null, " " + e);
-          } catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
-}
+        }
         jbGuardar.setEnabled(false);
     }//GEN-LAST:event_jbGuardarActionPerformed
 
@@ -314,18 +313,18 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbTipoHabPopupMenuWillBecomeVisible
 
     private void jcbTipoHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoHabActionPerformed
-        
+
         TipoDeHabitacion tipoSeleccionado = (TipoDeHabitacion) jcbTipoHab.getSelectedItem();
         jtId.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
         jtTipoHabitacion.setText(tipoSeleccionado.getDescripcion());
-        jcbCantCamas.setSelectedItem(tipoSeleccionado.getCantidadCamas()+"");
-        jcbCantPersonas.setSelectedItem(tipoSeleccionado.getCantidadPersonas()+"");
+        jcbCantCamas.setSelectedItem(tipoSeleccionado.getCantidadCamas() + "");
+        jcbCantPersonas.setSelectedItem(tipoSeleccionado.getCantidadPersonas() + "");
         jtTipoCama.setText(tipoSeleccionado.getTipoCama());
         jtPrecio.setText(tipoSeleccionado.getPrecioNoche() + "");
         jcEstado.setSelected(tipoSeleccionado.isEstado());
         jbGuardar.setEnabled(false);
         jbModificar.setEnabled(true);
-       
+
     }//GEN-LAST:event_jcbTipoHabActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
@@ -363,11 +362,11 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "no se puede guardar");
             }
-       } catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Es necesario que ingrese el Id");
-          } catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
-}
+        }
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jcEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEstadoActionPerformed
@@ -379,19 +378,18 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioKeyTyped
-char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || c == '.')) {
             evt.consume();
-        }            
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jtPrecioKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-
         limpiar();
 
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
     private void limpiar() {
 
@@ -409,7 +407,6 @@ char c = evt.getKeyChar();
 
     private void CargarComboBoxTipoDeHabitacion() {
 
-//    th.listarTipoDeHabitacion().forEach(TipoDeHabitacion->jcbTipoHab.addItem(TipoDeHabitacion));
         List<TipoDeHabitacion> t = th.listarTipoDeHabitacion();
         System.out.println("1");
         for (TipoDeHabitacion tipoDeHabitacion : t) {

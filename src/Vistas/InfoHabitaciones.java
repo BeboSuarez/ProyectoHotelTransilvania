@@ -158,18 +158,17 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private void jrbHabitacionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
 
-       
         if (tipohabi != null) {
             if (jrbHabitacionD.isSelected()) {
                 cargarTablaHabitacionD(tipohabi.getIdTipodehabitacion());
             }
-             borrarFilas();
+            borrarFilas();
         }
     }//GEN-LAST:event_jrbHabitacionDActionPerformed
 
     private void jrbHabitacionNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbHabitacionNDActionPerformed
         TipoDeHabitacion tipohabi = (TipoDeHabitacion) jcbTipoHabitacion.getSelectedItem();
-        
+
         cargarTablaHabitacionND(tipohabi.getIdTipodehabitacion());
         borrarFilas();
     }//GEN-LAST:event_jrbHabitacionNDActionPerformed
@@ -186,7 +185,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbTipoHabitacionPopupMenuWillBecomeInvisible
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-                dispose();
+        dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
 

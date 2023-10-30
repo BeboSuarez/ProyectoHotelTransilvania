@@ -371,10 +371,12 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbCargarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCargarClienteActionPerformed
+        
         borrarFilas();
     }//GEN-LAST:event_jcbCargarClienteActionPerformed
 
     private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
+        
         Huesped hue = (Huesped) jcbCargarCliente.getSelectedItem();
 
         if (hue != null) {
@@ -449,11 +451,11 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtPrecioTotalMouseClicked
 
     private void jtidHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtidHabitacionActionPerformed
-   
+
     }//GEN-LAST:event_jtidHabitacionActionPerformed
 
     private void jCheckEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckEstadoActionPerformed
-  
+
     }//GEN-LAST:event_jCheckEstadoActionPerformed
 
     private void jComboHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboHuespedActionPerformed
@@ -479,7 +481,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularActionPerformed
-        System.out.println("aaaaaaa");
+   
 
         if (jtPrecioTotal != null) {
 
@@ -487,14 +489,14 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         }
 
         try {
-            System.out.println("bbbbbbbb");
+          
             int idHabitacion = Integer.parseInt(jtidHabitacion.getText());
-            System.out.println("1");
+           
             int idHuesped = Integer.parseInt(jtIDhuesped.getText());
             LocalDate fechaIngreso = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaSalida = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             double precioTotal = Double.parseDouble(jtPrecioNoche.getText());
-            System.out.println("2");
+          
             int cantidadPersonas = Integer.parseInt(jtCpersonas.getText());
             boolean estado = jCheckEstado.isSelected();
 

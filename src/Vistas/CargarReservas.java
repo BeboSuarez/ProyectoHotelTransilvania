@@ -25,13 +25,13 @@ public class CargarReservas extends javax.swing.JInternalFrame {
     private Habitacion habitacionActual = null;
     private HuespedData huespedSeleciconado = new HuespedData();
     private Huesped huespedActual = null;
+
     public CargarReservas() {
         initComponents();
         CargarComboBox();
-            ComboBox();
+        ComboBox();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -576,12 +576,12 @@ public class CargarReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jCheckEstadoActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-                dispose();
+        dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         System.out.println("aaaaaaa");
-        
+
         try {
             System.out.println("bbbbbbbb");
             int idHabitacion = Integer.parseInt(jtidHabitacion.getText());
@@ -589,13 +589,13 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             int idHuesped = Integer.parseInt(jtIDhuesped.getText());
             LocalDate fechaIngreso = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaSalida = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            double precioTotal = Double.parseDouble(jtPrecioTotal.getText());                     
+            double precioTotal = Double.parseDouble(jtPrecioTotal.getText());
             System.out.println("2");
             int cantidadPersonas = Integer.parseInt(jtCpersonas.getText());
-            boolean estado = jCheckEstado.isSelected();   
+            boolean estado = jCheckEstado.isSelected();
 
             if (reservaActual == null) {
-                Reserva res = new Reserva(idHabitacion,idHuesped,fechaIngreso,fechaSalida,cantidadPersonas,precioTotal,estado);
+                Reserva res = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
                 //Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
                 reseData.guardarReserva(res);
                 habitacionSeleccionada.habitacionDisponible(idHabitacion);
@@ -603,78 +603,69 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
-            
 
-        
+            jbGuardar.setEnabled(false);
+        }
+        LocalDate fecha1 = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate fecha2 = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        System.out.println("fech1: " + fecha1);
+        System.out.println("fech2: " + fecha2);
 
-        jbGuardar.setEnabled(false);
-         }        
-       LocalDate fecha1=jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    LocalDate fecha2=jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    System.out.println("fech1: "+fecha1);
-    System.out.println("fech2: "+fecha2);
+        int anioACT = fecha2.getYear();
+        int mesACT = fecha2.getMonthValue();
+        int diaACT = fecha2.getDayOfMonth();
 
-    int anioACT = fecha2.getYear();
-    int mesACT = fecha2.getMonthValue();
-    int diaACT = fecha2.getDayOfMonth();
+        int resAnio = 0;
 
-    int resAnio = 0;
+        int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth();
+        int resMes = fecha2.getMonthValue() - fecha1.getMonthValue();
 
-    int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth();
-    int resMes = fecha2.getMonthValue() - fecha1.getMonthValue();
+        if (fecha2.getYear() > fecha1.getYear()) {
+            if (fecha2.getMonthValue() == fecha1.getMonthValue()) {
 
-    if(fecha2.getYear() > fecha1.getYear()) {
-       if(fecha2.getMonthValue() == fecha1.getMonthValue()) {
-
-
-                if(fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
+                if (fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
                     resAnio = fecha2.getYear() - fecha1.getYear();
                 }
-            }else {
+            } else {
                 resAnio = fecha2.getYear() - fecha1.getYear() - 1;
             }
-        }                                                   
-        
-        System.out.println("dias: "+resDia);
-      double Precio = Double.parseDouble(jtPrecioNoche.getText());
-      
-      double PrecioTotal = Precio * resDia;
+        }
+
+        System.out.println("dias: " + resDia);
+        double Precio = Double.parseDouble(jtPrecioNoche.getText());
+
+        double PrecioTotal = Precio * resDia;
         System.out.println(PrecioTotal);
-        
-       
+
+
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
-            Huesped huespedSeleccionado = (Huesped) jComboBox1.getSelectedItem();
+        Huesped huespedSeleccionado = (Huesped) jComboBox1.getSelectedItem();
 //              jComboBox1.getSelectedItem();
-              jtIDhuesped.setText(huespedSeleccionado.getIdHuesped()+"");
-         
+        jtIDhuesped.setText(huespedSeleccionado.getIdHuesped() + "");
+
 //
 //
 //        
 //        
 //        
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jtIDhuespedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIDhuespedKeyTyped
-        
+
     }//GEN-LAST:event_jtIDhuespedKeyTyped
 
     private void jcbHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbHabitacionActionPerformed
-     Habitacion habitacionseleccionado=(Habitacion) jcbHabitacion.getSelectedItem();
-     HabitacionData hd=new HabitacionData();
- 
-     jtidHabitacion.setText(habitacionseleccionado.getIdHabitacion()+"");
-     jtPrecioNoche.setText(habitacionseleccionado.getPrecioNoche()+"");
-     jtCpersonas.setText(habitacionseleccionado.getCantidadpersonas()+"");
-         
-     
+        Habitacion habitacionseleccionado = (Habitacion) jcbHabitacion.getSelectedItem();
+        HabitacionData hd = new HabitacionData();
+
+        jtidHabitacion.setText(habitacionseleccionado.getIdHabitacion() + "");
+        jtPrecioNoche.setText(habitacionseleccionado.getPrecioNoche() + "");
+        jtCpersonas.setText(habitacionseleccionado.getCantidadpersonas() + "");
+
 
     }//GEN-LAST:event_jcbHabitacionActionPerformed
 
@@ -723,13 +714,12 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
     private void jbCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcularActionPerformed
         System.out.println("aaaaaaa");
-        
-        if(jtPrecioTotal != null){
-        
+
+        if (jtPrecioTotal != null) {
+
             jtPrecioTotal.setText("");
         }
-        
-        
+
         try {
             System.out.println("bbbbbbbb");
             int idHabitacion = Integer.parseInt(jtidHabitacion.getText());
@@ -737,92 +727,86 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             int idHuesped = Integer.parseInt(jtIDhuesped.getText());
             LocalDate fechaIngreso = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaSalida = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            double precioTotal = Double.parseDouble(jtPrecioNoche.getText());                     
+            double precioTotal = Double.parseDouble(jtPrecioNoche.getText());
             System.out.println("2");
             int cantidadPersonas = Integer.parseInt(jtCpersonas.getText());
-            boolean estado = jCheckEstado.isSelected();   
+            boolean estado = jCheckEstado.isSelected();
 
             if (reservaActual == null) {
-                Reserva res = new Reserva(idHabitacion,idHuesped,fechaIngreso,fechaSalida,cantidadPersonas,precioTotal,estado);
+                Reserva res = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
                 //Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
-              
+
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
-           
-         }        
-       LocalDate fecha1=jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    LocalDate fecha2=jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    System.out.println("fech1: "+fecha1);
-    System.out.println("fech2: "+fecha2);
 
-            if (fecha2.isBefore(fecha1)) {
-                // La fecha de salida es anterior a la fecha de entrada, muestra un mensaje de error
-                JOptionPane.showMessageDialog(null, "La fecha de salida debe ser posterior a la fecha de entrada.");
-            } else {
-                int anioACT = fecha2.getYear();
-    int mesACT = fecha2.getMonthValue();
-    int diaACT = fecha2.getDayOfMonth();
+        }
+        LocalDate fecha1 = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate fecha2 = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        System.out.println("fech1: " + fecha1);
+        System.out.println("fech2: " + fecha2);
 
-    int resAnio = 0;
+        if (fecha2.isBefore(fecha1)) {
+            // La fecha de salida es anterior a la fecha de entrada, muestra un mensaje de error
+            JOptionPane.showMessageDialog(null, "La fecha de salida debe ser posterior a la fecha de entrada.");
+        } else {
+            int anioACT = fecha2.getYear();
+            int mesACT = fecha2.getMonthValue();
+            int diaACT = fecha2.getDayOfMonth();
 
-    int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth();
-    int resMes = fecha2.getMonthValue() - fecha1.getMonthValue();
-   
-    if(fecha2.getYear() > fecha1.getYear()) {
-       if(fecha2.getMonthValue() == fecha1.getMonthValue()) {
+            int resAnio = 0;
 
+            int resDia = fecha2.getDayOfMonth() - fecha1.getDayOfMonth();
+            int resMes = fecha2.getMonthValue() - fecha1.getMonthValue();
 
-                if(fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
-                    resAnio = fecha2.getYear() - fecha1.getYear();
+            if (fecha2.getYear() > fecha1.getYear()) {
+                if (fecha2.getMonthValue() == fecha1.getMonthValue()) {
+
+                    if (fecha2.getDayOfMonth() == fecha1.getDayOfMonth()) {
+                        resAnio = fecha2.getYear() - fecha1.getYear();
+                    }
+                } else {
+                    resAnio = fecha2.getYear() - fecha1.getYear() - 1;
                 }
-            }else {
-                resAnio = fecha2.getYear() - fecha1.getYear() - 1;
-            }
-        }                                                   
-        
-        System.out.println("dias: "+resDia);
-      double Precio = Double.parseDouble(jtPrecioNoche.getText());
-      
-      double PrecioTotal = Precio * resDia;
-        System.out.println(PrecioTotal);
-        
-        jtPrecioTotal.setText((PrecioTotal)+"");
-                // Realiza el cálculo de días y otros cálculos relacionados con la reserva
-                // ...
             }
 
-    
-        
-        
-        
-        
+            System.out.println("dias: " + resDia);
+            double Precio = Double.parseDouble(jtPrecioNoche.getText());
+
+            double PrecioTotal = Precio * resDia;
+            System.out.println(PrecioTotal);
+
+            jtPrecioTotal.setText((PrecioTotal) + "");
+            // Realiza el cálculo de días y otros cálculos relacionados con la reserva
+            // ...
+        }
+
 //         PrecioTotal = jtPrecioCalculado.getText().toString(); 
-        
+
     }//GEN-LAST:event_jbCalcularActionPerformed
 
     private void jtPrecioNocheKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioNocheKeyTyped
-char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || c == '.')) {
             evt.consume();
         }
 //
- //Permite ingresar SOLO caracteres
+        //Permite ingresar SOLO caracteres
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jtPrecioNocheKeyTyped
 
     private void jtCpersonasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCpersonasKeyTyped
-    char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || c == '.')) {
             evt.consume();
         }
-  
+
     }//GEN-LAST:event_jtCpersonasKeyTyped
 
     private void jtPrecioTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioTotalKeyTyped
-      char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || c == '.')) {
             evt.consume();
         }
@@ -879,7 +863,7 @@ char c = evt.getKeyChar();
     private void jbCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcular1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCalcular1ActionPerformed
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox jCheckEstado;
@@ -933,25 +917,23 @@ char c = evt.getKeyChar();
     private javax.swing.JTextField jtidHabitacion1;
     // End of variables declaration//GEN-END:variables
 
-    private void CargarComboBox(){
+    private void CargarComboBox() {
         HuespedData hues = new HuespedData();
         List<Huesped> h = hues.listarHuesped();
-        for(Huesped huesped : h){
+        for (Huesped huesped : h) {
             jComboBox1.addItem(huesped);
         }
-       
+
     }
-    private void ComboBox(){
-    
-         HabitacionData habiData = new HabitacionData();
+
+    private void ComboBox() {
+
+        HabitacionData habiData = new HabitacionData();
         List<Habitacion> hab = habiData.listarHabitacionDispo();
-        for(Habitacion habitacion : hab )
-       
+        for (Habitacion habitacion : hab) {
             jcbHabitacion.addItem(habitacion);
-       
+        }
+
     }
-
-
-
 
 }

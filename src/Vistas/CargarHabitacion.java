@@ -274,7 +274,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jtIdCama.setText(tipoSeleccionado.getIdTipodehabitacion() + "");
         jtTipo.setText(tipoSeleccionado.getTipoCama());
         jtPrecioNoche.setText(tipoSeleccionado.getPrecioNoche() + "");
-        jtCantidadpersonas.setText(tipoSeleccionado.getCantidadPersonas()+"");
+        jtCantidadpersonas.setText(tipoSeleccionado.getCantidadPersonas() + "");
 
 //        // TODO add your handling code here:
 //        
@@ -304,7 +304,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
             int idTipodehabitacion = Integer.parseInt(jtIdCama.getText());
 
             double precioNoche = Double.parseDouble(jtPrecioNoche.getText());
-            int cantidadPersonas= Integer.parseInt(jtCantidadpersonas.getText());
+            int cantidadPersonas = Integer.parseInt(jtCantidadpersonas.getText());
 
             String descripcion = jtTipo.getText();
 
@@ -312,7 +312,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
             if (habi != null) {
 
-                Habitacion habitacion = new Habitacion(idTipodehabitacion, precioNoche,cantidadPersonas, descripcion, estado);
+                Habitacion habitacion = new Habitacion(idTipodehabitacion, precioNoche, cantidadPersonas, descripcion, estado);
 
                 habidata.guardarHabitacion(habitacion);
             } else {
@@ -328,12 +328,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jtPrecioNocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPrecioNocheActionPerformed
-        
+
     }//GEN-LAST:event_jtPrecioNocheActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
 
-        
         try {
 
             boolean estado = jEstado.isSelected();
@@ -350,14 +349,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "no se puede eliminar");
             }
         } catch (NumberFormatException e) {
-            
-            
+
             Limpiar();
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -365,7 +361,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jtIdCamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtIdCamaActionPerformed
-        
+
     }//GEN-LAST:event_jtIdCamaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -381,11 +377,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jEstadoActionPerformed
 
     private void jtPrecioNocheKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioNocheKeyTyped
-char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || c == '.')) {
             evt.consume();
-        }            
-       
+        }
+
     }//GEN-LAST:event_jtPrecioNocheKeyTyped
 
     private void CargarComboBoxTipoDeHabitacion() {
@@ -402,7 +398,7 @@ char c = evt.getKeyChar();
     private void Limpiar() {
         jtPrecioNoche.setText("");
         jtTipo.setText("");
-        jtPrecioNoche.setText(""); 
+        jtPrecioNoche.setText("");
         jtCantidadpersonas.setText("");
         jEstado.setSelected(false);
         jbGuardar.setEnabled(true);

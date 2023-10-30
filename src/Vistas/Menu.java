@@ -7,14 +7,11 @@ import java.time.LocalDate;
 import java.time.Month;
 import javax.swing.ImageIcon;
 
-
 public class Menu extends javax.swing.JFrame {
 
-   
     public Menu() {
         initComponents();
-        
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -188,72 +185,71 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
         CargarCliente formulario = new CargarCliente();
         formulario.setVisible(true);
         escritorio.add(formulario);
         escritorio.moveToFront(formulario);
-      formulario.getContentPane().setBackground(new Color (102,102,102));
+        formulario.getContentPane().setBackground(new Color(102, 102, 102));
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmCargarthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCargarthActionPerformed
-         escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
         CargarTipoHabitacion fHabitacion = new CargarTipoHabitacion();
         fHabitacion.setVisible(true);
         escritorio.add(fHabitacion);
-        escritorio.moveToFront(fHabitacion);  
-        fHabitacion.getContentPane().setBackground(new Color (102,102,102));
-       
-                                            
+        escritorio.moveToFront(fHabitacion);
+        fHabitacion.getContentPane().setBackground(new Color(102, 102, 102));
+
+
     }//GEN-LAST:event_jmCargarthActionPerformed
 
     private void jmCHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacionActionPerformed
-     
-       escritorio.removeAll();
+
+        escritorio.removeAll();
         escritorio.repaint();
         CargarHabitacion fTipoHabitacion = new CargarHabitacion();
         fTipoHabitacion.setVisible(true);
         escritorio.add(fTipoHabitacion);
         escritorio.moveToFront(fTipoHabitacion);
-        fTipoHabitacion.getContentPane().setBackground(new Color (102,102,102));
+        fTipoHabitacion.getContentPane().setBackground(new Color(102, 102, 102));
     }//GEN-LAST:event_jmCHabitacionActionPerformed
 
     private void jmCHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion1ActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         CargarReservas fReservas = new CargarReservas();
-       fReservas.setVisible(true);
+        fReservas.setVisible(true);
         escritorio.add(fReservas);
-        escritorio.moveToFront(fReservas);  
-        fReservas.getContentPane().setBackground(new Color (102,102,102));
+        escritorio.moveToFront(fReservas);
+        fReservas.getContentPane().setBackground(new Color(102, 102, 102));
     }//GEN-LAST:event_jmCHabitacion1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         InfoReservas IReservas = new InfoReservas();
-        IReservas.setVisible(true);      
+        IReservas.setVisible(true);
         escritorio.add(IReservas);
         escritorio.moveToFront(IReservas);
-        IReservas.getContentPane().setBackground(new Color (102,102,102));
-        
+        IReservas.getContentPane().setBackground(new Color(102, 102, 102));
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jmCHabitacion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCHabitacion2ActionPerformed
-          escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
         InfoHabitaciones habi = new InfoHabitaciones();
-       habi.setVisible(true);
+        habi.setVisible(true);
         escritorio.add(habi);
         escritorio.moveToFront(habi);
-        habi.getContentPane().setBackground(new Color (102,102,102));
+        habi.getContentPane().setBackground(new Color(102, 102, 102));
     }//GEN-LAST:event_jmCHabitacion2ActionPerformed
 
     public static void main(String args[]) {
-  
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);

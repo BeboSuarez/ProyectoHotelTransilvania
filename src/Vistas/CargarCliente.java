@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vistas;
 
 import AccesoADatos.HuespedData;
@@ -14,18 +9,12 @@ import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author viper
- */
+
 public class CargarCliente extends javax.swing.JInternalFrame {
 
     private HuespedData huespedDate = new HuespedData();
     private Huesped huesped = null;
 
-    /**
-     * Creates new form CargarCliente
-     */
     public CargarCliente() {
         initComponents();
         CargarComboBox();
@@ -33,7 +22,6 @@ public class CargarCliente extends javax.swing.JInternalFrame {
 
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -365,32 +353,32 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         try {
 
             String nombre = jtNombre.getText();
-            System.out.println("1");
+           
             String apellido = jtApellido.getText();
 
-            System.out.println("2");
+            
             int dni = Integer.parseInt(jtDni.getText());
             if (nombre.isEmpty() || apellido.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "no puede haber campos vacios");
                 return;
             }
 
-            System.out.println("3");
+          
             LocalDate fecha = jtFechaN.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-            System.out.println("4");
+           
             String correo = jtCorreo.getText();
 
-            System.out.println("5");
+          
             int telefono = Integer.parseInt(jtTelefono.getText());
 
-            System.out.println("6");
+           
             String domicilio = jtDomicilio.getText();
 
-            System.out.println("7");
+          
             boolean estado = jrEstado.isSelected();
 
-            System.out.println("8");
+            
 
             if (huesped == null) {
                 Huesped cliente = new Huesped(nombre, apellido, dni, fecha, correo, telefono, domicilio, estado);
@@ -414,31 +402,31 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         try {
 
             String nombre = jtNombre.getText();
-            System.out.println("1");
+           
             String apellido = jtApellido.getText();
 
-            System.out.println("2");
+           
             int dni = Integer.parseInt(jtDni.getText());
 
-            System.out.println("3");
+          
             LocalDate fecha = jtFechaN.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-            System.out.println("4");
+          
             String correo = jtCorreo.getText();
 
-            System.out.println("5");
+           
             int telefono = Integer.parseInt(jtTelefono.getText());
 
-            System.out.println("6");
+           
             String domicilio = jtDomicilio.getText();
 
-            System.out.println("7");
+          
             boolean estado = jrEstado.isSelected();
 
-            System.out.println("8");
+         
             int idHuesped = Integer.parseInt(jtId.getText());
-            System.out.println("9");
-            System.out.println("antes del  if");
+           
+           
             if (huespedActual != null) {
                 huespedActual.setIdHuesped(idHuesped);
                 huespedActual.setNombre(nombre);
@@ -468,7 +456,7 @@ public class CargarCliente extends javax.swing.JInternalFrame {
 
     private void jcbCargarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCargarClienteActionPerformed
         Huesped huespedSeleccionado = (Huesped) jcbCargarCliente.getSelectedItem();
-        
+
         jtId.setText(huespedSeleccionado.getIdHuesped() + "");
         jtNombre.setText(huespedSeleccionado.getNombre());
         jtApellido.setText(huespedSeleccionado.getApellido());
@@ -478,7 +466,7 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         jtTelefono.setText(huespedSeleccionado.getTelefono() + "");
         jtDomicilio.setText(huespedSeleccionado.getDomicilio() + "");
         jrEstado.setSelected(huespedSeleccionado.isEstado());
-        
+
         jbGuardar.setEnabled(false);
         jbModificar.setEnabled(true);
 
@@ -533,25 +521,25 @@ public class CargarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtIdKeyPressed
 
     private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
-          if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
-    evt.consume(); 
-}
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }
     }//GEN-LAST:event_jtApellidoKeyTyped
 
     private void jtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdKeyTyped
         if (Character.isLetter(evt.getKeyChar())) {
             evt.consume();
-        }        // TODO add your handling code here:
+        }        
     }//GEN-LAST:event_jtIdKeyTyped
 
     private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
-       if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
-    evt.consume(); 
-}        // TODO add your handling code here:
+        if (!Character.isLetter(evt.getKeyChar()) && evt.getKeyChar() != ' ') {
+            evt.consume();
+        }        
     }//GEN-LAST:event_jtNombreKeyTyped
 
     private void jtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCorreoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtCorreoActionPerformed
 
     private void jtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCorreoKeyTyped
@@ -560,29 +548,29 @@ public class CargarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtCorreoKeyTyped
 
     private void jtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoKeyTyped
-       char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || c == '.')) {
             evt.consume();
-    }           // TODO add your handling code here:
+        }           
     }//GEN-LAST:event_jtTelefonoKeyTyped
 
     private void jrEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrEstadoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jrEstadoActionPerformed
 
     private void jtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDniKeyTyped
-   char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (!(Character.isDigit(c) || c == '.')) {
             evt.consume();
-    }  
+        }
     }//GEN-LAST:event_jtDniKeyTyped
 
     private void jtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDniActionPerformed
-        
+
     }//GEN-LAST:event_jtDniActionPerformed
 
     private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
-        LimpiarCombo();        // TODO add your handling code here:
+        LimpiarCombo();        
     }//GEN-LAST:event_jbLimpiarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
