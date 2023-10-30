@@ -6,6 +6,7 @@ import AccesoADatos.ReservaData;
 import Entidades.Habitacion;
 import Entidades.Huesped;
 import Entidades.Reserva;
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
@@ -23,6 +24,9 @@ public class InfoReservas extends javax.swing.JInternalFrame {
 
     public InfoReservas() {
         initComponents();
+        
+        ((JTextFieldDateEditor)jdFechaIngreso.getDateEditor()).setEditable(false);
+        ((JTextFieldDateEditor)jdFechaSalida.getDateEditor()).setEditable(false);
         ArmarCabecera();
         CargarComboHabitaciones();
         CargarComboBox();
@@ -67,13 +71,12 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
 
-        setBackground(new java.awt.Color(141, 80, 42));
+        setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Informacion de las reservas  por Nombre");
+        jLabel1.setText("Información de las reservas  por Nombre");
 
-        jbModificar.setBackground(new java.awt.Color(102, 102, 102));
         jbModificar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
         jbModificar.setForeground(new java.awt.Color(51, 51, 51));
         jbModificar.setText("MODIFICAR RESERVA");
@@ -83,9 +86,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbEliminar.setBackground(new java.awt.Color(51, 51, 51));
         jbEliminar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
-        jbEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jbEliminar.setText("BAJA");
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,10 +124,8 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jtPrecioTotal);
 
-        jbConsultar.setBackground(new java.awt.Color(0, 0, 0));
         jbConsultar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
-        jbConsultar.setForeground(new java.awt.Color(255, 255, 255));
-        jbConsultar.setText("consultar");
+        jbConsultar.setText("CONSULTAR");
         jbConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConsultarActionPerformed(evt);
@@ -138,10 +137,10 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         jdFechaSalida.setForeground(new java.awt.Color(51, 51, 51));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Fecha Ingreso");
+        jLabel2.setText("Fecha Ingreso:");
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Fecha Salida");
+        jLabel3.setText("Fecha Salida:");
 
         jcbHabitacion.setForeground(new java.awt.Color(51, 51, 51));
         jcbHabitacion.addActionListener(new java.awt.event.ActionListener() {
@@ -168,13 +167,13 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Personas");
+        jLabel4.setText("Personas:");
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("PrecioNoche");
+        jLabel5.setText("Precio x Noche:");
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Estado");
+        jLabel6.setText("Estado:");
 
         jtidHabitacion.setForeground(new java.awt.Color(0, 0, 51));
         jtidHabitacion.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +183,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Habitacion");
+        jLabel7.setText("Habitación:");
 
         jCheckEstado.setForeground(new java.awt.Color(255, 255, 255));
         jCheckEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -204,21 +203,19 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Huesped");
+        jLabel9.setText("Huésped:");
 
         jtIDhuesped.setForeground(new java.awt.Color(0, 0, 51));
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir");
+        jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        Calcular.setText("Calcular");
+        Calcular.setText("CALCULAR");
         Calcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CalcularActionPerformed(evt);
@@ -232,7 +229,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
         });
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Precio total");
+        jLabel10.setText("Precio total:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -294,7 +291,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jbConsultar))
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 16, Short.MAX_VALUE))))
+                                .addGap(0, 88, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator1)))

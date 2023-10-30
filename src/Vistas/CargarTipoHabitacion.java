@@ -69,22 +69,27 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         jcEstado = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 51, 51));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel1.setText("Descripcion");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Descripción: ");
 
         jLabel3.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel3.setText("Cantidad de Personas");
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Cantidad de Personas: ");
 
         jLabel4.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel4.setText("Cantidad de Camas");
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Cantidad de Camas: ");
 
         jLabel6.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel6.setText("Tipo de Cama");
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Tipo de Cama: ");
 
         jLabel7.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel7.setText("Precio por Noche");
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Precio por Noche: ");
 
         jtPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +107,8 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         jcbCantCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         jLabel2.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel2.setText("Cargar Tipo de Habitación");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("CARGAR TIPO HABITACIÓN");
 
         jbModificar.setText("MODIFICAR");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,10 +139,12 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel5.setText("Seleccionar");
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Seleccionar: ");
 
         jLabel8.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel8.setText("ID");
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("ID: ");
 
         jtId.setEditable(false);
 
@@ -186,7 +194,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)
-                        .addGap(289, 289, 289)
+                        .addGap(212, 212, 212)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -260,7 +268,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jcbTipoHab, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbGuardar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbModificar, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -288,6 +296,10 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
 
+           if (descripcion.isEmpty() || tipoCama.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "no puede haber campos vacios");
+                return;
+            }
             if (thabi != null) {
                 TipoDeHabitacion tHabitacion = new TipoDeHabitacion(descripcion, cantidadCamas, cantidadPersonas, tipoCama, precioNoche, isIcon);
                 tipohabitacion.guardarTipoDeHabitacion(tHabitacion);
@@ -295,7 +307,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "no se puede guardar");
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showConfirmDialog(null, " " + e);
+            JOptionPane.showMessageDialog(null, " ");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
         }
@@ -347,7 +359,11 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
             boolean estado = jcEstado.isSelected();
-
+            
+            if (descripcion.isEmpty() || tipoCama.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "no puede haber campos vacios");
+                return;
+            }
             if (tipo != null) {
                 tipo.setIdTipodehabitacion(idTipodehabitacion);
                 tipo.setDescripcion(descripcion);
@@ -361,7 +377,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "no se puede guardar");
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Es necesario que ingrese el Id");
+            JOptionPane.showMessageDialog(null, "No puede haber campos vacíos");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
         }

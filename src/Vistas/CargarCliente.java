@@ -62,15 +62,18 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         setRequestFocusEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel2.setText("Nombre");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nombre: ");
 
         jLabel3.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel3.setText("Apellido");
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Apellido:");
 
         jLabel4.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel5.setText("Telefono");
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Teléfono: ");
 
         jtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,10 +107,12 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel7.setText("Fecha de Nacimiento");
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Fecha de Nacimiento: ");
 
         jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel1.setText("Correo");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Correo:");
 
         jtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,10 +141,12 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel6.setText("Seleccione para modificar");
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Seleccione para modificar: ");
 
         jLabel8.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel8.setText("Estado");
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Estado:");
 
         jrEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +155,8 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel9.setText("Domicilio");
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Domicilio:");
 
         jbModificar.setText("MODIFICAR");
         jbModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -188,7 +196,8 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel10.setText("Documento");
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Documento: ");
 
         jbLimpiar.setText("LIMPIAR");
         jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +207,8 @@ public class CargarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
-        jLabel11.setText("CARGAR HUESPED");
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("CARGAR HUÉSPED");
 
         jbSalir.setText("SALIR");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -214,13 +224,13 @@ public class CargarCliente extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 642, Short.MAX_VALUE))
+                .addGap(0, 833, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel4)
                 .addGap(70, 70, 70)
                 .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155)
+                .addGap(240, 240, 240)
                 .addComponent(jLabel11)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -281,7 +291,7 @@ public class CargarCliente extends javax.swing.JInternalFrame {
                                         .addComponent(jbLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
                                 .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
@@ -335,7 +345,7 @@ public class CargarCliente extends javax.swing.JInternalFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jcbCargarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)))
-                .addGap(18, 55, Short.MAX_VALUE)
+                .addGap(18, 567, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(jbGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -383,17 +393,20 @@ public class CargarCliente extends javax.swing.JInternalFrame {
             if (huesped == null) {
                 Huesped cliente = new Huesped(nombre, apellido, dni, fecha, correo, telefono, domicilio, estado);
                 huespedDate.cargarHuesped(cliente);
+                  jbGuardar.setEnabled(false);
+                  
             } else {
+                
                 JOptionPane.showMessageDialog(null, "DNI DUPLICADO");
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "no escribio un dni valido");
+            JOptionPane.showMessageDialog(null, "Hay un dato numérico erróneo, debe tener 9 dígitos");
             jtDni.setText("");
 
         }
 
-        jbGuardar.setEnabled(false);
+      
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
@@ -447,7 +460,7 @@ public class CargarCliente extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "no se puede modificar");
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "no escribio un dni valido");
+            JOptionPane.showMessageDialog(null, "Hay un dato numérico erróneo, debe tener 9 dígitos");
             jtDni.setText("");
         }
 

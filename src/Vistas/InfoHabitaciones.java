@@ -1,10 +1,13 @@
 package Vistas;
 
 import AccesoADatos.HabitacionData;
+import AccesoADatos.HuespedData;
 import AccesoADatos.TipoDeHabitacionData;
 import Entidades.Habitacion;
+import Entidades.Huesped;
 import Entidades.TipoDeHabitacion;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class InfoHabitaciones extends javax.swing.JInternalFrame {
@@ -13,6 +16,11 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
     private Habitacion habitacion = null;
     private HabitacionData habitacionData;
     private TipoDeHabitacion tipohabitacion;
+    private TipoDeHabitacionData th;
+    private HabitacionData habidata;
+    private HuespedData hd;
+    private Huesped huespedActual;
+    private Habitacion habi;
 
     public InfoHabitaciones() {
         initComponents();
@@ -40,10 +48,11 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         jtThabitacion = new javax.swing.JTextField();
         jbSalir = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 51, 51));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
-        jLabel1.setText("Informacion de las Habitaciones");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Información de las Habitaciones: ");
 
         jcbTipoHabitacion.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -61,7 +70,6 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
         });
 
         jTabla.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 12)); // NOI18N
-        jTabla.setForeground(new java.awt.Color(255, 255, 255));
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -134,7 +142,7 @@ public class InfoHabitaciones extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(23, 23, 23)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,4 +274,5 @@ borrarFilas();
             });
         }
     }
+
 }

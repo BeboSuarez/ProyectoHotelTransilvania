@@ -35,14 +35,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jTextField7" min="-2" pref="125" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="642" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="833" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Component id="jtId" min="-2" pref="0" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -120,7 +120,7 @@
                                       <Component id="jbEliminar" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="90" max="32767" attributes="0"/>
+                              <EmptySpace pref="284" max="32767" attributes="0"/>
                               <Component id="jbSalir" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -140,7 +140,7 @@
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="jtId" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -196,7 +196,7 @@
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" pref="55" max="32767" attributes="0"/>
+              <EmptySpace type="separate" pref="567" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" max="-2" attributes="0">
                   <Component id="jbGuardar" alignment="3" max="32767" attributes="0"/>
                   <Component id="jbModificar" alignment="3" max="32767" attributes="0"/>
@@ -216,7 +216,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nombre: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -224,7 +227,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Apellido"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Apellido:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -239,7 +245,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Telefono"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Tel&#xe9;fono: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtNombre">
@@ -265,7 +274,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Fecha de Nacimiento: "/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jtFechaN">
@@ -275,7 +287,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Correo"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Correo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtCorreo">
@@ -307,7 +322,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Seleccione para modificar"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Seleccione para modificar: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -315,7 +333,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Estado"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Estado:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jrEstado">
@@ -330,7 +351,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Domicilio"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Domicilio:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbModificar">
@@ -384,7 +408,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Documento"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Documento: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbLimpiar">
@@ -400,7 +427,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sinhala Sangam MN" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CARGAR HUESPED"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="CARGAR HU&#xc9;SPED"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbSalir">

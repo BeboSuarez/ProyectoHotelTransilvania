@@ -1,18 +1,29 @@
 package Vistas;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.Month;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {
         initComponents();
-
+           
     }
+
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -247,7 +258,9 @@ public class Menu extends javax.swing.JFrame {
         escritorio.moveToFront(habi);
         habi.getContentPane().setBackground(new Color(102, 102, 102));
     }//GEN-LAST:event_jmCHabitacion2ActionPerformed
-
+    
+  
+    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
