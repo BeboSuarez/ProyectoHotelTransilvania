@@ -129,28 +129,28 @@ public class HuespedData {
 
     }
 
-    public Huesped buscarHuesped() {
+    public Huesped buscarHuespedPorDni( int dni) {
 
         Huesped huesped = new Huesped();
 
-        String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM huesped WHERE idHuesped = ? AND estado = 1";
+        String sql = "SELECT idHuesped FROM huesped WHERE dni= ?";
 
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
-
+            ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 huesped = new Huesped();
 
-                huesped.setDni(rs.getInt("dni"));
-                huesped.setApellido(rs.getString("apellido"));
-                huesped.setNombre(rs.getString("nombre"));
-                huesped.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-                huesped.setEstado(true);
-
+                huesped.setIdHuesped(rs.getInt("idHuesped"));
+//                huesped.setDni(rs.getInt("dni"));
+//                huesped.setApellido(rs.getString("apellido"));
+//                huesped.setNombre(rs.getString("nombre"));
+//                huesped.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+//                huesped.setEstado(true);
             }
         } catch (SQLException ex) {
 
@@ -160,6 +160,7 @@ public class HuespedData {
 
         return huesped;
     }
+    
 
     public List<Huesped> listarHuesped() {
 

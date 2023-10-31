@@ -63,6 +63,8 @@ public class ReservaData {
             JOptionPane.showMessageDialog(null, "habitacion ocupada");
         }
     }
+    
+    
 
     public void modificarReserva(Reserva reserva) {
         //UPDATE `reserva` SET `idReserva`='[value-1]',`idHabitacion`='[value-2]',`idHuesped`='[value-3]',
@@ -118,6 +120,7 @@ public class ReservaData {
 
         }
     }
+    
 
 //    public List<Reserva> obtenerReserva() {
 //        ArrayList<Reserva> reservadas = new ArrayList<>();
