@@ -137,6 +137,32 @@ public class HabitacionData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
         }
     }
+    
+    public void habitacionNoDisponible(int id) {
+
+        String sql = "UPDATE habitacion SET estado = 0 WHERE idHabitacion = ? ";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+
+                JOptionPane.showMessageDialog(null, " Se actualizo el estado de la habitacion");
+
+            }
+            ps.close();
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
+        }
+    }
+
 
     //SE OBTIENE UNA LISTA DE LAS HABITACIONES DE LA BASE DE DATOS//
     public List<Habitacion> listarHabitacion() {
@@ -176,15 +202,15 @@ public class HabitacionData {
     }
 
     //SE ELIMINA LA HABITACION POR ESTADO//(VUELVE A ESTADO 0)
-    public void eliminarHabitacion(boolean estado) {
+    public void eliminarHabitacion(int idHabitacion) {
 
-        String sql = "DELETE FROM `habitacion` WHERE estado = 0";
+        String sql = "DELETE FROM `habitacion` WHERE idHabitacion = ?";
 
         try {
 
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setBoolean(1, estado);
+            ps.setInt(1, idHabitacion);
 
             int exito = ps.executeUpdate();
 
