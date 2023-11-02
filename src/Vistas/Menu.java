@@ -8,8 +8,13 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
@@ -17,12 +22,25 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
 public class Menu extends javax.swing.JFrame {
+    
+    public Clip clip;
+    public String Ruta = "/sonido/";
+   
 
     public Menu() {
         initComponents();
            
     }
 
+    public void Sonido(String archivo) {
+        try {
+            clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(Ruta + archivo + ".wav")));
+            clip.start();
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+        }
+
+    }
     
 
     @SuppressWarnings("unchecked")
@@ -112,6 +130,14 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/registro.png"))); // NOI18N
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMenu1MouseExited(evt);
+            }
+        });
 
         jmCHabitacion1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jmCHabitacion1.setText("Reserva");
@@ -134,6 +160,14 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/usuario.png"))); // NOI18N
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMenu2MouseExited(evt);
+            }
+        });
 
         jMenuItem1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jMenuItem1.setText("Cargar Huésped");
@@ -147,6 +181,14 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/habitacion.png"))); // NOI18N
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMenu4MouseExited(evt);
+            }
+        });
 
         jmCargarth.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jmCargarth.setText("Cargar Tipo de Habitación");
@@ -258,6 +300,37 @@ public class Menu extends javax.swing.JFrame {
         escritorio.moveToFront(habi);
         habi.getContentPane().setBackground(new Color(102, 102, 102));
     }//GEN-LAST:event_jmCHabitacion2ActionPerformed
+
+    private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
+        // TODO add your handling code here:
+        Sonido("Reserva");
+       
+    }//GEN-LAST:event_jMenu1MouseEntered
+
+    private void jMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseEntered
+        // TODO add your handling code here:
+        Sonido ("Huesped");
+    }//GEN-LAST:event_jMenu2MouseEntered
+
+    private void jMenu4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseEntered
+        // TODO add your handling code here:
+        Sonido ("Habitacion");
+    }//GEN-LAST:event_jMenu4MouseEntered
+
+    private void jMenu4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseExited
+        // TODO add your handling code here:
+        clip.stop();
+    }//GEN-LAST:event_jMenu4MouseExited
+
+    private void jMenu2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseExited
+        // TODO add your handling code here:
+        clip.stop();
+    }//GEN-LAST:event_jMenu2MouseExited
+
+    private void jMenu1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseExited
+        // TODO add your handling code here:
+        clip.stop();
+    }//GEN-LAST:event_jMenu1MouseExited
     
   
     

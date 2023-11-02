@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2023 a las 21:24:41
+-- Tiempo de generación: 02-11-2023 a las 03:51:20
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `hotel.equipo21`
+-- Base de datos: `hotel_equipo21`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `habitacion` (
   `idTipodehabitacion` int(11) NOT NULL,
   `precioNoche` double NOT NULL,
   `cantidadPersonas` int(11) NOT NULL,
-  `descripcion` varchar(80) NOT NULL,
+  `descripcion` varchar(11) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,158 +41,157 @@ CREATE TABLE `habitacion` (
 --
 
 INSERT INTO `habitacion` (`idHabitacion`, `idTipodehabitacion`, `precioNoche`, `cantidadPersonas`, `descripcion`, `estado`) VALUES
-(1, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(2, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(3, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(4, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(5, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(6, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(7, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(8, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(9, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(10, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(11, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(12, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(13, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(14, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(15, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(16, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(17, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(18, 1, 35000, 2, 'Estándar Simple Individual', 0),
-(19, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(20, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(21, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(22, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(23, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(24, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(25, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(26, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(27, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(28, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(29, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(30, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(31, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(32, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(33, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(34, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(35, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(36, 2, 35500, 2, 'Estándar Simple Queen', 0),
-(37, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(38, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(39, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(40, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(41, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(42, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(43, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(44, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(45, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(46, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(47, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(48, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(49, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(50, 3, 38000, 2, 'Estándar Simple King Size', 0),
-(51, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(52, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(53, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(54, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(55, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(56, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(57, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(58, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(59, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(60, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(61, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(62, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(63, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(64, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(65, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(66, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(67, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(68, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(69, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(70, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(71, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(72, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(73, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(74, 4, 50000, 4, 'Estándar Doble Queen', 0),
-(75, 5, 52000, 6, 'Estándar Doble King Size', 0),
-(76, 5, 52000, 6, 'Estándar Doble King Size', 0),
-(77, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(78, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(79, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(80, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(81, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(82, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(83, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(84, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(85, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(86, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(87, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(88, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(89, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(90, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(91, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(92, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(93, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(94, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(95, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(96, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(97, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(98, 5, 52000, 6, 'Estándar Simple King Size', 0),
-(99, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(100, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(101, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(102, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(103, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(104, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(105, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(106, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(107, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(108, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(109, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(110, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(111, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(112, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(113, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(114, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(115, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(116, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(117, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(118, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(119, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(120, 6, 55000, 3, 'Estándar Triple Individual', 0),
-(121, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(122, 7, 58000, 3, 'Estándar Triple Queen + Simple ', 0),
-(123, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(124, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(125, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(126, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(127, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(128, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(129, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(130, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(131, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(132, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(133, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(134, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(135, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(136, 7, 58000, 3, 'Estándar Triple Queen + Simple', 0),
-(137, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(138, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(139, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(140, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(141, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(142, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(143, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(144, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(145, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(146, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(147, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(148, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(149, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(150, 8, 58500, 3, 'Estándar Triple King Size + Simple', 0),
-(151, 9, 71000, 1, 'Suit Queen', 0),
-(152, 9, 71000, 1, 'Suit Queen', 0),
+(1, 1, 35000, 2, 'Estándar Si', 1),
+(2, 1, 35000, 2, 'Estándar Si', 1),
+(3, 1, 35000, 2, 'Estándar Si', 0),
+(4, 1, 35000, 2, 'Estándar Si', 0),
+(5, 1, 35000, 2, 'Estándar Si', 0),
+(6, 1, 35000, 2, 'Estándar Si', 0),
+(7, 1, 35000, 2, 'Estándar Si', 0),
+(8, 1, 35000, 2, 'Estándar Si', 0),
+(9, 1, 35000, 2, 'Estándar Si', 0),
+(10, 1, 35000, 2, 'Estándar Si', 0),
+(11, 1, 35000, 2, 'Estándar Si', 0),
+(12, 1, 35000, 2, 'Estándar Si', 0),
+(13, 1, 35000, 2, 'Estándar Si', 0),
+(14, 1, 35000, 2, 'Estándar Si', 0),
+(15, 1, 35000, 2, 'Estándar Si', 0),
+(16, 1, 35000, 2, 'Estándar Si', 0),
+(17, 1, 35000, 2, 'Estándar Si', 0),
+(18, 1, 35000, 2, 'Estándar Si', 0),
+(19, 2, 35500, 2, 'Estándar Si', 0),
+(20, 2, 35500, 2, 'Estándar Si', 0),
+(21, 2, 35500, 2, 'Estándar Si', 0),
+(22, 2, 35500, 2, 'Estándar Si', 0),
+(23, 2, 35500, 2, 'Estándar Si', 0),
+(24, 2, 35500, 2, 'Estándar Si', 0),
+(25, 2, 35500, 2, 'Estándar Si', 0),
+(26, 2, 35500, 2, 'Estándar Si', 0),
+(27, 2, 35500, 2, 'Estándar Si', 0),
+(28, 2, 35500, 2, 'Estándar Si', 0),
+(29, 2, 35500, 2, 'Estándar Si', 0),
+(30, 2, 35500, 2, 'Estándar Si', 0),
+(31, 2, 35500, 2, 'Estándar Si', 0),
+(32, 2, 35500, 2, 'Estándar Si', 0),
+(33, 2, 35500, 2, 'Estándar Si', 0),
+(34, 2, 35500, 2, 'Estándar Si', 0),
+(35, 2, 35500, 2, 'Estándar Si', 0),
+(36, 2, 35500, 2, 'Estándar Si', 0),
+(37, 2, 38000, 2, 'Estándar Si', 0),
+(38, 2, 38000, 2, 'Estándar Si', 0),
+(39, 2, 38000, 2, 'Estándar Si', 0),
+(40, 2, 38000, 2, 'Estándar Si', 0),
+(41, 2, 38000, 2, 'Estándar Si', 0),
+(42, 2, 38000, 2, 'Estándar Si', 0),
+(43, 2, 38000, 2, 'Estándar Si', 0),
+(44, 2, 38000, 2, 'Estándar Si', 0),
+(45, 2, 38000, 2, 'Estándar Si', 0),
+(46, 2, 38000, 2, 'Estándar Si', 0),
+(47, 2, 38000, 2, 'Estándar Si', 0),
+(48, 2, 38000, 2, 'Estándar Si', 0),
+(49, 2, 38000, 2, 'Estándar Si', 0),
+(50, 2, 38000, 2, 'Estándar Si', 0),
+(51, 4, 50000, 4, 'Estándar Do', 0),
+(52, 4, 50000, 4, 'Estándar Do', 0),
+(53, 4, 50000, 4, 'Estándar Do', 0),
+(54, 4, 50000, 4, 'Estándar Do', 0),
+(55, 4, 50000, 4, 'Estándar Do', 0),
+(56, 4, 50000, 4, 'Estándar Do', 0),
+(57, 4, 50000, 4, 'Estándar Do', 0),
+(58, 4, 50000, 4, 'Estándar Do', 0),
+(59, 4, 50000, 4, 'Estándar Do', 0),
+(60, 4, 50000, 4, 'Estándar Do', 0),
+(61, 4, 50000, 4, 'Estándar Do', 0),
+(62, 4, 50000, 4, 'Estándar Do', 0),
+(63, 4, 50000, 4, 'Estándar Do', 0),
+(64, 4, 50000, 4, 'Estándar Do', 0),
+(65, 4, 50000, 4, 'Estándar Do', 0),
+(66, 4, 50000, 4, 'Estándar Do', 0),
+(67, 4, 50000, 4, 'Estándar Do', 0),
+(68, 4, 50000, 4, 'Estándar Do', 0),
+(69, 4, 50000, 4, 'Estándar Do', 0),
+(70, 4, 50000, 4, 'Estándar Do', 0),
+(71, 4, 50000, 4, 'Estándar Do', 0),
+(72, 4, 50000, 4, 'Estándar Do', 0),
+(73, 4, 50000, 4, 'Estándar Do', 0),
+(74, 4, 50000, 4, 'Estándar Do', 0),
+(75, 5, 52000, 6, 'Estándar Do', 0),
+(76, 5, 52000, 6, 'Estándar Do', 0),
+(77, 5, 52000, 6, 'Estándar Do', 0),
+(78, 5, 52000, 6, 'Estándar Do', 0),
+(79, 5, 52000, 6, 'Estándar Do', 0),
+(80, 5, 52000, 6, 'Estándar Do', 0),
+(81, 5, 52000, 6, 'Estándar Do', 0),
+(82, 5, 52000, 6, 'Estándar Do', 0),
+(83, 5, 52000, 6, 'Estándar Do', 0),
+(84, 5, 52000, 6, 'Estándar Do', 0),
+(85, 5, 52000, 6, 'Estándar Do', 0),
+(86, 5, 52000, 6, 'Estándar Do', 0),
+(87, 5, 52000, 6, 'Estándar Do', 0),
+(88, 5, 52000, 6, 'Estándar Do', 0),
+(89, 5, 52000, 6, 'Estándar Do', 0),
+(90, 5, 52000, 6, 'Estándar Do', 0),
+(91, 5, 52000, 6, 'Estándar Do', 0),
+(92, 5, 52000, 6, 'Estándar Do', 0),
+(93, 5, 52000, 6, 'Estándar Do', 0),
+(94, 5, 52000, 6, 'Estándar Do', 0),
+(95, 5, 52000, 6, 'Estándar Do', 0),
+(96, 5, 52000, 6, 'Estándar Do', 0),
+(97, 5, 52000, 6, 'Estándar Do', 0),
+(98, 5, 52000, 6, 'Estándar Do', 0),
+(99, 6, 55000, 3, 'Estándar Tr', 0),
+(100, 6, 55000, 3, 'Estándar Tr', 0),
+(101, 6, 55000, 3, 'Estándar Tr', 0),
+(102, 6, 55000, 3, 'Estándar Tr', 0),
+(103, 6, 55000, 3, 'Estándar Tr', 0),
+(104, 6, 55000, 3, 'Estándar Tr', 0),
+(105, 6, 55000, 3, 'Estándar Tr', 0),
+(106, 6, 55000, 3, 'Estándar Tr', 0),
+(107, 6, 55000, 3, 'Estándar Tr', 0),
+(108, 6, 55000, 3, 'Estándar Tr', 0),
+(109, 6, 55000, 3, 'Estándar Tr', 0),
+(110, 6, 55000, 3, 'Estándar Tr', 0),
+(111, 6, 55000, 3, 'Estándar Tr', 0),
+(112, 6, 55000, 3, 'Estándar Tr', 0),
+(113, 6, 55000, 3, 'Estándar Tr', 0),
+(114, 6, 55000, 3, 'Estándar Tr', 0),
+(115, 6, 55000, 3, 'Estándar Tr', 0),
+(116, 6, 55000, 3, 'Estándar Tr', 0),
+(117, 6, 55000, 3, 'Estándar Tr', 0),
+(118, 6, 55000, 3, 'Estándar Tr', 0),
+(119, 6, 55000, 3, 'Estándar Tr', 0),
+(120, 6, 55000, 3, 'Estándar Tr', 0),
+(121, 7, 58000, 3, 'Estándar Tr', 0),
+(122, 7, 58000, 3, 'Estándar Tr', 0),
+(123, 7, 58000, 3, 'Estándar Tr', 0),
+(124, 7, 58000, 3, 'Estándar Tr', 0),
+(125, 7, 58000, 3, 'Estándar Tr', 0),
+(126, 7, 58000, 3, 'Estándar Tr', 0),
+(127, 7, 58000, 3, 'Estándar Tr', 0),
+(128, 7, 58000, 3, 'Estándar Tr', 0),
+(129, 7, 58000, 3, 'Estándar Tr', 0),
+(130, 7, 58000, 3, 'Estándar Tr', 0),
+(131, 7, 58000, 3, 'Estándar Tr', 0),
+(132, 7, 58000, 3, 'Estándar Tr', 0),
+(133, 7, 58000, 3, 'Estándar Tr', 0),
+(134, 7, 58000, 3, 'Estándar Tr', 0),
+(135, 7, 58000, 3, 'Estándar Tr', 0),
+(136, 7, 58000, 3, 'Estándar Tr', 0),
+(138, 8, 58500, 3, 'Estándar Tr', 0),
+(139, 8, 58500, 3, 'Estándar Tr', 0),
+(140, 8, 58500, 3, 'Estándar Tr', 0),
+(141, 8, 58500, 3, 'Estándar Tr', 0),
+(142, 8, 58500, 3, 'Estándar Tr', 0),
+(143, 8, 58500, 3, 'Estándar Tr', 0),
+(144, 8, 58500, 3, 'Estándar Tr', 0),
+(145, 8, 58500, 3, 'Estándar Tr', 0),
+(146, 8, 58500, 3, 'Estándar Tr', 0),
+(147, 8, 58500, 3, 'Estándar Tr', 0),
+(148, 8, 58500, 3, 'Estándar Tr', 0),
+(149, 8, 58500, 3, 'Estándar Tr', 0),
+(150, 8, 58500, 3, 'Estándar Tr', 0),
+(151, 8, 58500, 3, 'Estándar Tr', 0),
+(152, 9, 71000, 1, 'Siut Queen', 0),
 (153, 9, 71000, 1, 'Suit Queen', 0),
 (154, 9, 71000, 1, 'Suit Queen', 0),
 (155, 9, 71000, 1, 'Suit Queen', 0),
@@ -206,41 +205,41 @@ INSERT INTO `habitacion` (`idHabitacion`, `idTipodehabitacion`, `precioNoche`, `
 (163, 9, 71000, 1, 'Suit Queen', 0),
 (164, 9, 71000, 1, 'Suit Queen', 0),
 (165, 9, 71000, 1, 'Suit Queen', 0),
-(166, 10, 85000, 2, 'Suit King Size', 0),
-(167, 10, 85000, 2, 'Suit King Size', 0),
-(168, 10, 85000, 2, 'Suit King Size', 0),
-(169, 10, 85000, 2, 'Suit King Size', 0),
-(170, 10, 85000, 2, 'Suit King Size', 0),
-(171, 10, 85000, 2, 'Suit King Size', 0),
-(172, 10, 85000, 2, 'Suit King Size', 0),
-(173, 10, 85000, 2, 'Suit King Size', 0),
-(174, 10, 85000, 2, 'Suit King Size', 0),
-(175, 10, 85000, 2, 'Suit King Size', 0),
-(176, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(177, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(178, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(179, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(180, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(181, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(182, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(183, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(184, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(185, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(186, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(187, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(188, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(189, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(190, 11, 38300, 2, 'Capacidades diferentes Simple', 0),
-(191, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(192, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(193, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(194, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(195, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(196, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(197, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(198, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(199, 12, 38700, 2, 'Capacidades diferentes Queen', 0),
-(200, 12, 38700, 2, 'Capacidades diferentes Queen', 0);
+(166, 9, 71000, 1, 'Suit Queen', 0),
+(167, 10, 85000, 2, 'Suit King S', 0),
+(168, 10, 85000, 2, 'Suit King S', 0),
+(169, 10, 85000, 2, 'Suit King S', 0),
+(170, 10, 85000, 2, 'Suit King S', 0),
+(171, 10, 85000, 2, 'Suit King S', 0),
+(172, 10, 85000, 2, 'Suit King S', 0),
+(173, 10, 85000, 2, 'Suit King S', 0),
+(174, 10, 85000, 2, 'Suit King S', 0),
+(175, 10, 85000, 2, 'Suit King S', 0),
+(176, 10, 85000, 2, 'Suit King S', 0),
+(177, 11, 38300, 2, 'Capacidades', 0),
+(178, 11, 38300, 2, 'Capacidades', 0),
+(179, 11, 38300, 2, 'Capacidades', 0),
+(180, 11, 38300, 2, 'Capacidades', 0),
+(181, 11, 38300, 2, 'Capacidades', 0),
+(182, 11, 38300, 2, 'Capacidades', 0),
+(183, 11, 38300, 2, 'Capacidades', 0),
+(184, 11, 38300, 2, 'Capacidades', 0),
+(185, 11, 38300, 2, 'Capacidades', 0),
+(186, 11, 38300, 2, 'Capacidades', 0),
+(187, 11, 38300, 2, 'Capacidades', 0),
+(188, 11, 38300, 2, 'Capacidades', 0),
+(189, 11, 38300, 2, 'Capacidades', 0),
+(190, 11, 38300, 2, 'Capacidades', 0),
+(191, 11, 38300, 2, 'Capacidades', 0),
+(192, 12, 38700, 2, 'Capacidades', 0),
+(193, 12, 38700, 2, 'Capacidades', 0),
+(194, 12, 38700, 2, 'Capacidades', 0),
+(195, 12, 38700, 2, 'Capacidades', 0),
+(196, 12, 38700, 2, 'Capacidades', 0),
+(197, 12, 38700, 2, 'Capacidades', 0),
+(198, 12, 38700, 2, 'Capacidades', 0),
+(199, 12, 38700, 2, 'Capacidades', 0),
+(200, 12, 38700, 2, 'Capacidades', 0);
 
 -- --------------------------------------------------------
 
@@ -255,7 +254,7 @@ CREATE TABLE `huesped` (
   `dni` int(20) NOT NULL,
   `fechaNacimiento` date NOT NULL,
   `correo` varchar(80) NOT NULL,
-  `telefono` bigint(20) NOT NULL,
+  `telefono` bigint(40) NOT NULL,
   `domicilio` varchar(80) NOT NULL,
   `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -265,10 +264,10 @@ CREATE TABLE `huesped` (
 --
 
 INSERT INTO `huesped` (`idHuesped`, `nombre`, `apellido`, `dni`, `fechaNacimiento`, `correo`, `telefono`, `domicilio`, `estado`) VALUES
-(1, 'Pablo', 'Martin', 555555555, '1982-02-27', 'agu@gmail.com', 0, 'San luis', 0),
-(3, 'Lucas', 'Martin', 35944681, '1982-02-27', 'agu@gmail.com', 4535, 'San luis', 0),
+(1, 'Pablo', 'Martin', 555555555, '1982-02-27', 'agu@gmail.com', 0, 'San luis', 1),
+(3, 'Lucas', 'Martin', 35944682, '1982-02-27', 'agu@gmail.com', 4535, 'San luis', 0),
 (8, 'Lucia', 'Barrionuevo', 11111111, '1982-02-01', 'lucia@gmail.com', 555555555, 'fgrgrtggr', 1),
-(9, 'Roberto', 'Martin', 333333333, '1982-02-27', 'agu@gmail.com', 4535, 'San luis', 0),
+(9, 'Roberto', 'Martin', 333333333, '1982-02-27', 'agu@gmail.com', 4535, 'San luis', 1),
 (11, 'Pablo', 'Martin', 35434581, '1982-02-27', 'agu@gmail.com', 4535, '', 0),
 (12, 'Pablo', 'Martin', 35444581, '1982-02-27', 'agu@gmail.com', 4535, 'San luis', 0),
 (13, 'Lucia', 'Barrionuevo', 11333111, '1982-02-01', 'lucia@gmail.com', 453524, 'San Juan', 0),
@@ -281,7 +280,15 @@ INSERT INTO `huesped` (`idHuesped`, `nombre`, `apellido`, `dni`, `fechaNacimient
 (34, 'Brenda', 'Siwonia', 36234785, '1992-03-27', 'micaelabrenda@gmail.com', 547500, 'Villa Giardino', 0),
 (44, 'Brenda', 'Siwonia', 362361, '1992-03-26', 'siwonia@gmail.com', 56566, 'Planta567', 1),
 (45, 'Cecilia', 'Sanches', 5487542, '2023-10-09', 'ceci@gmail.com', 1585456, 'tuyu 1524', 1),
-(46, 'Luis', 'Armoni', 147852369, '1988-10-20', 'Luis@hotmail.com', 369852147, 'La pampa477', 1);
+(46, 'Luis', 'Armoni', 147852369, '1988-10-20', 'Luis@hotmail.com', 369852147, 'La pampa477', 1),
+(47, 'Beatriz', 'Vazquez', 26305459, '2023-11-22', 'maruu@gmail.com', 26305459, 'Pascual 56', 1),
+(48, 'jdakjd', 'kadmld', 918463279, '2023-11-30', 'sxakmd', 398573492, 'kdfreiuweop', 1),
+(49, 'Ximena', 'Castillo', 30147654, '2023-11-08', '', 15487598, 'Oro 167', 0),
+(51, 'Ezequiel', 'Salinas', 29488552, '2023-11-02', 'ezesal@hotmail.com', 15422563, 'Hirigoyen', 1),
+(52, 'Ezequiel', 'Salinas', 123654521, '2023-11-02', 'ezesal@hotmail.com', 548745632, 'Hirigoyen', 1),
+(53, 'lorena', 'pacheco', 578000002, '2023-11-16', 'PACHECO@GMAIL.COM', 152356854, 'LA PAMPA 566', 1),
+(54, 'Omar', 'Diaz', 39843710, '2016-11-17', 'diaz@gmail.com', 222222222, 'Albarracin 476', 0),
+(55, 'Natalia', 'Marquez', 897642301, '2014-11-12', 'natu@gmail.com', 123456789, 'Pascual Segura', 0);
 
 -- --------------------------------------------------------
 
@@ -299,6 +306,13 @@ CREATE TABLE `reserva` (
   `precioTotal` double NOT NULL,
   `estado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reserva`
+--
+
+INSERT INTO `reserva` (`idReserva`, `idHabitacion`, `idHuesped`, `fechaIngreso`, `fechaSalida`, `cantidadPersonas`, `precioTotal`, `estado`) VALUES
+(51, 2, 9, '2017-11-14', '2017-11-17', 2, 105000, 0);
 
 -- --------------------------------------------------------
 
@@ -332,7 +346,7 @@ INSERT INTO `tipodehabitacion` (`idTipodehabitacion`, `descripcion`, `cantidadCa
 (9, 'Suit Queen', 1, 1, 'Matrimonial Queen', 71000, 0),
 (10, 'Suit King Size', 1, 2, 'king Size', 85000, 0),
 (11, 'Capacidades diferentes Simples', 2, 2, 'Individuales Simples', 38300, 0),
-(12, 'Capacidades diferentes Queen', 1, 2, 'Matrimonial Queen', 38700, 0);
+(12, 'Capacidades diferentes ', 1, 2, 'Matrimonial ', 38700, 0);
 
 --
 -- Índices para tablas volcadas
@@ -357,37 +371,42 @@ ALTER TABLE `huesped`
 --
 ALTER TABLE `reserva`
   ADD PRIMARY KEY (`idReserva`),
-  ADD UNIQUE KEY `idHabitacion` (`idHabitacion`),
-  ADD KEY `reserva_ibfk_1` (`idHuesped`);
+  ADD KEY `idHuesped` (`idHuesped`),
+  ADD KEY `idHabitacion` (`idHabitacion`);
 
 --
 -- Indices de la tabla `tipodehabitacion`
 --
 ALTER TABLE `tipodehabitacion`
-  ADD PRIMARY KEY (`idTipodehabitacion`),
-  ADD UNIQUE KEY `precioNoche` (`precioNoche`);
+  ADD PRIMARY KEY (`idTipodehabitacion`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
+-- AUTO_INCREMENT de la tabla `habitacion`
+--
+ALTER TABLE `habitacion`
+  MODIFY `idHabitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=205;
+
+--
 -- AUTO_INCREMENT de la tabla `huesped`
 --
 ALTER TABLE `huesped`
-  MODIFY `idHuesped` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `idHuesped` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `idReserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `idReserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `tipodehabitacion`
 --
 ALTER TABLE `tipodehabitacion`
-  MODIFY `idTipodehabitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idTipodehabitacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Restricciones para tablas volcadas

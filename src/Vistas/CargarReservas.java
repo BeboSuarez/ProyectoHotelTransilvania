@@ -593,16 +593,24 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
             if (reservaActual == null) {
                 Reserva res = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
-                //Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
-                reseData.guardarReserva(res);
-                habitacionSeleccionada.habitacionDisponible(idHabitacion);
-                huespedSeleciconado.HuespedenHotel(idHuesped);
+                
+//Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
+
+        if (fechaSalida.isAfter(fechaIngreso)) {
+    
+             reseData.guardarReserva(res);
+             habitacionSeleccionada.habitacionDisponible(idHabitacion);
+             huespedSeleciconado.HuespedenHotel(idHuesped);
+        }else {
+             JOptionPane.showMessageDialog(null, "Fecha de salida incorrecta");
+
+         }  
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese solo numeros");
 
-            jbGuardar.setEnabled(false);
+            jbGuardar.setEnabled(true);
         }
         LocalDate fecha1 = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate fecha2 = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
