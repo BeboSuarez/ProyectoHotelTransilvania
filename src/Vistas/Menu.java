@@ -22,14 +22,13 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
 public class Menu extends javax.swing.JFrame {
-    
+
     public Clip clip;
     public String Ruta = "/sonido/";
-   
 
     public Menu() {
         initComponents();
-           
+
     }
 
     public void Sonido(String archivo) {
@@ -41,7 +40,6 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -76,6 +74,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jmCargarth = new javax.swing.JMenuItem();
         jmCHabitacion = new javax.swing.JMenuItem();
@@ -161,6 +160,9 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/usuario.png"))); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jMenu2MouseEntered(evt);
             }
@@ -177,6 +179,15 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem1);
+
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI Semilight", 1, 23)); // NOI18N
+        jMenuItem3.setText("Info Huésped");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
 
         jMenuBar1.add(jMenu2);
 
@@ -304,17 +315,17 @@ public class Menu extends javax.swing.JFrame {
     private void jMenu1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseEntered
         // TODO add your handling code here:
         Sonido("Reserva");
-       
+
     }//GEN-LAST:event_jMenu1MouseEntered
 
     private void jMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseEntered
         // TODO add your handling code here:
-        Sonido ("Huesped");
+        Sonido("Huesped");
     }//GEN-LAST:event_jMenu2MouseEntered
 
     private void jMenu4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseEntered
         // TODO add your handling code here:
-        Sonido ("Habitacion");
+        Sonido("Habitacion");
     }//GEN-LAST:event_jMenu4MouseEntered
 
     private void jMenu4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseExited
@@ -331,9 +342,23 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         clip.stop();
     }//GEN-LAST:event_jMenu1MouseExited
-    
-  
-    
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        InfoHuesped huesped = new InfoHuesped();
+        huesped.setVisible(true);
+        escritorio.add(huesped);
+        escritorio.moveToFront(huesped);
+        huesped.getContentPane().setBackground(new Color(102, 102, 102));
+        
+    }//GEN-LAST:event_jMenu2MouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -365,6 +390,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jmCHabitacion;
     private javax.swing.JMenuItem jmCHabitacion1;
     private javax.swing.JMenuItem jmCHabitacion2;

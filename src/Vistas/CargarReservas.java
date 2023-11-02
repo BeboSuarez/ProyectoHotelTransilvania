@@ -30,9 +30,16 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
     public CargarReservas() {
         initComponents();
+
+        jtCpersonas.setTransferHandler(null);
+        jtPrecioNoche.setTransferHandler(null);
+        jtPrecioNoche.setTransferHandler(null);
+        jdFechaIngreso.setTransferHandler(null);
+        jdFechaIngreso.setTransferHandler(null);
         
-        ((JTextFieldDateEditor)jdFechaIngreso.getDateEditor()).setEditable(false);
-        ((JTextFieldDateEditor)jdFechaSalida.getDateEditor()).setEditable(false);
+       
+        ((JTextFieldDateEditor) jdFechaIngreso.getDateEditor()).setEditable(false);
+        ((JTextFieldDateEditor) jdFechaSalida.getDateEditor()).setEditable(false);
         CargarComboBox();
         ComboBox();
     }
@@ -92,7 +99,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(204, 204, 204));
         setMaximumSize(new java.awt.Dimension(1000, 1000));
 
-        jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CARGAR RESERVA");
 
@@ -124,7 +131,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Estado:");
 
-        jbGuardar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
+        jbGuardar.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 16)); // NOI18N
         jbGuardar.setText("GUARDAR");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +145,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbSalir.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
+        jbSalir.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 16)); // NOI18N
         jbSalir.setText("SALIR");
         jbSalir.setToolTipText("");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +211,7 @@ public class CargarReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        jbCalcular.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 14)); // NOI18N
+        jbCalcular.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 16)); // NOI18N
         jbCalcular.setText("CALCULAR");
         jbCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -447,34 +454,25 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jtCpersonas, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jtPrecioNoche, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel3))
-                                        .addGap(70, 70, 70)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jtCpersonas, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jtPrecioNoche, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)))
-                                        .addGap(137, 137, 137))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jbCalcular)
-                                        .addGap(78, 78, 78)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(55, 55, 55)))
+                                .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jbCalcular)))
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(103, 103, 103)
@@ -484,19 +482,25 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                                 .addGap(115, 115, 115))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jbSalir)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jdFechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                                        .addComponent(jCheckEstado)
-                                        .addComponent(jdFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jcbHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jdFechaIngreso, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                                    .addComponent(jCheckEstado)
+                                    .addComponent(jdFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jcbHabitacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbGuardar)
-                            .addComponent(jLabel6))
-                        .addContainerGap(826, Short.MAX_VALUE))))
+                        .addComponent(jLabel6)
+                        .addContainerGap(848, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jbGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbSalir)
+                        .addGap(100, 100, 100))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(336, 336, 336)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 499, Short.MAX_VALUE)
@@ -506,12 +510,12 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jtIDhuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
-                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtIDhuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtidHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
@@ -552,12 +556,10 @@ public class CargarReservas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8)
                     .addComponent(jCheckEstado))
                 .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(57, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 233, Short.MAX_VALUE)
@@ -593,18 +595,17 @@ public class CargarReservas extends javax.swing.JInternalFrame {
 
             if (reservaActual == null) {
                 Reserva res = new Reserva(idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
-                
+
 //Reserva reserva = new Reserva("idHuesped","idHabitacion","fechaIngreso","fechaSalida","cantidadPersonas","precioTotal",estado");
+                if (fechaSalida.isAfter(fechaIngreso)) {
 
-        if (fechaSalida.isAfter(fechaIngreso)) {
-    
-             reseData.guardarReserva(res);
-             habitacionSeleccionada.habitacionDisponible(idHabitacion);
-             huespedSeleciconado.HuespedenHotel(idHuesped);
-        }else {
-             JOptionPane.showMessageDialog(null, "Fecha de salida incorrecta");
+                    reseData.guardarReserva(res);
+                    habitacionSeleccionada.habitacionDisponible(idHabitacion);
+                    huespedSeleciconado.HuespedenHotel(idHuesped);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Fecha de salida incorrecta");
 
-         }  
+                }
             }
 
         } catch (Exception e) {
@@ -753,17 +754,15 @@ public class CargarReservas extends javax.swing.JInternalFrame {
         long timeDiff = Math.abs(dateAfterInMs - dateBeforeInMs);
         long resDia = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
 
+        System.out.println("dias: " + resDia);
+        double Precio = Double.parseDouble(jtPrecioNoche.getText());
 
-            System.out.println("dias: " + resDia);
-            double Precio = Double.parseDouble(jtPrecioNoche.getText());
+        double PrecioTotal = Precio * resDia;
+        System.out.println(PrecioTotal);
 
-            double PrecioTotal = Precio * resDia;
-            System.out.println(PrecioTotal);
-
-            jtPrecioTotal.setText((PrecioTotal) + "");
-            // Realiza el cálculo de días y otros cálculos relacionados con la reserva
-            // ...
-        
+        jtPrecioTotal.setText((PrecioTotal) + "");
+        // Realiza el cálculo de días y otros cálculos relacionados con la reserva
+        // ...
 
 //         PrecioTotal = jtPrecioCalculado.getText().toString(); 
 

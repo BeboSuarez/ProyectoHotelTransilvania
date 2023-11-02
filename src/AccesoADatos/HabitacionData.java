@@ -137,7 +137,7 @@ public class HabitacionData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
         }
     }
-    
+
     public void habitacionNoDisponible(int id) {
 
         String sql = "UPDATE habitacion SET estado = 0 WHERE idHabitacion = ? ";
@@ -162,7 +162,6 @@ public class HabitacionData {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla habitacion");
         }
     }
-
 
     //SE OBTIENE UNA LISTA DE LAS HABITACIONES DE LA BASE DE DATOS//
     public List<Habitacion> listarHabitacion() {
@@ -284,7 +283,7 @@ public class HabitacionData {
 
                 Habitacion habitacion = new Habitacion();
 
-                  habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
                 habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));
@@ -318,7 +317,7 @@ public class HabitacionData {
 
                 Habitacion habitacion = new Habitacion();
 
-                 habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
+                habitacion.setIdHabitacion(rs.getInt("idHabitacion"));
                 habitacion.setIdTipodehabitacion(rs.getInt("idTipodehabitacion"));
                 habitacion.setPrecioNoche(rs.getDouble("precioNoche"));
                 habitacion.setCantidadpersonas(rs.getInt("cantidadPersonas"));

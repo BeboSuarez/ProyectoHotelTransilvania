@@ -28,6 +28,11 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
     public CargarTipoHabitacion() {
         initComponents();
+        
+        jtTipoHabitacion.setTransferHandler(null);
+        jtTipoCama.setTransferHandler(null);
+        jtPrecio.setTransferHandler(null);
+        jtId.setTransferHandler(null);
 
         th = new TipoDeHabitacionData();
         thabi = new TipoDeHabitacion();
@@ -36,7 +41,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
         CargarComboBoxTipoDeHabitacion();
         limpiar();
-        
+
     }
 
     /**
@@ -106,7 +111,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
         jcbCantCamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
-        jLabel2.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sinhala Sangam MN", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CARGAR TIPO HABITACIÓN");
 
@@ -193,9 +198,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
                                 .addGap(43, 43, 43)
                                 .addComponent(jbNuevo)))
                         .addGap(53, 53, 53))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel1))
                 .addGap(249, 249, 249)
                 .addComponent(jButton2)
                 .addGap(68, 68, 68))
@@ -285,7 +288,6 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
 
-        
         try {
 
             String descripcion = jtTipoHabitacion.getText();
@@ -294,9 +296,9 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
 
-           if (descripcion.isEmpty() || tipoCama.isEmpty()) {
+            if (descripcion.isEmpty() || tipoCama.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "no puede haber campos vacios");
-               
+
                 return;
             }
             if (thabi != null) {
@@ -308,7 +310,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "No pueden haber campos vacíos ");
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Es necesario que ingresen un Tipo de Habitacion.");
         }
@@ -350,7 +352,7 @@ public class CargarTipoHabitacion extends javax.swing.JInternalFrame {
             String tipoCama = jtTipoCama.getText();
             double precioNoche = Double.parseDouble(jtPrecio.getText());
             boolean estado = jcEstado.isSelected();
-            
+
             if (descripcion.isEmpty() || tipoCama.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "no puede haber campos vacios");
                 return;

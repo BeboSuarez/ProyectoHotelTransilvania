@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class CargarHabitacion extends javax.swing.JInternalFrame {
-    
+
     private DefaultTableModel modelo = new DefaultTableModel();
     private TipoDeHabitacionData th;
     private HabitacionData habidata;
@@ -22,7 +22,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
     public CargarHabitacion() {
         initComponents();
-       
+        
+        jtIdCama.setTransferHandler(null);
+        jtTipo.setTransferHandler(null);
+        jtPrecioNoche.setTransferHandler(null);
+        jtCantidadpersonas.setTransferHandler(null);
 
         th = new TipoDeHabitacionData();
         hd = new HuespedData();
@@ -32,7 +36,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 
         CargarComboBoxTipoDeHabitacion();
         ArmarCabecera();
-      
+
     }
 
     @SuppressWarnings("unchecked")
@@ -306,8 +310,6 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
 //        borrarFilas();
 //        cargarTablaHabitaciones(tipoSeleccionado.getIdTipodehabitacion());
 
-        
-       
 //        // TODO add your handling code here:
 //        
 //       try {
@@ -367,12 +369,11 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
 
         try {
-            
+
             int filas = jtCargarHabitacion.getSelectedRow();
-            int idHabitacion = (int)jtCargarHabitacion.getValueAt(filas, 0);
-            int TipoDeHabitacion = (int)jtCargarHabitacion.getValueAt(filas, 1);
-         
-            
+            int idHabitacion = (int) jtCargarHabitacion.getValueAt(filas, 0);
+            int TipoDeHabitacion = (int) jtCargarHabitacion.getValueAt(filas, 1);
+
             if (habi != null) {
 
                 habidata.eliminarHabitacion(idHabitacion);
@@ -435,6 +436,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
         jbGuardar.setEnabled(true);
 
     }
+
     private void borrarFilas() {
         int filas = jtCargarHabitacion.getRowCount() - 1;
         for (int i = filas; i >= 0; i--) {
@@ -443,19 +445,19 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
     }
 
     private void ArmarCabecera() {
-      
-        modelo.addColumn("Id Habitacion"); 
+
+        modelo.addColumn("Id Habitacion");
         modelo.addColumn("idTipo de habitacion");
         modelo.addColumn("Descripción");
         modelo.addColumn("Cantidad de Personas");
         modelo.addColumn("Precio Total");
-       
+
         jtCargarHabitacion.setModel(modelo);
 
     }
-    
-    private void cargarTablaHabitaciones (int idTipoHabitacion) {
-        
+
+    private void cargarTablaHabitaciones(int idTipoHabitacion) {
+
         HabitacionData hd = new HabitacionData();
         List<Habitacion> disponible = hd.listarHabitacionDisponibles(idTipoHabitacion);
         borrarFilas();
@@ -466,11 +468,7 @@ public class CargarHabitacion extends javax.swing.JInternalFrame {
                 disponibles.getIdTipodehabitacion(),
                 disponibles.getDescripcion(),
                 disponibles.getCantidadpersonas(),
-                disponibles.getPrecioNoche(),
-             
-             
-           
-            });
+                disponibles.getPrecioNoche(),});
         }
     }
 
