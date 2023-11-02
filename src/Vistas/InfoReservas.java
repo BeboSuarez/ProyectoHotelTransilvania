@@ -400,7 +400,7 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             LocalDate fechaIngreso = jdFechaIngreso.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaSalida = jdFechaSalida.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             int cantidadPersonas = Integer.parseInt(jtCpersonas.getText() + "");
-            double precioTotal = Double.parseDouble(jtPrecioNoche.getText() + "");
+            double precioTotal = Double.parseDouble(jPrecioTotal.getText() + "");
             boolean estado = jCheckEstado.isSelected();
             Reserva r = new Reserva(idReserva, idHabitacion, idHuesped, fechaIngreso, fechaSalida, cantidadPersonas, precioTotal, estado);
             reservaData.modificarReserva(r);
@@ -412,7 +412,8 @@ public class InfoReservas extends javax.swing.JInternalFrame {
             }
 
         } catch (NumberFormatException e) {
-
+            
+            System.err.println(e.getStackTrace());
             JOptionPane.showMessageDialog(null, "NO SE PUEDE MODIFICAR LA RESERVA");
         }
 
