@@ -95,16 +95,10 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jbGuardar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jbModificar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jbEliminar" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jbGuardar" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="826" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -184,13 +178,11 @@
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jbModificar" alignment="1" pref="36" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jbSalir" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jbGuardar" pref="0" max="32767" attributes="0"/>
-                  <Component id="jbEliminar" max="32767" attributes="0"/>
+                  <Component id="jbGuardar" pref="44" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -308,22 +300,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckEstadoActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbModificar">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Sinhala Sangam MN" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="MODIFICAR"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbEliminar">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Sinhala Sangam MN" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="ELIMINAR"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jbSalir">
       <Properties>

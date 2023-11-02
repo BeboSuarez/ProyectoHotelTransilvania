@@ -145,15 +145,15 @@ public class ReservaData {
 //        }
 //        return reservadas;
 //    }
-    public ArrayList<Reserva> obtenerReservaPorHuesped(int idHuesped) {
+    public ArrayList<Reserva> obtenerReservaPorHuesped(int dni) {
 
         ArrayList<Reserva> reservas = new ArrayList<>();
 
-        String sql = "SELECT* FROM reserva WHERE idHuesped = ?";
+        String sql = "SELECT * FROM reserva INNER JOIN huesped ON reserva.idHuesped = huesped.idHuesped WHERE huesped.dni = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idHuesped);
+            ps.setInt(1, dni);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

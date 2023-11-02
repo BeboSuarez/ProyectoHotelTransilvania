@@ -161,7 +161,51 @@ public class HuespedData {
         return huesped;
     }
     
-  
+  public void bajaHuespedPorId(int idHuesped) {
+
+        String sql = "UPDATE Huesped set estado = 0 WHERE idHuesped = ? ";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, idHuesped);
+
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "Baja confirmada");
+
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped");
+        }
+
+    } public void HuespedenHotel(int idHuesped) {
+
+        String sql = "UPDATE Huesped set estado = 1 WHERE idHuesped = ? ";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setInt(1, idHuesped);
+
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "Alta confirmada");
+
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Huesped");
+        }
+
+    }
     
 
     public List<Huesped> listarHuesped() {
